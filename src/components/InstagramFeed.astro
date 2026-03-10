@@ -1,0 +1,55 @@
+---
+const BEHOLD_URL = import.meta.env.BEHOLD_URL;
+let posts = [];
+
+try {
+    if (BEHOLD_URL) {
+        const response = await fetch(BEHOLD_URL);
+        if (response.ok) {
+            const data = await response.json();
+            posts = data.posts || [];
+        }
+    }
+} catch (error) {
+    console.error(error);
+}
+---
+
+{posts.length > 0 && (
+    <section class="my-16 relative z-10">
+        <h2 class="text-3xl font-serif text-texto text-center mb-10 italic tracking-widest uppercase">Visuales del Oráculo</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {posts.slice(0, 3).map((post: any) => (
+                <article class="bg-white/20 backdrop-blur-xl rounded-[30px] p-5 shadow-lg border border-white/40 hover:-translate-y-2 transition-transform duration-300 flex flex-col h-full group">
+                    
+                    <a href={post.permalink} target="_blank" rel="noopener noreferrer" class="block rounded-[20px] overflow-hidden mb-4 shadow-sm relative aspect-square">
+                        <img 
+                            src={post.mediaUrl} 
+                            alt="Post de Instagram" 
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                            loading="lazy"
+                        />
+                        <div class="absolute top-3 right-3 bg-white/30 backdrop-blur-md p-2 rounded-full">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                            </svg>
+                        </div>
+                    </a>
+                    
+                    <div class="flex-grow flex flex-col justify-between">
+                        <p class="text-texto/80 text-sm font-medium leading-relaxed line-clamp-3 mb-4">
+                            {post.caption || ""}
+                        </p>
+                        
+                        <a href={post.permalink} target="_blank" rel="noopener noreferrer" class="text-[11px] font-bold text-[#bfa3a7] uppercase tracking-widest hover:text-[#a88e92] transition-colors mt-auto inline-block">
+                            Ver en Instagram →
+                        </a>
+                    </div>
+                </article>
+            ))}
+        </div>
+    </section>
+)}

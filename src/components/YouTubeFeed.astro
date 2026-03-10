@@ -1,0 +1,46 @@
+---
+const API_KEY = import.meta.env.YOUTUBE_API_KEY;
+const CHANNEL_ID = import.meta.env.YOUTUBE_CHANNEL_ID;
+const MAX_VIDEOS = 3;
+
+const URL = `https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&channelId=${CHANNEL_ID}&part=snippet,id&order=date&maxResults=${MAX_VIDEOS}&type=video`;
+
+let videos = [];
+
+try {
+    const response = await fetch(URL);
+    if (response.ok) {
+        const data = await response.json();
+        videos = data.items || [];
+    }
+} catch (error) {
+    console.error("El universo no pudo conectar con YouTube:", error);
+}
+---
+
+{videos.length > 0 && (
+    <section class="my-16 relative z-10">
+        <h2 class="text-3xl font-serif text-texto text-center mb-10 italic tracking-widest uppercase">Últimas Lecturas</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {videos.map((video: any) => (
+                <article class="bg-white/20 backdrop-blur-xl rounded-[30px] p-5 shadow-lg border border-white/40 hover:-translate-y-2 transition-transform duration-300 group">
+                    <div class="rounded-[20px] overflow-hidden mb-4 shadow-sm relative aspect-video">
+                        <iframe 
+                            class="absolute inset-0 w-full h-full" 
+                            src={`https://www.youtube.com/embed/${video.id.videoId}`} 
+                            title={video.snippet.title}
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    
+                    <h3 class="font-bold text-texto text-sm line-clamp-2 leading-relaxed group-hover:text-[#cfb4b8] transition-colors">
+                        {video.snippet.title}
+                    </h3>
+                </article>
+            ))}
+        </div>
+    </section>
+)}
