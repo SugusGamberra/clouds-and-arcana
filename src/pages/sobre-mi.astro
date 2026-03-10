@@ -1,0 +1,80 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import nubeImg from '../assets/nube.png';
+---
+
+<Layout title="Sobre Mí">
+    <div class="max-w-[1000px] mx-auto py-10 px-6 relative z-10">
+        
+        <div class="absolute -top-0 -left-60 opacity-100 -z-10 pointer-events-none">
+            <Image src={nubeImg} alt="Nube" class="w-100 h-auto" />
+        </div>
+        <div class="absolute bottom-10 -right-40 opacity-100 -z-10 pointer-events-none">
+            <Image src={nubeImg} alt="Nube" class="w-100 h-auto scale-x-[-1]" />
+        </div>
+
+        <header class="text-center mb-16">
+            <h1 class="text-[52px] font-serif text-texto font-bold mb-6 tracking-tight leading-none italic">
+                Mi Conexión con el Arcano
+            </h1>
+            <p class="text-xl text-texto/60 font-serif italic max-w-2xl mx-auto leading-relaxed">
+                "No solo leo cartas o interpreto sueños; traduzco la energía que el universo intenta comunicarte."
+            </p>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-10">
+            
+            <section class="md:col-span-7 bg-white/20 backdrop-blur-xl p-10 rounded-[40px] border border-white/50 shadow-sm flex flex-col justify-center">
+                <h2 class="text-3xl font-serif text-texto font-bold mb-6">Mi Historia</h2>
+                <div class="space-y-4 text-texto/80 leading-relaxed text-lg">
+                    <p>
+                        Bienvenidos a <strong>Clouds & Arcana</strong>. Mi camino en la espiritualidad no empezó ayer; ha sido un proceso de años de estudio de las runas antiguas y el simbolismo del tarot.
+                    </p>
+                    <p>
+                        Como estudiante de <strong>Desarrollo de Aplicaciones (DAW)</strong>, valoro la claridad y la estructura. Por eso, mis lecturas no son ambiguas: voy al grano, busco la lógica espiritual de lo que te ocurre y te doy herramientas reales para avanzar.
+                    </p>
+                </div>
+            </section>
+
+            <section class="md:col-span-5 bg-[#b5cce4] p-10 rounded-[40px] shadow-sm border border-white/40">
+                <h2 class="text-2xl font-serif text-texto font-bold mb-6">Mi Ética de Trabajo</h2>
+                <ul class="space-y-6">
+                    <li class="flex items-start gap-4 group">
+                        <span class="text-2xl mt-[-4px]">✦</span>
+                        <div>
+                            <p class="font-bold text-texto text-sm uppercase tracking-widest mb-1">Confidencialidad</p>
+                            <p class="text-texto/70 text-sm">Tus sueños y preguntas se quedan en nuestro portal.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-4 group">
+                        <span class="text-2xl mt-[-4px]">✦</span>
+                        <div>
+                            <p class="font-bold text-texto text-sm uppercase tracking-widest mb-1">Honestidad</p>
+                            <p class="text-texto/70 text-sm">Solo te diré lo que las cartas muestran, sin adornos.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-4 group">
+                        <span class="text-2xl mt-[-4px]">✦</span>
+                        <div>
+                            <p class="font-bold text-texto text-sm uppercase tracking-widest mb-1">Protección</p>
+                            <p class="text-texto/70 text-sm">Respeto mi energía y la tuya por encima de todo.</p>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+        </div>
+
+        <footer class="mt-16 text-center">
+            <p class="text-texto/60 italic text-lg max-w-xl mx-auto">
+                Deja atrás las energías que ya no te sirven y abre paso a la abundancia. Estoy aquí para guiarte en el proceso.
+            </p>
+            <div class="mt-8">
+                <a href="/servicios" class="inline-block bg-[#cfb4b8] text-white font-bold tracking-widest text-sm px-10 py-4 rounded-full transition-all hover:translate-y-1 shadow-[0_5px_0_#a88e92] active:shadow-none active:translate-y-[5px]">
+                    VER MIS SERVICIOS
+                </a>
+            </div>
+        </footer>
+
+    </div>
+</Layout>

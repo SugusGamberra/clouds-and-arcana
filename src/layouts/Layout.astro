@@ -1,0 +1,149 @@
+---
+import '../styles/global.css';
+import { Image } from 'astro:assets';
+import background from '../assets/background.png';
+import nubeImg from '../assets/nube.png';
+
+interface Props {
+    title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>{title} | Clouds & Arcana</title>
+        <link rel="icon" type="image/png" href="/favicon.png" />
+
+        <meta name="description" content="Lectura de Tarot, Runas e Interpretación de Sueños con enfoque espiritual y tecnológico. Descubre los mensajes que el universo tiene para ti." />
+        <meta name="keywords" content="Tarot, Runas, Sueños, Espiritualidad, Lectura de cartas, Oráculo" />
+        <meta name="author" content="Clouds & Arcana" />
+
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Clouds & Arcana | Mensajes Místicos desde las Nubes" />
+        <meta property="og:description" content="¿Qué te inquieta hoy? Consulta el Oráculo y reserva tu sesión mística." />
+        <meta property="og:image" content="/img-share.png" /> <meta property="og:url" content="https://tu-web-aqui.com" />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Clouds & Arcana ✨" />
+        <meta name="twitter:description" content="Interpretación de sueños y tarot con alma de Tech-Bruja." />
+        <meta name="twitter:image" content="/img-share.png" />
+    </head>
+    <body class="bg-[#eef5fa] text-texto font-sans min-h-screen flex flex-col relative overflow-x-hidden">
+        
+        <header class="sticky top-0 z-50 py-4 px-8 bg-white/40 backdrop-blur-md border-b border-white/30 shadow-sm">
+            <nav class="max-w-5xl mx-auto flex justify-between items-center">
+                
+                <a href="/" class="flex items-center gap-3 group transition-transform hover:scale-105 font-serif text-texto">
+                    <img src="/favicon.png" alt="Logo" class="w-15 h-15 object-contain group-hover:rotate-12 transition-transform duration-500" />
+                    <span class="text-xl leading-none tracking-widest font-bold italic uppercase">
+                        CLOUDS &<br/><span class="text-[#cfb4b8]">ARCANA</span>
+                    </span>
+                </a>
+
+                <ul class="hidden md:flex gap-8 items-center uppercase">
+                    <li><a href="/" class="nav-link">Inicio</a></li>
+                    <li><a href="/servicios" class="nav-link">Servicios</a></li>
+                    <li><a href="/sobre-mi" class="nav-link">Sobre mí</a></li>
+                    <li><a href="/blog" class="nav-link">El Oráculo</a></li>
+                    
+                    <li>
+                        <a href="/reserva" class="bg-[#cfb4b8] text-white font-bold tracking-[0.2em] text-[10px] px-6 py-2.5 rounded-full shadow-[0_4px_0_#a88e92] hover:translate-y-1 hover:shadow-none transition-all active:scale-95 inline-block">
+                            RESERVAR
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <style>
+            .nav-link {
+                font-size: 11px;
+                font-weight: 700;
+                letter-spacing: 0.2em;
+                color: rgba(45, 55, 72, 0.6);
+                transition: all 0.3s ease;
+                position: relative;
+                text-decoration: none;
+            }
+
+            .nav-link:hover {
+                color: #cfb4b8;
+            }
+
+            /* Efecto de subrayado místico */
+            .nav-link::after {
+                content: '';
+                position: absolute;
+                bottom: -4px;
+                left: 0;
+                width: 0;
+                height: 1px;
+                background: #cfb4b8;
+                transition: width 0.3s ease;
+            }
+
+            .nav-link:hover::after {
+                width: 100%;
+            }
+        </style>
+
+        <div class="fixed inset-0 w-full h-full -z-10">
+            <Image 
+                src={background} 
+                alt="Fondo místico" 
+                class="w-full h-full object-cover opacity-90 object-top"
+            />
+        </div>
+
+        <main class="flex-grow p-8 relative z-10">
+            <slot /> 
+        </main>
+
+        <footer class="bg-[#d0b2b6] py-6 text-center text-texto mt-auto w-full z-10 shadow-[0_-5px_15px_rgba(0,0,0,0.05)] relative">
+    
+            <div class="absolute bottom-[0px] -right-50 z-20 pointer-events-none">
+                <Image 
+                    src={nubeImg} 
+                    alt="Nube decorativa" 
+                    class="w-180 h-auto opacity-100 scale-x-[-1]" 
+                />
+            </div>
+
+            <div class="relative z-30"> 
+                <div class="flex justify-center gap-8 mb-2">
+                    <a href="https://www.instagram.com/cloudsarcana/" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    class="hover:scale-110 transition-transform group"
+                    aria-label="Instagram de Clouds & Arcana">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#8e7579" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:stroke-[#a88e92] transition-colors drop-shadow-sm">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        </svg>
+                    </a>
+
+                    <a href="https://www.youtube.com/@CloudsArcana" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    class="hover:scale-110 transition-transform group"
+                    aria-label="YouTube de Clouds & Arcana">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#8e7579" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:stroke-[#a88e92] transition-colors drop-shadow-sm">
+                            <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path>
+                            <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+                <p class="text-xs font-bold tracking-wider">
+                    © 2026 Clouds & Arcana. Todos los derechos reservados.
+                </p>
+            </div>
+        </footer>
+
+    </body>
+</html>

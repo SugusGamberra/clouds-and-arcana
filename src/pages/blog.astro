@@ -1,0 +1,97 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
+import nubeImg from '../assets/nube.png';
+
+const posts = await getCollection('oraculo');
+const postsOrdenados = posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+
+<Layout title="El Oráculo - Blog">
+    <div class="max-w-[1100px] mx-auto py-12 px-6 relative z-10">
+        
+        <div class="absolute -top-10 -left-60 opacity-100 -z-10 pointer-events-none">
+            <Image src={nubeImg} alt="Nube" class="w-100 h-auto" />
+        </div>
+        <div class="absolute top-50 -right-90 opacity-100 -z-10 pointer-events-none">
+            <Image src={nubeImg} alt="Nube" class="w-120 h-auto scale-x-[-1]" />
+        </div>
+
+        <header class="text-center mb-20 shrink-0">
+            <h1 class="text-[62px] font-serif text-texto font-bold mb-4 tracking-tight leading-none italic">
+                El Oráculo
+            </h1>
+            <p class="text-xl text-texto/60 font-serif italic max-w-2xl mx-auto leading-relaxed">
+                Interpretación de sueños, sabiduría de las runas y consejos del tarot para tu día a día.
+            </p>
+        </header>
+
+        <div class="grid gap-12 relative z-10">
+            {postsOrdenados.map((post, index) => (
+                <article 
+                    class={`group bg-white/20 backdrop-blur-xl border border-white/50 p-10 md:p-14 rounded-[50px] shadow-sm hover:shadow-2xl hover:bg-white/30 transition-all duration-700 relative overflow-hidden max-w-4xl mx-auto w-full
+                    ${index % 2 !== 0 ? 'md:translate-x-6' : 'md:-translate-x-6'}`}
+                >
+                    <div class="absolute -top-16 -right-16 text-[180px] opacity-[0.03] italic font-serif pointer-events-none group-hover:opacity-[0.08] group-hover:-rotate-12 transition-all duration-1000">
+                        ✨
+                    </div>
+
+                    <div class="relative z-10">
+                        <div class="flex gap-3 mb-8">
+                            {post.data.tags.map(tag => (
+                                <span class="text-[10px] font-bold uppercase tracking-[0.3em] text-[#cfb4b8] bg-white/60 border border-white px-4 py-1.5 rounded-full shadow-sm">
+                                    #{tag}
+                                </span>
+                            ))}
+                        </div>
+
+                        <h2 class="text-4xl font-serif font-bold text-texto mb-6 leading-tight italic">
+                            <a href={`/blog/${post.id}`} class="hover:text-[#cfb4b8] transition-colors">
+                                {post.data.title}
+                            </a>
+                        </h2>
+
+                        <p class="text-texto/70 text-lg mb-10 line-clamp-2 leading-relaxed italic font-medium">
+                            {post.data.description}
+                        </p>
+
+                        <div class="flex items-center justify-between border-t border-white/30 pt-8">
+                            <div class="flex flex-col">
+                                <span class="text-[10px] font-bold text-texto/30 uppercase tracking-[0.3em] mb-1">Publicado el</span>
+                                <span class="text-xs font-bold text-texto/50 uppercase tracking-widest">
+                                    {post.data.pubDate.toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' })}
+                                </span>
+                            </div>
+                            
+                            <a href={`/blog/${post.id}`} class="inline-flex items-center gap-3 text-xs font-bold tracking-[0.2em] text-[#cfb4b8] hover:text-[#bfa3a7] transition-all group/link">
+                                LEER MENSAJE
+                                <span class="text-xl transform group-hover/link:translate-x-3 transition-transform duration-500">→</span>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            ))}
+        </div>
+
+        <footer class="mt-24 text-center pb-10">
+            <div class="flex items-center justify-center gap-4 mb-8 opacity-40">
+                <div class="h-[1px] w-20 bg-texto"></div>
+                <span class="text-xl">☁️</span>
+                <div class="h-[1px] w-20 bg-texto"></div>
+            </div>
+            <p class="text-texto/40 text-sm font-serif italic tracking-wide">
+                El conocimiento del oráculo se renueva con cada ciclo lunar.
+            </p>
+        </footer>
+    </div>
+</Layout>
+
+<style>
+    .line-clamp-2 {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+</style>

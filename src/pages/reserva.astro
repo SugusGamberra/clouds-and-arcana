@@ -1,0 +1,155 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { serviciosTarot } from '../data/servicios';
+import { Image } from 'astro:assets';
+import nubeImg from '../assets/nube.png';
+
+const paypalClientId = import.meta.env.PUBLIC_PAYPAL_CLIENT_ID;
+---
+
+<Layout title="Reserva tu Lectura">
+    <div class="max-w-4xl mx-auto py-10 px-4 relative z-10 min-h-[calc(50vh-200px)] flex flex-col justify-center">
+        
+        <div class="absolute -top-0 -left-80 opacity-100 -z-10 pointer-events-none">
+            <Image src={nubeImg} alt="Nube" class="w-80 h-auto" />
+        </div>
+
+        <div id="seleccion-previa" class="block">
+            <header class="text-center mb-12">
+                <h1 class="text-[42px] font-serif text-texto font-bold mb-2 tracking-tight italic">Elige tu Sesión</h1>
+                <p class="text-texto/70 italic">Selecciona el servicio que resuena con tu energía actual para continuar.</p>
+            </header>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {serviciosTarot.map((servicio) => (
+                    <div class={`p-8 rounded-[40px] border flex flex-col justify-between backdrop-blur-xl transition-all duration-300 hover:scale-[1.02] ${servicio.destacado ? 'border-[#cfb4b8] bg-white/40 shadow-xl' : 'border-white/50 bg-white/20 hover:bg-white/30 shadow-sm'}`}>
+                        <div>
+                            <h3 class="text-2xl font-serif font-bold text-texto mb-2">
+                                {servicio.nombre} {servicio.destacado && '👑'}
+                            </h3>
+                            <p class="text-texto/60 text-sm italic mb-6">Formato: {servicio.formato}</p>
+                        </div>
+                        <div class="flex justify-between items-center mt-4">
+                            <span class="text-3xl font-serif font-bold text-texto">{servicio.precio}</span>
+                            <a href={`/reserva?servicio=${encodeURIComponent(servicio.nombre)}`} class="px-8 py-3 bg-[#cfb4b8] text-white rounded-full font-bold text-sm tracking-widest shadow-[0_4px_0_#a88e92] hover:translate-y-1 hover:shadow-none transition-all">
+                                SELECCIONAR
+                            </a>
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </div>
+
+        <div id="contenedor-formulario" class="hidden max-w-2xl mx-auto bg-white/30 backdrop-blur-xl p-10 rounded-[50px] border border-white/60 shadow-2xl relative overflow-hidden">
+            <div class="absolute -top-10 -right-10 text-9xl opacity-[0.05] italic pointer-events-none">✨</div>
+            
+            <header class="text-center mb-10">
+                <h1 class="text-3xl font-bold mb-2 text-texto font-serif">Finaliza tu Reserva</h1>
+                <p class="text-texto/70 italic text-sm">Vas a reservar: <span id="texto-servicio" class="text-[#cfb4b8] font-bold underline decoration-dotted"></span></p>
+            </header>
+
+            <form id="formulario-reserva" class="space-y-6 relative z-10">
+                <input type="hidden" id="precio-final" value="">
+                <input type="hidden" id="servicio-nombre" value="">
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-texto text-xs font-bold uppercase tracking-widest mb-2 ml-2">Tu Nombre o Apodo</label>
+                        <input type="text" id="nombre" required class="w-full bg-white/40 border border-white/60 rounded-2xl px-5 py-3 text-texto focus:bg-white/60 focus:border-[#cfb4b8] outline-none transition-all" placeholder="Luna">
+                    </div>
+
+                    <div>
+                        <label class="block text-texto text-xs font-bold uppercase tracking-widest mb-2 ml-2">Tu Email</label>
+                        <input type="email" id="email" required class="w-full bg-white/40 border border-white/60 rounded-2xl px-5 py-3 text-texto focus:bg-white/60 focus:border-[#cfb4b8] outline-none transition-all" placeholder="luna@gmail.com">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-texto text-xs font-bold uppercase tracking-widest mb-2 ml-2">Tu consulta o sueño</label>
+                    <textarea id="mensaje" required rows="4" class="w-full bg-white/40 border border-white/60 rounded-3xl px-5 py-4 text-texto focus:bg-white/60 focus:border-[#cfb4b8] outline-none transition-all" placeholder="Escribe aquí tu mensaje para el oráculo..."></textarea>
+                </div>
+
+                <div id="paypal-button-container" class="mt-8 rounded-2xl overflow-hidden"></div>
+            </form>
+        </div>
+
+        <div id="contenedor-exito" style="display: none;" class="text-center py-20 bg-white/20 backdrop-blur-xl rounded-[50px] border border-white/50 shadow-xl max-w-2xl mx-auto">
+            <div class="text-7xl mb-6 animate-bounce">🔮</div>
+            <h2 class="text-4xl font-serif font-bold mb-4 text-texto italic">¡Portal Cruzado!</h2>
+            <p class="text-lg text-texto/80 mb-10 px-10">Tu energía ha sido recibida. En breves instantes recibirás un correo con la confirmación de tu lectura.</p>
+            <a href="/" class="inline-block px-12 py-4 bg-[#b5cce4] text-texto font-bold rounded-full hover:bg-[#a4bdd6] transition-all shadow-md">
+                VOLVER AL INICIO
+            </a>
+        </div>
+    </div>
+</Layout>
+
+<script is:inline src={`https://www.paypal.com/sdk/js?client-id=${paypalClientId}&currency=EUR`}/></script>
+
+<script>
+    import { serviciosTarot } from '../data/servicios';
+
+    const limpiar = (t: string) => t.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").trim();
+
+    const params = new URLSearchParams(window.location.search);
+    const servicioURL = params.get('servicio');
+    
+    const encontrado = serviciosTarot.find(s => limpiar(s.nombre) === limpiar(servicioURL || ""));
+
+    if (encontrado) {
+        document.getElementById('seleccion-previa')!.style.display = 'none';
+        document.getElementById('contenedor-formulario')!.classList.remove('hidden');
+
+        const txtServ = document.getElementById('texto-servicio');
+        const inputNombre = document.getElementById('servicio-nombre') as HTMLInputElement;
+        const inputPrecio = document.getElementById('precio-final') as HTMLInputElement;
+
+        if (txtServ) txtServ.innerHTML = `${encontrado.nombre} (${encontrado.precio})`;
+        if (inputNombre) inputNombre.value = encontrado.nombre;
+        if (inputPrecio) {
+            const precioLimpio = encontrado.precio.replace('€', '').trim();
+            inputPrecio.value = `${precioLimpio}.00`;
+        }
+    }
+
+    const form = document.getElementById('formulario-reserva') as HTMLFormElement;
+    // @ts-ignore
+    if (window.paypal) {
+        // @ts-ignore
+        window.paypal.Buttons({
+            createOrder: (data: any, actions: any) => {
+                if (!form.checkValidity()) {
+                    alert("Chatita, rellena todos los campos primero 😊");
+                    return actions.reject();
+                }
+                const precio = (document.getElementById('precio-final') as HTMLInputElement).value;
+                return actions.order.create({
+                    purchase_units: [{
+                        description: (document.getElementById('servicio-nombre') as HTMLInputElement).value,
+                        amount: { currency_code: 'EUR', value: precio }
+                    }]
+                });
+            },
+            onApprove: async (data: any, actions: any) => {
+                return actions.order.capture().then(async (details: any) => {
+                    const datos = {
+                        nombre: (document.getElementById('nombre') as HTMLInputElement).value,
+                        email: (document.getElementById('email') as HTMLInputElement).value,
+                        servicio: (document.getElementById('servicio-nombre') as HTMLInputElement).value,
+                        mensaje: (document.getElementById('mensaje') as HTMLTextAreaElement).value,
+                        pagoID: details.id
+                    };
+                    const res = await fetch('/api/enviar', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(datos),
+                    });
+                    if (res.ok) {
+                        document.getElementById('contenedor-formulario')!.style.display = 'none';
+                        document.getElementById('contenedor-exito')!.style.display = 'block';
+                    }
+                });
+            }
+        }).render('#paypal-button-container');
+    }
+</script>

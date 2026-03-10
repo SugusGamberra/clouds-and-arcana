@@ -1,0 +1,101 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+    const posts = await getCollection('oraculo');
+    return posts.map((post) => ({
+        params: { id: post.id },
+        props: { post },
+    }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+
+<Layout title={post.data.title}>
+    <div class="flex-1 flex flex-col justify-center items-center py-10 px-6 relative z-10 overflow-hidden min-h-0">
+
+        <header class="text-center mb-6 shrink-0">
+            <p class="text-[9px] font-bold text-[#cfb4b8] mb-1 uppercase tracking-[0.3em]">
+                {post.data.pubDate.toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' })}
+            </p>
+            <h1 class="text-3xl md:text-5xl font-serif text-texto font-bold tracking-tight italic leading-tight">
+                {post.data.title}
+            </h1>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-6 w-full max-w-[1100px] h-full max-h-[55vh]">
+            
+            <section class="md:col-span-7 bg-white/20 backdrop-blur-xl p-8 rounded-[40px] border border-white/50 shadow-sm flex flex-col overflow-hidden">
+                <h2 class="text-2xl font-serif text-texto font-bold mb-4 shrink-0 italic">Mensaje Sagrado ✨</h2>
+                <div class="overflow-y-auto pr-2 custom-scrollbar text-texto/80 leading-relaxed text-base prose prose-texto">
+                    <Content />
+                </div>
+            </section>
+
+            <section class="md:col-span-5 bg-[#b5cce4] p-8 rounded-[40px] shadow-sm border border-white/40 flex flex-col justify-between">
+                <div>
+                    <h2 class="text-xl font-serif text-texto font-bold mb-4 italic">Simbolismos</h2>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        {post.data.tags.map(tag => (
+                            <span class="text-[9px] font-bold uppercase tracking-widest text-texto/60 bg-white/40 border border-white px-3 py-1 rounded-full shadow-sm">
+                                #{tag}
+                            </span>
+                        ))}
+                    </div>
+                    <p class="text-texto font-serif italic text-base leading-relaxed line-clamp-4">
+                        {post.data.description}
+                    </p>
+                </div>
+                
+                <a href="/blog" class="block w-full text-center bg-white/30 hover:bg-white/50 text-texto font-bold tracking-widest text-[10px] py-3 rounded-full transition-all border border-white/50 mt-4">
+                    VOLVER AL ORÁCULO
+                </a>
+            </section>
+        </div>
+    </div>
+</Layout>
+
+<style is:global>
+    html, body { 
+        height: 100vh; 
+        overflow: hidden !important; 
+        display: flex;
+        flex-direction: column;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar { width: 3px; }
+    .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(207, 180, 184, 0.4); border-radius: 10px; }
+
+    .prose p { margin-bottom: 1rem; }
+    .prose strong { color: #cfb4b8; font-weight: 700; }
+    
+    .prose ul { 
+        list-style-type: none; 
+        padding-left: 0.5rem; 
+        margin-bottom: 1.5rem; 
+    }
+    .prose li {
+        position: relative;
+        padding-left: 1.5rem;
+        margin-bottom: 0.5rem;
+    }
+    .prose li::before {
+        content: "✦";
+        position: absolute;
+        left: 0;
+        color: #cfb4b8;
+        font-size: 0.8rem;
+    }
+
+    .prose h2 {
+        font-family: 'Playfair Display', serif;
+        color: #2d3748;
+        font-size: 1.4rem;
+        font-style: italic;
+        margin-top: 1.5rem;
+        margin-bottom: 0.8rem;
+    }
+</style>
