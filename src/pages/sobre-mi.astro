@@ -4,73 +4,54 @@ import { Image } from 'astro:assets';
 import nubeImg from '../assets/nube.png';
 ---
 
-<Layout title="Sobre Mí">
-    <div class="max-w-[1000px] mx-auto py-10 px-6 relative z-10">
+<Layout title="Sobre mí - Clouds & Arcana">
+    <div class="max-w-5xl mx-auto py-8 px-6 relative z-10">
         
-        <div class="absolute -top-0 -left-60 opacity-100 -z-10 pointer-events-none">
-            <Image src={nubeImg} alt="Nube" class="w-100 h-auto" />
-        </div>
-        <div class="absolute bottom-10 -right-40 opacity-100 -z-10 pointer-events-none">
-            <Image src={nubeImg} alt="Nube" class="w-100 h-auto scale-x-[-1]" />
-        </div>
-
-        <header class="text-center mb-16">
-            <h1 class="text-4xl font-bold mb-4 text-[#cfb4b8] text-center font-serif">Sobre mí</h1>
-            <p class="text-lg text-texto/70 mb-10 text-center italic px-4">No solo leo cartas o interpreto sueños; traduzco la energía que el universo intenta comunicarte.</p>
+        <header class="text-center mb-10">
+            <header class="text-center mb-10">
+            <h1 class="text-4xl font-bold mb-4 text-[#cfb4b8] text-center font-serif">Mi conexión con el Arcano</h1>
+            <p class="text-lg text-texto/70 mb-10 text-center italic px-4">De compilar código a interpretar las estrellas.</p>
+        </header>
         </header>
 
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-10">
+        <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12">
             
-            <section class="md:col-span-7 bg-white/20 backdrop-blur-xl p-10 rounded-[40px] border border-white/50 shadow-sm flex flex-col justify-center">
-                <h2 class="text-3xl font-serif text-texto font-bold mb-6">Mi Historia</h2>
-                <div class="space-y-4 text-texto/80 leading-relaxed text-lg">
-                    <p>
-                        Bienvenidos a <strong>Clouds & Arcana</strong>. Mi camino en la espiritualidad no empezó ayer; ha sido un proceso de años de estudio de las runas antiguas y el simbolismo del tarot.
-                    </p>
-                    <p>
-                        Como estudiante de <strong>Desarrollo de Aplicaciones (DAW)</strong>, valoro la claridad y la estructura. Por eso, mis lecturas no son ambiguas: voy al grano, busco la lógica espiritual de lo que te ocurre y te doy herramientas reales para avanzar.
-                    </p>
-                </div>
-            </section>
+            <div class="w-full md:w-2/5 relative flex justify-center">
+                <div class="absolute inset-0 bg-[#b5cce4] rounded-full blur-3xl opacity-40 -z-10 animate-pulse"></div>
+                
+                <div class="relative w-56 md:w-full max-w-[280px] border-4 border-white/50 rounded-t-[150px] rounded-b-[40px] overflow-hidden shadow-2xl bg-white/20 backdrop-blur-sm p-2 z-10">
+                    
+                    <img src="/img/runa.png" alt="Retrato" class="w-full aspect-[4/5] object-cover rounded-t-[140px] rounded-b-[30px]" />
 
-            <section class="md:col-span-5 bg-[#b5cce4] p-10 rounded-[40px] shadow-sm border border-white/40">
-                <h2 class="text-2xl font-serif text-texto font-bold mb-6">Mi Ética de Trabajo</h2>
-                <ul class="space-y-6">
-                    <li class="flex items-start gap-4 group">
-                        <span class="text-2xl mt-[-4px]">✦</span>
-                        <div>
-                            <p class="font-bold text-texto text-sm uppercase tracking-widest mb-1">Confidencialidad</p>
-                            <p class="text-texto/70 text-sm">Tus sueños y preguntas se quedan en nuestro portal.</p>
-                        </div>
-                    </li>
-                    <li class="flex items-start gap-4 group">
-                        <span class="text-2xl mt-[-4px]">✦</span>
-                        <div>
-                            <p class="font-bold text-texto text-sm uppercase tracking-widest mb-1">Honestidad</p>
-                            <p class="text-texto/70 text-sm">Solo te diré lo que las cartas muestran, sin adornos.</p>
-                        </div>
-                    </li>
-                    <li class="flex items-start gap-4 group">
-                        <span class="text-2xl mt-[-4px]">✦</span>
-                        <div>
-                            <p class="font-bold text-texto text-sm uppercase tracking-widest mb-1">Protección</p>
-                            <p class="text-texto/70 text-sm">Respeto mi energía y la tuya por encima de todo.</p>
-                        </div>
-                    </li>
-                </ul>
-            </section>
+                </div>
+                
+                <Image src={nubeImg} alt="Nube decorativa" class="absolute -bottom-8 -left-8 md:-left-12 w-48 opacity-90 pointer-events-none z-20" />
+            </div>
+
+            <div class="w-full md:w-3/5 space-y-4 text-sm md:text-base text-texto/80 leading-relaxed bg-white/20 backdrop-blur-xl p-6 md:p-8 rounded-[35px] border border-white/50 shadow-sm relative z-10">
+                <p>
+                    ¡Hola! Soy la mente y el alma detrás de <strong class="text-texto font-serif text-lg italic">Clouds & Arcana</strong>. 
+                </p>
+                <p>
+                    Mi camino es una mezcla algo inusual: por el día navego entre líneas de código como <strong class="text-texto">estudiante del FPGS de DAW</strong>, y por la noche, cruzo el velo para conectar con la magia ancestral a través del tarot, las runas y el análisis de los sueños.
+                </p>
+                <p>
+                    Siempre he creído que la tecnología y la espiritualidad no están reñidas. Al fin y al cabo, ambas buscan exactamente lo mismo: <span class="italic font-serif text-texto font-bold">encontrar respuestas, conectar puntos y crear algo con sentido a partir del caos</span>. Por eso me defino con orgullo como una auténtica "Tech-Bruja". 
+                </p>
+                <p>
+                    He creado este rincón en las nubes para ofrecerte claridad. Ya sea para entender ese sueño que te dejó inquieta, pedir consejo a las runas, o saber si esa persona especial sigue teniendo energías conectadas a las tuyas.
+                </p>
+                <p class="font-serif text-[18px] md:text-[20px] italic text-texto pt-2 text-center md:text-left font-bold tracking-wide">
+                    "Mi varita es el teclado, y mi oráculo, las nubes."
+                </p>
+            </div>
         </div>
 
-        <footer class="mt-16 text-center">
-            <p class="text-texto/60 italic text-lg max-w-xl mx-auto">
-                Deja atrás las energías que ya no te sirven y abre paso a la abundancia. Estoy aquí para guiarte en el proceso.
-            </p>
-            <div class="mt-8">
-                <a href="/servicios" class="inline-block bg-[#cfb4b8] text-white font-bold tracking-widest text-sm px-10 py-4 rounded-full transition-all hover:translate-y-1 shadow-[0_5px_0_#a88e92] active:shadow-none active:translate-y-[5px]">
-                    VER MIS SERVICIOS
-                </a>
-            </div>
-        </footer>
+        <div class="text-center mt-12 relative z-10">
+            <a href="/servicios" class="inline-block bg-[#cfb4b8] text-white font-bold tracking-widest text-[11px] md:text-[12px] px-8 py-3.5 rounded-full transition-all hover:-translate-y-1 shadow-[0_5px_0_#a88e92] active:shadow-none active:translate-y-[5px] uppercase">
+                Ver mis servicios
+            </a>
+        </div>
 
     </div>
 </Layout>
