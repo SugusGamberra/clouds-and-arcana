@@ -2,8 +2,8 @@
 title: 'Significado de soñar con agua'
 description: 'El agua representa nuestras emociones...'
 pubDate: 2026-03-10
-tags: ['sueños', 'agua']
-image: 'https://www.saguapac.com.bo/wp-content/uploads/2023/05/definicion-del-agua-saguapac-768x512.jpg'
+tags: ['sueños', 'agua', 'espiritualidad']
+image: 'https://img.freepik.com/fotos-premium/fotografia-fondo-superficie-agua-mar-acuatica_206268-1350.jpg'
 ---
 
 ## El mensaje de agua en tus sueños

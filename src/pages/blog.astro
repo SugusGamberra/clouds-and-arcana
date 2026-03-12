@@ -28,6 +28,8 @@ const postsOrdenados = posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pu
         <InstagramFeed />
         <YouTubeFeed />
 
+        <h2 class="text-3xl font-serif text-texto text-center mb-10 italic tracking-widest uppercase">Blog</h2>
+
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
             {postsOrdenados.map((post) => (
                 <article class="group relative border border-white/50 rounded-[35px] shadow-sm hover:shadow-lg transition-all duration-500 hover:-translate-y-2 overflow-hidden flex flex-col h-full">
