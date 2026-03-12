@@ -6,9 +6,13 @@ import tailwindcss from '@tailwindcss/vite';
 
 import vercel from '@astrojs/vercel';
 
+import sitemap from '@astrojs/sitemap';
+
 // https://astro.build/config
 export default defineConfig({
-  integrations: [react()],
+  site: 'https://clouds-and-arcana.vercel.app',
+
+  integrations: [react(), sitemap()],
 
   vite: {
     plugins: [tailwindcss()]

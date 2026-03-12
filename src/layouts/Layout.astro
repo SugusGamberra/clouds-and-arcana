@@ -4,17 +4,23 @@ import { Image } from 'astro:assets';
 import background from '../assets/background.png';
 import nubeImg from '../assets/nube.png';
 
+// seo
 interface Props {
     title: string;
 }
 
 const { title } = Astro.props;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
 <html lang="es">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width" />
+
+        <link rel="canonical" href={canonicalURL} />
+        <meta name="robots" content="index, follow" />
+
         <title>{title} | Clouds & Arcana</title>
         <link rel="icon" type="image/png" href="/favicon.png" />
 
@@ -32,6 +38,21 @@ const { title } = Astro.props;
         <meta name="twitter:title" content="Clouds & Arcana" />
         <meta name="twitter:description" content="Interpretación de sueños, lectura de tarot y runas por una Tech-Bruja." />
         <meta name="twitter:image" content="/favicon.png" />
+
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "ProfessionalService",
+            "name": "Clouds & Arcana",
+            "description": "Interpretación de sueños, lectura de tarot y runas con enfoque espiritual y tecnológico.",
+            "url": "https://clouds-and-arcana.vercel.app",
+            "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "ES"
+            }
+        }
+        </script>
+
     </head>
     <body class="bg-[#eef5fa] text-texto font-sans min-h-screen flex flex-col relative overflow-x-hidden">
         
