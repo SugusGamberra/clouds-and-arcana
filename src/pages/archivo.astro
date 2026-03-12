@@ -20,34 +20,45 @@ const postsOrdenados = posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pu
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 relative z-10">
             {postsOrdenados.map((post) => (
-                <article class="bg-white/20 backdrop-blur-xl border border-white/50 p-8 rounded-[35px] shadow-sm hover:shadow-lg hover:bg-white/30 transition-all duration-500 hover:-translate-y-2 flex flex-col h-full">
+                <article class="group relative border border-white/50 rounded-[35px] shadow-sm hover:shadow-lg transition-all duration-500 hover:-translate-y-2 overflow-hidden flex flex-col h-full">
                     
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        {post.data.tags.map(tag => (
-                            <span class="text-[9px] font-bold uppercase tracking-[0.2em] text-[#cfb4b8] bg-white/60 border border-white px-3 py-1 rounded-full shadow-sm">
-                                #{tag}
+                    {post.data.image ? (
+                        <div class="absolute inset-0 z-0">
+                            <img src={post.data.image} alt={post.data.title} class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
+                            <div class="absolute inset-0 bg-white/40 backdrop-blur-md group-hover:bg-white/30 transition-colors duration-500"></div>
+                        </div>
+                    ) : (
+                        <div class="absolute inset-0 bg-white/20 backdrop-blur-xl group-hover:bg-white/30 transition-colors duration-500 z-0"></div>
+                    )}
+
+                    <div class="relative z-10 p-8 flex flex-col h-full">
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            {post.data.tags.map(tag => (
+                                <span class="text-[9px] font-bold uppercase tracking-[0.2em] text-[#cfb4b8] bg-white/60 border border-white px-3 py-1 rounded-full shadow-sm">
+                                    #{tag}
+                                </span>
+                            ))}
+                        </div>
+
+                        <h2 class="text-2xl font-serif font-bold text-texto mb-3 leading-tight italic">
+                            <a href={`/blog/${post.id}`} class="hover:text-[#cfb4b8] transition-colors">
+                                {post.data.title}
+                            </a>
+                        </h2>
+
+                        <p class="text-texto/70 text-sm mb-6 line-clamp-3 leading-relaxed font-medium flex-grow">
+                            {post.data.description}
+                        </p>
+
+                        <div class="flex items-center justify-between border-t border-white/30 pt-4 mt-auto">
+                            <span class="text-[10px] font-bold text-texto/50 uppercase tracking-widest">
+                                {post.data.pubDate.toLocaleDateString('es-ES', { day: '2-digit', month: 'short', year: 'numeric' })}
                             </span>
-                        ))}
-                    </div>
-
-                    <h2 class="text-2xl font-serif font-bold text-texto mb-3 leading-tight italic">
-                        <a href={`/blog/${post.id}`} class="hover:text-[#cfb4b8] transition-colors">
-                            {post.data.title}
-                        </a>
-                    </h2>
-
-                    <p class="text-texto/70 text-sm mb-6 line-clamp-3 leading-relaxed font-medium flex-grow">
-                        {post.data.description}
-                    </p>
-
-                    <div class="flex items-center justify-between border-t border-white/30 pt-4 mt-auto">
-                        <span class="text-[10px] font-bold text-texto/50 uppercase tracking-widest">
-                            {post.data.pubDate.toLocaleDateString('es-ES', { day: '2-digit', month: 'short', year: 'numeric' })}
-                        </span>
-                        
-                        <a href={`/blog/${post.id}`} class="text-xs font-bold tracking-[0.1em] text-[#cfb4b8] hover:text-[#bfa3a7] transition-colors">
-                            LEER →
-                        </a>
+                            
+                            <a href={`/blog/${post.id}`} class="text-xs font-bold tracking-[0.1em] text-[#cfb4b8] hover:text-[#bfa3a7] transition-colors">
+                                LEER →
+                            </a>
+                        </div>
                     </div>
                 </article>
             ))}
@@ -60,3 +71,12 @@ const postsOrdenados = posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pu
         </div>
     </div>
 </Layout>
+
+<style>
+    .line-clamp-3 {
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+</style>

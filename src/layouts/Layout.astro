@@ -25,7 +25,8 @@ const { title } = Astro.props;
         <meta property="og:type" content="website" />
         <meta property="og:title" content="Clouds & Arcana | Mensajes Místicos desde las Nubes" />
         <meta property="og:description" content="¿Qué te inquieta hoy? Consulta el Oráculo y reserva tu sesión mística." />
-        <meta property="og:image" content="/img-share.png" /> <meta property="og:url" content="https://tu-web-aqui.com" />
+        <meta property="og:image" content="/img-share.png" /> 
+        <meta property="og:url" content="https://tu-web-aqui.com" />
 
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Clouds & Arcana ✨" />
@@ -34,28 +35,41 @@ const { title } = Astro.props;
     </head>
     <body class="bg-[#eef5fa] text-texto font-sans min-h-screen flex flex-col relative overflow-x-hidden">
         
-        <header class="sticky top-0 z-50 py-4 px-8 bg-white/40 backdrop-blur-md border-b border-white/30 shadow-sm">
-            <nav class="max-w-5xl mx-auto flex justify-between items-center">
+        <header class="sticky top-0 z-50 py-4 px-6 md:px-8 bg-white/40 backdrop-blur-md border-b border-white/30 shadow-sm">
+            <nav class="max-w-5xl mx-auto flex flex-wrap justify-between items-center relative">
                 
-                <a href="/" class="flex items-center gap-3 group transition-transform hover:scale-105 font-serif text-texto">
-                    <img src="/favicon.png" alt="Logo" class="w-15 h-15 object-contain group-hover:rotate-12 transition-transform duration-500" />
-                    <span class="text-xl leading-none tracking-widest font-bold italic uppercase">
+                <a href="/" class="flex items-center gap-3 group transition-transform hover:scale-105 font-serif text-texto z-20">
+                    <img src="/favicon.png" alt="Logo" class="w-12 h-12 md:w-15 md:h-15 object-contain group-hover:rotate-12 transition-transform duration-500" />
+                    <span class="text-lg md:text-xl leading-none tracking-widest font-bold italic uppercase">
                         CLOUDS &<br/><span class="text-[#cfb4b8]">ARCANA</span>
                     </span>
                 </a>
 
-                <ul class="hidden md:flex gap-8 items-center uppercase">
+                <button id="mobile-menu-btn" aria-label="Abrir menú" class="md:hidden flex flex-col justify-center items-center w-12 h-12 bg-white/50 rounded-full text-[#cfb4b8] focus:outline-none z-20 shadow-sm border border-white/60">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+
+                <ul class="hidden md:flex gap-8 items-center uppercase z-20">
                     <li><a href="/" class="nav-link">Inicio</a></li>
                     <li><a href="/servicios" class="nav-link">Servicios</a></li>
                     <li><a href="/sobre-mi" class="nav-link">Sobre mí</a></li>
                     <li><a href="/blog" class="nav-link">El Oráculo</a></li>
-                    
                     <li>
                         <a href="/reserva" class="bg-[#cfb4b8] text-white font-bold tracking-[0.2em] text-[10px] px-6 py-2.5 rounded-full shadow-[0_4px_0_#a88e92] hover:translate-y-1 hover:shadow-none transition-all active:scale-95 inline-block">
                             RESERVAR
                         </a>
                     </li>
                 </ul>
+
+                <div id="mobile-menu" class="hidden absolute top-full left-0 w-full mt-4 bg-white/90 backdrop-blur-xl border border-white/50 rounded-[30px] shadow-lg flex-col p-8 gap-4 text-center uppercase z-10">
+                    <a href="/" class="nav-link-mobile">Inicio</a>
+                    <a href="/servicios" class="nav-link-mobile">Servicios</a>
+                    <a href="/sobre-mi" class="nav-link-mobile">Sobre mí</a>
+                    <a href="/blog" class="nav-link-mobile">El Oráculo</a>
+                    <a href="/reserva" class="bg-[#cfb4b8] text-white font-bold tracking-[0.2em] text-[12px] px-8 py-4 rounded-full shadow-[0_4px_0_#a88e92] inline-block mt-4 mx-auto w-max">RESERVAR</a>
+                </div>
             </nav>
         </header>
 
@@ -74,7 +88,6 @@ const { title } = Astro.props;
                 color: #cfb4b8;
             }
 
-            /* Efecto de subrayado místico */
             .nav-link::after {
                 content: '';
                 position: absolute;
@@ -89,6 +102,25 @@ const { title } = Astro.props;
             .nav-link:hover::after {
                 width: 100%;
             }
+
+            .nav-link-mobile {
+                font-size: 13px;
+                font-weight: 700;
+                letter-spacing: 0.2em;
+                color: rgba(45, 55, 72, 0.8);
+                padding: 12px 0;
+                border-bottom: 1px solid rgba(207, 180, 184, 0.3);
+                text-decoration: none;
+                transition: color 0.3s ease;
+            }
+            
+            .nav-link-mobile:last-of-type {
+                border-bottom: none;
+            }
+
+            .nav-link-mobile:hover {
+                color: #cfb4b8;
+            }
         </style>
 
         <div class="fixed inset-0 w-full h-full -z-10">
@@ -99,13 +131,12 @@ const { title } = Astro.props;
             />
         </div>
 
-        <main class="flex-grow p-8 relative z-10">
+        <main class="flex-grow p-4 md:p-8 relative z-10">
             <slot /> 
         </main>
 
-        <footer class="bg-[#d0b2b6] py-6 text-center text-texto mt-auto w-full z-10 shadow-[0_-5px_15px_rgba(0,0,0,0.05)] relative">
-    
-            <div class="absolute bottom-[0px] -right-50 z-20 pointer-events-none">
+        <footer class="bg-[#d0b2b6] py-6 text-center text-texto mt-auto w-full z-20 shadow-[0_-5px_15px_rgba(0,0,0,0.05)] relative">
+            <div class="absolute bottom-[0px] -right-50 z-20 pointer-events-none hidden md:block">
                 <Image 
                     src={nubeImg} 
                     alt="Nube decorativa" 
@@ -138,12 +169,22 @@ const { title } = Astro.props;
                         </svg>
                     </a>
                 </div>
-            </div>
-                <p class="text-xs font-bold tracking-wider">
+                <p class="text-[10px] md:text-xs font-bold tracking-wider">
                     © 2026 Clouds & Arcana. Todos los derechos reservados.
                 </p>
             </div>
         </footer>
 
+        <script>
+            const btn = document.getElementById('mobile-menu-btn');
+            const menu = document.getElementById('mobile-menu');
+            
+            if (btn && menu) {
+                btn.addEventListener('click', () => {
+                    menu.classList.toggle('hidden');
+                    menu.classList.toggle('flex');
+                });
+            }
+        </script>
     </body>
 </html>

@@ -5,36 +5,36 @@ import nubeImg from '../assets/nube.png';
 ---
 
 <Layout title="Inicio">
-    <div class="max-w-[1400px] mx-auto space-y-12 mt-6 relative z-10 px-8">
+    <div class="max-w-[1400px] mx-auto space-y-12 md:space-y-12 mt-6 relative z-10 px-4 md:px-8">
         
-        <div class="absolute top-[150px] -right-10 z-20 pointer-events-none">
+        <div class="absolute top-[170px] -right-10 z-20 pointer-events-none hidden md:block">
             <Image src={nubeImg} alt="Nube decorativa" class="w-100 h-auto opacity-100 scale-x-[-1]" />
         </div>
 
-        <section class="bg-white/20 backdrop-blur-xl rounded-[50px] py-16 px-12 text-center shadow-[0_8px_32px_0_rgba(255,255,255,0.2)] border border-white/40 relative z-10">
-            <h1 class="text-5xl font-serif text-texto font-bold mb-10 tracking-wide">Tus Mensajes Místicos desde las Nubes ✨</h1>
-            <a href="/reserva?servicio=Tirada Express (1 pregunta)" class="inline-block bg-[#cfb4b8] text-white font-bold tracking-widest text-lg px-16 py-5 rounded-full transition-all hover:translate-y-1 shadow-[0_6px_0_#a88e92] active:shadow-none active:translate-y-[6px]">
+        <section class="bg-white/20 backdrop-blur-xl rounded-[40px] md:rounded-[50px] py-12 px-6 md:py-16 md:px-12 text-center shadow-[0_8px_32px_0_rgba(255,255,255,0.2)] border border-white/40 relative z-10">
+            <h1 class="text-4xl md:text-5xl font-serif text-texto font-bold mb-8 md:mb-10 tracking-wide leading-tight md:leading-normal">Tus Mensajes Místicos desde las Nubes ✨</h1>
+            <a href="/reserva?servicio=Tirada Express (1 pregunta)" class="inline-block bg-[#cfb4b8] text-white font-bold tracking-widest text-[11px] md:text-lg px-8 py-4 md:px-16 md:py-5 rounded-full transition-all hover:-translate-y-1 shadow-[0_6px_0_#a88e92] active:shadow-none active:translate-y-[6px]">
                 RESERVA TU LECTURA EXPRESS 5€
             </a>
         </section>
 
-        <div class="absolute top-[46%] -left-50 z-20 pointer-events-none">
+        <div class="absolute top-[47%] -left-50 z-10 pointer-events-none hidden md:block">
             <Image src={nubeImg} alt="Nube decorativa" class="w-100 h-auto opacity-100" />
         </div>
 
-        <section class="relative flex items-center justify-between w-full mt-20 mb-20">
-            <div class="bg-[#b5cce4] rounded-[40px] absolute w-full left-0 h-[200px] -z-10 shadow-sm border border-white/40 top-1/2 -translate-y-1/2"></div>
+        <section class="relative flex flex-col md:flex-row items-center justify-center md:justify-between w-full mt-16 md:mt-20 mb-16 md:mb-20">
+            <div class="bg-[#b5cce4] rounded-[35px] md:rounded-[40px] absolute inset-0 md:h-[200px] md:top-1/2 md:-translate-y-1/2 -z-10 shadow-sm border border-white/40"></div>
             
-            <div class="pl-20 relative z-10 w-1/2">
-                <h2 class="text-[52px] font-serif text-texto italic tracking-widest leading-none">CARTA DEL DÍA</h2>
-                <div id="tarot-msg" class="text-base font-medium text-texto/80 mt-6 min-h-[60px] opacity-0 transition-opacity duration-500 max-w-lg">
+            <div class="relative z-10 w-full md:w-1/2 text-center md:text-left pt-10 md:pt-0 px-4 md:pl-20">
+                <h2 class="text-4xl md:text-[52px] font-serif text-texto italic tracking-widest leading-none">CARTA DEL DÍA</h2>
+                <div id="tarot-msg" class="text-sm md:text-base font-medium text-texto/80 mt-4 md:mt-6 min-h-[60px] opacity-0 transition-opacity duration-500 max-w-[280px] md:max-w-lg mx-auto md:mx-0">
                     Concéntrate, respira hondo y elige una carta para descubrir tu mensaje de hoy...
                 </div>
             </div>
 
-            <div class="pr-20 relative z-10 flex gap-4 items-end transform -translate-y-4 perspective-1000">
+            <div class="relative z-10 flex justify-center w-full md:w-1/2 transform md:-translate-y-4 perspective-1000 pb-10 md:pb-0 mt-8 md:mt-0 md:pr-20">
                 
-                <div class="tarot-card group w-36 h-56 cursor-pointer transform -rotate-[8deg] translate-y-8 transition-all duration-500 hover:-translate-y-2">
+                <div class="tarot-card group w-24 md:w-36 h-36 md:h-56 cursor-pointer transform -rotate-[12deg] md:-rotate-[8deg] translate-y-4 md:translate-y-8 translate-x-4 md:translate-x-0 transition-all duration-500 hover:-translate-y-2 z-0">
                     <div class="relative w-full h-full transform-style-3d transition-transform duration-700 inner-card">
                         <div class="absolute w-full h-full backface-hidden drop-shadow-xl">
                             <img src="/img/cartas/dorso.png" alt="Dorso" class="w-full h-full object-contain" />
@@ -45,7 +45,7 @@ import nubeImg from '../assets/nube.png';
                     </div>
                 </div>
 
-                <div class="tarot-card group w-36 h-56 cursor-pointer transform -translate-y-2 transition-all duration-500 hover:-translate-y-8 z-10">
+                <div class="tarot-card group w-24 md:w-36 h-36 md:h-56 cursor-pointer transform -translate-y-2 transition-all duration-500 hover:-translate-y-8 z-10">
                     <div class="relative w-full h-full transform-style-3d transition-transform duration-700 inner-card">
                         <div class="absolute w-full h-full backface-hidden drop-shadow-xl">
                             <img src="/img/cartas/dorso.png" alt="Dorso" class="w-full h-full object-contain" />
@@ -56,7 +56,7 @@ import nubeImg from '../assets/nube.png';
                     </div>
                 </div>
 
-                <div class="tarot-card group w-36 h-56 cursor-pointer transform rotate-[8deg] translate-y-8 transition-all duration-500 hover:-translate-y-2">
+                <div class="tarot-card group w-24 md:w-36 h-36 md:h-56 cursor-pointer transform rotate-[12deg] md:rotate-[8deg] translate-y-4 md:translate-y-8 -translate-x-4 md:translate-x-0 transition-all duration-500 hover:-translate-y-2 z-0">
                     <div class="relative w-full h-full transform-style-3d transition-transform duration-700 inner-card">
                         <div class="absolute w-full h-full backface-hidden drop-shadow-xl">
                             <img src="/img/cartas/dorso.png" alt="Dorso" class="w-full h-full object-contain" />
@@ -70,27 +70,27 @@ import nubeImg from '../assets/nube.png';
             </div>
         </section>
 
-        <section class="grid grid-cols-1 md:grid-cols-3 gap-10 pt-0 pb-0 relative z-10">
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10 pt-0 pb-0 relative z-10">
 
-			<a href="/reserva?servicio=Consejo Rúnico" class="bg-white/10 backdrop-blur-xl p-12 rounded-[45px] text-center shadow-lg border border-white/30 hover:bg-white/20 transition-all hover:-translate-y-3 group">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-12 h-12 mx-auto mb-6 text-[#cfb4b8] opacity-80 group-hover:scale-110 transition-transform duration-500"><path d="M12 2L3 12l9 10 9-10-9-10z"></path><path d="M3 12h18"></path><path d="M12 2v20"></path></svg>
-                <h3 class="font-bold text-texto text-[13px] tracking-[0.3em] mb-2 uppercase">CONSEJO RÚNICO</h3>
-                <p class="text-[13px] font-semibold text-texto/60 mb-8">(Audio)</p>
-                <p class="text-3xl font-serif font-bold text-texto">10,00€</p>
+            <a href="/reserva?servicio=Consejo Rúnico" class="bg-white/10 backdrop-blur-xl p-10 md:p-12 rounded-[35px] md:rounded-[45px] text-center shadow-lg border border-white/30 hover:bg-white/20 transition-all hover:-translate-y-3 group">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-10 h-10 md:w-12 md:h-12 mx-auto mb-4 md:mb-6 text-[#cfb4b8] opacity-80 group-hover:scale-110 transition-transform duration-500"><path d="M12 2L3 12l9 10 9-10-9-10z"></path><path d="M3 12h18"></path><path d="M12 2v20"></path></svg>
+                <h3 class="font-bold text-texto text-[11px] md:text-[13px] tracking-[0.3em] mb-2 uppercase">CONSEJO RÚNICO</h3>
+                <p class="text-[11px] md:text-[13px] font-semibold text-texto/60 mb-6 md:mb-8">(Audio)</p>
+                <p class="text-2xl md:text-3xl font-serif font-bold text-texto">10,00€</p>
             </a>
-			
-            <a href="/reserva?servicio=Análisis de Sueño" class="bg-white/10 backdrop-blur-xl p-12 rounded-[45px] text-center shadow-lg border border-white/30 hover:bg-white/20 transition-all hover:-translate-y-3 group">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-12 h-12 mx-auto mb-6 text-[#cfb4b8] opacity-80 group-hover:scale-110 transition-transform duration-500"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-                <h3 class="font-bold text-texto text-[13px] tracking-[0.3em] mb-2 uppercase">INTERPRETACIÓN DE SUEÑOS</h3>
-                <p class="text-[13px] font-semibold text-texto/60 mb-8">(PDF Detallado)</p>
-                <p class="text-3xl font-serif font-bold text-texto">15,00€</p>
+            
+            <a href="/reserva?servicio=Análisis de Sueño" class="bg-white/10 backdrop-blur-xl p-10 md:p-12 rounded-[35px] md:rounded-[45px] text-center shadow-lg border border-white/30 hover:bg-white/20 transition-all hover:-translate-y-3 group">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-10 h-10 md:w-12 md:h-12 mx-auto mb-4 md:mb-6 text-[#cfb4b8] opacity-80 group-hover:scale-110 transition-transform duration-500"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                <h3 class="font-bold text-texto text-[11px] md:text-[13px] tracking-[0.3em] mb-2 uppercase">INTERPRETACIÓN DE SUEÑOS</h3>
+                <p class="text-[11px] md:text-[13px] font-semibold text-texto/60 mb-6 md:mb-8">(PDF Detallado)</p>
+                <p class="text-2xl md:text-3xl font-serif font-bold text-texto">15,00€</p>
             </a>
-			
-            <a href="/reserva?servicio=Pack Reina de Oros" class="bg-white/10 backdrop-blur-xl p-12 rounded-[45px] text-center shadow-lg border border-white/30 hover:bg-white/20 transition-all hover:-translate-y-3 group">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-12 h-12 mx-auto mb-6 text-[#cfb4b8] opacity-80 group-hover:scale-110 transition-transform duration-500"><path d="m2 4 3 12h14l3-12-6 7-4-7-4 7-6-7zm3 16h14"></path></svg>
-                <h3 class="font-bold text-texto text-[13px] tracking-[0.3em] mb-2 uppercase">PACK REINA DE OROS</h3>
-                <p class="text-[13px] font-semibold text-texto/60 mb-8">(Vídeo de Tarot y Runas)</p>
-                <p class="text-3xl font-serif font-bold text-texto">50,00€</p>
+            
+            <a href="/reserva?servicio=Pack Reina de Oros" class="bg-white/10 backdrop-blur-xl p-10 md:p-12 rounded-[35px] md:rounded-[45px] text-center shadow-lg border border-white/30 hover:bg-white/20 transition-all hover:-translate-y-3 group">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-10 h-10 md:w-12 md:h-12 mx-auto mb-4 md:mb-6 text-[#cfb4b8] opacity-80 group-hover:scale-110 transition-transform duration-500"><path d="m2 4 3 12h14l3-12-6 7-4-7-4 7-6-7zm3 16h14"></path></svg>
+                <h3 class="font-bold text-texto text-[11px] md:text-[13px] tracking-[0.3em] mb-2 uppercase">PACK REINA DE OROS</h3>
+                <p class="text-[11px] md:text-[13px] font-semibold text-texto/60 mb-6 md:mb-8">(Vídeo de Tarot y Runas)</p>
+                <p class="text-2xl md:text-3xl font-serif font-bold text-texto">50,00€</p>
             </a>
         </section>
 
@@ -106,7 +106,6 @@ import nubeImg from '../assets/nube.png';
 
 <script>
     import { deck, obtenerRutaImagen } from '../data/tarot';
-
     const cards = document.querySelectorAll('.tarot-card') as NodeListOf<HTMLElement>;
     const msgEl = document.getElementById('tarot-msg') as HTMLElement;
     
