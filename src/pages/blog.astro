@@ -20,19 +20,19 @@ const postsOrdenados = posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pu
             <Image src={nubeImg} alt="Nube" class="w-120 h-auto scale-x-[-1]" />
         </div>
 
-        <header class="text-center mb-20 shrink-0">
-            <h1 class="text-4xl font-bold mb-4 text-[#cfb4b8] text-center font-serif">El Oráculo</h1>
-            <p class="text-lg text-texto/70 mb-10 text-center italic px-4">Reflexiones espirituales, tiradas interactivas y magia tecnológica.</p>
+        <header class="text-center mb-12 md:mb-20 shrink-0">
+            <h1 class="text-3xl md:text-4xl font-bold mb-4 text-[#cfb4b8] text-center font-serif">El Oráculo</h1>
+            <p class="text-base md:text-lg text-texto/70 mb-8 md:mb-10 text-center italic px-4">Reflexiones espirituales, tiradas interactivas y magia tecnológica.</p>
         </header>
 
         <InstagramFeed />
         <YouTubeFeed />
 
-        <h2 class="text-3xl font-serif text-texto text-center mb-10 italic tracking-widest uppercase">Blog</h2>
+        <h2 class="text-2xl md:text-3xl font-serif text-texto text-center mb-8 md:mb-10 italic tracking-widest uppercase">Blog</h2>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 relative z-10">
             {postsOrdenados.map((post) => (
-                <article class="group relative border border-white/50 rounded-[35px] shadow-sm hover:shadow-lg transition-all duration-500 hover:-translate-y-2 overflow-hidden flex flex-col h-full">
+                <article class="group relative border border-white/50 rounded-[30px] md:rounded-[35px] shadow-sm hover:shadow-lg transition-all duration-500 hover:-translate-y-2 overflow-hidden flex flex-col h-full">
                     
                     {post.data.image ? (
                         <div class="absolute inset-0 z-0">
@@ -43,7 +43,7 @@ const postsOrdenados = posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pu
                         <div class="absolute inset-0 bg-white/20 backdrop-blur-xl group-hover:bg-white/30 transition-colors duration-500 z-0"></div>
                     )}
 
-                    <div class="relative z-10 p-8 flex flex-col h-full">
+                    <div class="relative z-10 p-6 md:p-8 flex flex-col h-full">
                         <div class="flex flex-wrap gap-2 mb-4">
                             {post.data.tags.map(tag => (
                                 <span class="text-[9px] font-bold uppercase tracking-[0.2em] text-[#cfb4b8] bg-white/60 border border-white px-3 py-1 rounded-full shadow-sm">
@@ -52,7 +52,7 @@ const postsOrdenados = posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pu
                             ))}
                         </div>
 
-                        <h2 class="text-2xl font-serif font-bold text-texto mb-3 leading-tight italic">
+                        <h2 class="text-xl md:text-2xl font-serif font-bold text-texto mb-3 leading-tight italic">
                             <a href={`/blog/${post.id}`} class="hover:text-[#cfb4b8] transition-colors">
                                 {post.data.title}
                             </a>
@@ -76,13 +76,13 @@ const postsOrdenados = posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pu
             ))}
         </div>
 
-        <div class="text-center mt-16 relative z-10">
-            <a href="/archivo" class="inline-block border-2 border-[#cfb4b8] text-[#cfb4b8] hover:bg-[#cfb4b8] hover:text-white font-bold tracking-widest text-sm px-10 py-4 rounded-full transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-1">
+        <div class="text-center mt-12 md:mt-16 relative z-10">
+            <a href="/archivo" class="inline-block border-2 border-[#cfb4b8] text-[#cfb4b8] hover:bg-[#cfb4b8] hover:text-white font-bold tracking-widest text-xs md:text-sm px-8 md:px-10 py-3 md:py-4 rounded-full transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-1">
                 EXPLORAR EL ARCHIVO MÍSTICO
             </a>
         </div>
 
-        <footer class="mt-24 text-center pb-10">
+        <footer class="mt-20 md:mt-24 text-center pb-10">
             <div class="flex items-center justify-center gap-4 mb-8 opacity-40">
                 <div class="h-[1px] w-20 bg-texto"></div>
                 <span class="text-xl">☁️</span>
