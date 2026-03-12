@@ -82,15 +82,28 @@ const postsOrdenados = posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pu
             </a>
         </div>
 
-        <footer class="mt-20 md:mt-24 text-center pb-10">
-            <div class="flex items-center justify-center gap-4 mb-8 opacity-40">
+        <section class="py-20 px-6 text-center">
+            <div class="bg-white/20 backdrop-blur-xl max-w-4xl mx-auto p-12 rounded-[50px] border border-white/40 shadow-sm">
+                <h2 class="text-3xl font-serif text-texto mb-6 italic">¿Buscas el mensaje de una carta?</h2>
+                <p class="text-texto/70 mb-8 max-w-xl mx-auto">
+                    Hemos canalizado la sabiduría de los 78 arcanos en nuestro nuevo diccionario místico. 
+                    Busca tu carta y descubre qué tiene que decirte el universo hoy.
+                </p>
+                <a href="/blog/tarot" class="bg-[#cfb4b8] text-white font-bold tracking-[0.2em] text-[12px] px-10 py-5 rounded-full shadow-[0_5px_0_#a88e92] hover:translate-y-1 hover:shadow-none transition-all active:scale-95 inline-block">
+                    EXPLORAR DICCIONARIO
+                </a>
+            </div>
+        </section>
+
+        <footer class="mt-20 md:mt-1 text-center pb-10">
+            <div class="flex items-center justify-center gap-4 mb-1 opacity-40">
                 <div class="h-[1px] w-20 bg-texto"></div>
                 <span class="text-xl">☁️</span>
                 <div class="h-[1px] w-20 bg-texto"></div>
             </div>
-            <p class="text-texto/40 text-sm font-serif italic tracking-wide">
-                El conocimiento del oráculo se renueva con cada ciclo lunar.
-            </p>
+                <p class="text-texto/40 text-sm font-serif italic tracking-wide">
+                    El conocimiento del oráculo se renueva con cada ciclo lunar.
+                </p>
         </footer>
     </div>
 </Layout>
