@@ -84,7 +84,7 @@ const paypalClientId = import.meta.env.PUBLIC_PAYPAL_CLIENT_ID;
     </div>
 </Layout>
 
-<script is:inline src={`https://www.paypal.com/sdk/js?client-id=${paypalClientId}&currency=EUR`}/></script>
+<script is:inline src={`https://www.paypal.com/sdk/js?client-id=${paypalClientId}&currency=EUR`}></script>
 
 <script>
     import { serviciosTarot } from '../data/servicios';
@@ -107,8 +107,8 @@ const paypalClientId = import.meta.env.PUBLIC_PAYPAL_CLIENT_ID;
         if (txtServ) txtServ.innerHTML = `${encontrado.nombre} (${encontrado.precio})`;
         if (inputNombre) inputNombre.value = encontrado.nombre;
         if (inputPrecio) {
-            const precioLimpio = encontrado.precio.replace('€', '').trim();
-            inputPrecio.value = `${precioLimpio}.00`;
+            const precioLimpio = encontrado.precio.replace('€', '').replace(',', '.').trim();
+            inputPrecio.value = precioLimpio.includes('.') ? precioLimpio : `${precioLimpio}.00`;
         }
     }
 
