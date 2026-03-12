@@ -4,12 +4,20 @@ import { Image } from 'astro:assets';
 import background from '../assets/background.png';
 import nubeImg from '../assets/nube.png';
 
-// seo
+// SEO Pro: Añadimos description e image como opcionales (?)
 interface Props {
     title: string;
+    description?: string;
+    image?: string;
 }
 
-const { title } = Astro.props;
+// Extraemos los datos y les ponemos valores por defecto por si alguna página no los tiene
+const { 
+    title, 
+    description = "Lectura de Tarot, Runas e Interpretación de Sueños con enfoque espiritual y tecnológico. Descubre los mensajes que el universo tiene para ti.",
+    image = "/img-share.png"
+} = Astro.props;
+
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
@@ -26,20 +34,20 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         <title>{title} | Clouds & Arcana</title>
         <link rel="icon" type="image/png" href="/favicon.png" />
 
-        <meta name="description" content="Lectura de Tarot, Runas e Interpretación de Sueños con enfoque espiritual y tecnológico. Descubre los mensajes que el universo tiene para ti." />
+        <meta name="description" content={description} />
         <meta name="keywords" content="Tarot, Runas, Sueños, Espiritualidad, Lectura de cartas, Oráculo" />
         <meta name="author" content="Clouds & Arcana" />
 
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="Clouds & Arcana | Mensajes Místicos desde las Nubes" />
-        <meta property="og:description" content="¿Qué te inquieta hoy? Consulta el Oráculo y reserva tu sesión mística." />
-        <meta property="og:image" content="/img-share.png" /> 
-        <meta property="og:url" content="https://clouds-and-arcana.vercel.app" />
+        <meta property="og:title" content={`${title} | Clouds & Arcana`} />
+        <meta property="og:description" content={description} />
+        <meta property="og:image" content={image} /> 
+        <meta property="og:url" content={canonicalURL} />
 
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Clouds & Arcana" />
-        <meta name="twitter:description" content="Interpretación de sueños, lectura de tarot y runas por una Tech-Bruja." />
-        <meta name="twitter:image" content="/favicon.png" />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={description} />
+        <meta name="twitter:image" content={image} />
 
         <script type="application/ld+json">
         {
@@ -54,7 +62,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
             }
         }
         </script>
-
     </head>
     <body class="bg-[#eef5fa] text-texto font-sans min-h-screen flex flex-col relative overflow-x-hidden">
         
