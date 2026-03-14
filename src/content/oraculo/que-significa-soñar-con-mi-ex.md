@@ -3,7 +3,7 @@ title: '¿Por qué sueño con mi ex todos los días? Lazos energéticos y proces
 description: 'Si sueñas con tu ex cada noche, no es que el destino te mande señales, es tu energía pidiendo un cierre de ciclo. Descubre qué significa a nivel espiritual.'
 pubDate: 2026-03-14
 tags: ['sueños', 'espiritualidad', 'lazos-energeticos', 'alma', 'sanacion-emocional']
-image: 'https://i.pinimg.com/564x/e1/5a/88/e15a8863f88f8d67a987654321d23456.jpg'
+image: 'https://pbs.twimg.com/media/DddczY4XkAAHQAh.jpg'
 ---
 
 # El hilo invisible: Por qué el pasado habita en tus sueños
