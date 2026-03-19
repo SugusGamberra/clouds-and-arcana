@@ -1,5 +1,4 @@
 import type { APIRoute } from 'astro';
-import { serviciosTarot } from '../../data/servicios';
 
 export const prerender = false;
 
@@ -7,20 +6,18 @@ export const POST: APIRoute = async ({ request }) => {
     // recibir datos
     const data = await request.json();
     const { nombre, email, servicio, mensaje, pagoID } = data;
+    
+    // Tus variables de entorno
     const token = import.meta.env.TELEGRAM_TOKEN;
     const chatId = import.meta.env.TELEGRAM_CHAT_ID;
 
-    const servicioReal = serviciosTarot.find(s => s.nombre === servicio);
-    const precioEsperado = servicioReal ? servicioReal.precio : 'Desconocido';
-
-    // mensaje pa telegram
+    // mensaje pa telegram (adaptado para la cesta múltiple)
     const textoTelegram = `
         🔮 NUEVA RESERVA 🔮
 
         👤 Nombre: ${nombre}
         💌 Email: ${email}
-        ✨ Servicio: ${servicio}
-        💰 Precio esperado: ${precioEsperado}
+        ✨ Pedido: ${servicio}
         💳 ID PayPal: ${pagoID}
 
         📝 Mensaje: ${mensaje}
