@@ -10,18 +10,18 @@ const postsOrdenados = posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pu
     <div class="max-w-6xl mx-auto py-12 px-6 relative z-10">
         
         <header class="text-center mb-16 shrink-0">
-            <h1 class="text-4xl font-bold mb-4 text-[#cfb4b8] text-center font-serif">Archivo Místico</h1>
-<p class="text-lg text-texto/70 mb-10 text-center italic px-4">Toda la sabiduría pasada del oráculo, guardada en las nubes.</p>
+            <h1 class="cabecera-titulo">Archivo Místico</h1>
+            <p class="cabecera-subtitulo">Toda la sabiduría pasada del oráculo, guardada en las nubes.</p>
         </header>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 relative z-10">
             {postsOrdenados.map((post) => (
-                <article class="group relative border border-white/50 rounded-[35px] shadow-sm hover:shadow-lg transition-all duration-500 hover:-translate-y-2 overflow-hidden flex flex-col h-full">
+                <article class="group relative border border-white/50 rounded-[35px] shadow-sm hover:shadow-lg transition-all duration-500 hover:-translate-y-2 overflow-hidden flex flex-col h-full bg-white/10 backdrop-blur-sm">
                     
                     {post.data.image ? (
                         <div class="absolute inset-0 z-0">
                             <img src={post.data.image} alt={post.data.title} class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
-                            <div class="absolute inset-0 bg-white/40 backdrop-blur-md group-hover:bg-white/30 transition-colors duration-500"></div>
+                            <div class="absolute inset-0 bg-white/60 backdrop-blur-md group-hover:bg-white/40 transition-colors duration-500"></div>
                         </div>
                     ) : (
                         <div class="absolute inset-0 bg-white/20 backdrop-blur-xl group-hover:bg-white/30 transition-colors duration-500 z-0"></div>
@@ -30,14 +30,14 @@ const postsOrdenados = posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pu
                     <div class="relative z-10 p-8 flex flex-col h-full">
                         <div class="flex flex-wrap gap-2 mb-4">
                             {post.data.tags.map(tag => (
-                                <span class="text-[9px] font-bold uppercase tracking-[0.2em] text-[#cfb4b8] bg-white/60 border border-white px-3 py-1 rounded-full shadow-sm">
+                                <span class="tag-mistica !opacity-100 !bg-white/80">
                                     #{tag}
                                 </span>
                             ))}
                         </div>
 
                         <h2 class="text-2xl font-serif font-bold text-texto mb-3 leading-tight italic">
-                            <a href={`/blog/${post.id}`} class="hover:text-[#cfb4b8] transition-colors">
+                            <a href={`/blog/${post.id}`} class="group-hover:text-rosa transition-colors duration-300">
                                 {post.data.title}
                             </a>
                         </h2>
@@ -51,7 +51,7 @@ const postsOrdenados = posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pu
                                 {post.data.pubDate.toLocaleDateString('es-ES', { day: '2-digit', month: 'short', year: 'numeric' })}
                             </span>
                             
-                            <a href={`/blog/${post.id}`} class="text-xs font-bold tracking-[0.1em] text-[#cfb4b8] hover:text-[#bfa3a7] transition-colors">
+                            <a href={`/blog/${post.id}`} class="text-xs font-bold tracking-[0.1em] text-rosa hover:opacity-70 transition-all uppercase">
                                 LEER →
                             </a>
                         </div>
@@ -61,18 +61,9 @@ const postsOrdenados = posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pu
         </div>
 
         <div class="text-center mt-16">
-            <a href="/blog" class="text-sm font-bold tracking-widest text-texto/50 hover:text-[#cfb4b8] transition-colors uppercase">
-                ← Volver al Oráculo
+            <a href="/blog" class="text-sm font-bold tracking-widest text-texto/50 hover:text-rosa transition-all uppercase flex items-center justify-center gap-2">
+                <span>←</span> Volver al Oráculo
             </a>
         </div>
     </div>
 </Layout>
-
-<style>
-    .line-clamp-3 {
-        display: -webkit-box;
-        -webkit-line-clamp: 3;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-    }
-</style>

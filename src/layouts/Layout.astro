@@ -89,11 +89,11 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
                         </button>
                         
                         <div class="absolute top-full right-0 mt-3 w-64 bg-white/90 backdrop-blur-xl border border-white/50 rounded-2xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 flex flex-col overflow-hidden text-left z-50">
-                            <a href="/reservar/tarot" class="px-5 py-3.5 text-[10px] font-bold tracking-[0.15em] text-[#8e7579] hover:bg-[#cfb4b8] hover:text-white transition-colors border-b border-white/50 uppercase">Tarot y Guía Espiritual</a>
-                            <a href="/reservar/runas" class="px-5 py-3.5 text-[10px] font-bold tracking-[0.15em] text-[#8e7579] hover:bg-[#cfb4b8] hover:text-white transition-colors border-b border-white/50 uppercase">Magia Nórdica y Runas</a>
-                            <a href="/reservar/suenos" class="px-5 py-3.5 text-[10px] font-bold tracking-[0.15em] text-[#8e7579] hover:bg-[#cfb4b8] hover:text-white transition-colors border-b border-white/50 uppercase">El Mundo de los Sueños</a>
-                            <a href="/reservar/rituales" class="px-5 py-3.5 text-[10px] font-bold tracking-[0.15em] text-[#8e7579] hover:bg-[#cfb4b8] hover:text-white transition-colors border-b border-white/50 uppercase">Rituales y Hechizos</a>
-                            <a href="/reservar/limpiezas" class="px-5 py-3.5 text-[10px] font-bold tracking-[0.15em] text-[#8e7579] hover:bg-[#cfb4b8] hover:text-white transition-colors uppercase">Limpiezas Energéticas</a>
+                            <a href="/reservar/tarot" class="dropdown-link">Tarot y Guía Espiritual</a>
+                            <a href="/reservar/runas" class="dropdown-link">Magia Nórdica y Runas</a>
+                            <a href="/reservar/suenos" class="dropdown-link">El Mundo de los Sueños</a>
+                            <a href="/reservar/rituales" class="dropdown-link">Rituales y Hechizos</a>
+                            <a href="/reservar/limpiezas" class="dropdown-link border-none">Limpiezas Energéticas</a>
                         </div>
                     </li>
 
@@ -104,7 +104,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
                                 <path d="M3 6h18"></path>
                                 <path d="M16 10a4 4 0 0 1-8 0"></path>
                             </svg>
-                            <span id="cart-count-desktop" class="absolute -top-2 -right-2 bg-white text-[#cfb4b8] text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center shadow-sm border border-[#cfb4b8]/30 hidden">0</span>
+                            <span id="cart-count-desktop" class="cart-badge">0</span>
                         </a>
                     </li>
                 </ul>
@@ -135,53 +135,12 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
                                 <path d="M3 6h18"></path>
                                 <path d="M16 10a4 4 0 0 1-8 0"></path>
                             </svg>
-                            <span id="cart-count-mobile" class="absolute -top-2 -right-2 bg-white text-[#cfb4b8] text-[12px] font-bold w-5 h-5 rounded-full flex items-center justify-center shadow-sm border border-[#cfb4b8]/30 hidden">0</span>
+                            <span id="cart-count-mobile" class="cart-badge-mobile">0</span>
                         </a>
                     </div>
                 </div>
             </nav>
         </header>
-
-        <style>
-            .nav-link {
-                font-size: 11px;
-                font-weight: 700;
-                letter-spacing: 0.2em;
-                color: rgba(45, 55, 72, 0.6);
-                transition: all 0.3s ease;
-                position: relative;
-                text-decoration: none;
-            }
-
-            .nav-link:hover { color: #cfb4b8; }
-
-            .nav-link::after {
-                content: '';
-                position: absolute;
-                bottom: -4px;
-                left: 0;
-                width: 0;
-                height: 1px;
-                background: #cfb4b8;
-                transition: width 0.3s ease;
-            }
-
-            .nav-link:hover::after { width: 100%; }
-
-            .nav-link-mobile {
-                font-size: 13px;
-                font-weight: 700;
-                letter-spacing: 0.2em;
-                color: rgba(45, 55, 72, 0.8);
-                padding: 12px 0;
-                border-bottom: 1px solid rgba(207, 180, 184, 0.3);
-                text-decoration: none;
-                transition: all 0.3s ease;
-            }
-            
-            .nav-link-mobile:last-of-type { border-bottom: none; }
-            .nav-link-mobile:hover { color: #cfb4b8; }
-        </style>
 
         <div class="fixed inset-0 w-full h-full -z-10">
             <Image 
@@ -205,37 +164,35 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
             </div>
 
             <div class="relative z-30 max-w-5xl mx-auto px-4 flex flex-col items-center justify-center gap-6"> 
-                
-                <div class="flex flex-wrap justify-center items-center gap-3 md:gap-4 text-[10px] md:text-xs font-bold tracking-widest uppercase text-[#8e7579]">
+                <div class="flex flex-wrap justify-center items-center gap-4 text-[10px] md:text-xs font-bold tracking-widest uppercase text-texto text-opacity-60">
                     <a href="/faq" class="hover:text-white transition-colors">Preguntas Frecuentes</a>
-                    <span class="text-[#8e7579]/40">|</span>
+                    <span class="opacity-30">|</span>
                     <a href="/contacto" class="hover:text-white transition-colors">Contacto</a>
-                    <span class="text-[#8e7579]/40">|</span>
+                    <span class="opacity-30">|</span>
                     <a href="/privacidad" class="hover:text-white transition-colors">Privacidad</a>
-                    <span class="text-[#8e7579]/40">|</span>
+                    <span class="opacity-30">|</span>
                     <a href="/terminos" class="hover:text-white transition-colors">Términos</a>
                 </div>
 
                 <div class="flex justify-center items-center gap-6">
-                    <a href="https://www.instagram.com/cloudsarcana/" target="_blank" rel="noopener noreferrer" class="hover:scale-110 transition-transform group" aria-label="Instagram de Clouds & Arcana">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#8e7579" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:stroke-white transition-colors"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                    <a href="https://www.instagram.com/cloudsarcana/" target="_blank" rel="noopener noreferrer" class="hover:scale-110 transition-transform group" aria-label="Instagram">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-texto text-opacity-60 group-hover:text-white transition-colors"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
                     </a>
-                    <a href="https://www.youtube.com/@CloudsArcana" target="_blank" rel="noopener noreferrer" class="hover:scale-110 transition-transform group" aria-label="YouTube de Clouds & Arcana">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#8e7579" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:stroke-white transition-colors"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
+                    <a href="https://www.youtube.com/@CloudsArcana" target="_blank" rel="noopener noreferrer" class="hover:scale-110 transition-transform group" aria-label="YouTube">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-texto text-opacity-60 group-hover:text-white transition-colors"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
                     </a>
                 </div>
                 
-                <p class="text-[10px] md:text-xs font-bold tracking-wider text-center text-[#8e7579]/80 mt-2">
+                <p class="text-[10px] md:text-xs font-bold tracking-wider text-center text-texto text-opacity-50 mt-2">
                     © 2026 Clouds & Arcana. Todos los derechos reservados.
                 </p>
             </div>
         </footer>
 
         <script>
-            // LOGICA DEL MENÚ MOVIL
+            // Lógica Menú
             const btn = document.getElementById('mobile-menu-btn');
             const menu = document.getElementById('mobile-menu');
-            
             if (btn && menu) {
                 btn.addEventListener('click', () => {
                     menu.classList.toggle('hidden');
@@ -243,38 +200,25 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
                 });
             }
 
-            // LOGICA DEL CARRITO DE LA COMPRA
+            // Lógica Carrito
             let carrito = JSON.parse(localStorage.getItem('carritoClouds') || '[]');
-
             function actualizarContadores() {
                 const countDesktop = document.getElementById('cart-count-desktop');
                 const countMobile = document.getElementById('cart-count-mobile');
                 const totalItems = carrito.length;
-
-                if (countDesktop) {
-                    countDesktop.textContent = totalItems.toString();
-                    if (totalItems > 0) countDesktop.classList.remove('hidden');
-                    else countDesktop.classList.add('hidden');
-                }
-                
-                if (countMobile) {
-                    countMobile.textContent = totalItems.toString();
-                    if (totalItems > 0) countMobile.classList.remove('hidden');
-                    else countMobile.classList.add('hidden');
-                }
+                [countDesktop, countMobile].forEach(el => {
+                    if (el) {
+                        el.textContent = totalItems.toString();
+                        el.classList.toggle('hidden', totalItems === 0);
+                    }
+                });
             }
-
             actualizarContadores();
 
             document.addEventListener('click', (e) => {
                 let target = e.target as any;
-
-                if (target && target.nodeType === 3) {
-                    target = target.parentNode;
-                }
-
+                if (target && target.nodeType === 3) target = target.parentNode;
                 if (!target || typeof target.closest !== 'function') return;
-
                 const botonAnadir = target.closest('.add-to-cart-btn');
                 if (!botonAnadir) return; 
 
@@ -284,13 +228,11 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
                 carrito.push({ id, nombre, precio });
                 localStorage.setItem('carritoClouds', JSON.stringify(carrito));
-                
                 actualizarContadores();
 
                 const textoOriginal = botonAnadir.innerHTML;
                 botonAnadir.innerHTML = '¡AÑADIDO! ☁️';
                 botonAnadir.classList.add('bg-[#8e7579]', 'scale-105');
-                
                 setTimeout(() => {
                     botonAnadir.innerHTML = textoOriginal;
                     botonAnadir.classList.remove('bg-[#8e7579]', 'scale-105');

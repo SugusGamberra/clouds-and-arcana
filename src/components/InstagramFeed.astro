@@ -17,11 +17,11 @@ try {
 
 {posts.length > 0 && (
     <section class="my-16 relative z-10">
-        <h2 class="text-3xl font-serif text-texto text-center mb-10 italic tracking-widest uppercase">Visuales del Oráculo</h2>
+        <h2 class="titulo-seccion">Visuales del Oráculo</h2>
         
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             {posts.slice(0, 3).map((post: any) => (
-                <article class="bg-white/20 backdrop-blur-xl rounded-[30px] p-5 shadow-lg border border-white/40 hover:-translate-y-2 transition-transform duration-300 flex flex-col h-full group">
+                <article class="card-cristal group">
                     
                     <a href={post.permalink} target="_blank" rel="noopener noreferrer" class="block rounded-[20px] overflow-hidden mb-4 shadow-sm relative aspect-square">
                         <img 
@@ -40,7 +40,7 @@ try {
                     </a>
                     
                     <div class="flex-grow flex flex-col justify-between">
-                        <p class="text-texto/80 text-sm font-medium leading-relaxed line-clamp-3 mb-4">
+                        <p class="text-texto text-opacity-80 text-sm font-medium leading-relaxed line-clamp-3 mb-4">
                             {post.caption || ""}
                         </p>
                         

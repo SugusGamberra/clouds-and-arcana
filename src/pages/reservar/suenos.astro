@@ -4,6 +4,7 @@ import { servicios } from '../../data/servicios';
 import { Image } from 'astro:assets';
 import nubeImg from '../../assets/nube.png';
 
+// Filtro específico para esta página
 const serviciosCategoria = servicios.filter(s => s.categoria === 'El Mundo de los Sueños');
 ---
 
@@ -15,39 +16,46 @@ const serviciosCategoria = servicios.filter(s => s.categoria === 'El Mundo de lo
         </div>
 
         <div class="mb-8 pl-4">
-            <a href="/" class="inline-flex items-center gap-2 text-texto/60 text-[10px] font-bold uppercase tracking-[0.2em] hover:text-[#cfb4b8] transition-colors">
+            <a href="/" class="inline-flex items-center gap-2 text-texto/60 text-[10px] font-bold uppercase tracking-[0.2em] hover:text-rosa transition-colors">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
                 VOLVER AL INICIO
             </a>
         </div>
 
         <header class="text-center mb-16">
-            <h1 class="text-4xl md:text-5xl font-bold mb-4 text-[#cfb4b8] text-center font-serif">El mundo de los sueños</h1>
-            <p class="text-lg text-texto/70 mb-10 text-center italic px-4">Interpretación de sueños y limpiezas del bajo astral para que puedas dormir a gusto.</p>
+            <h1 class="cabecera-titulo">El mundo de los sueños</h1>
+            <p class="cabecera-subtitulo">Interpretación de sueños y limpiezas del bajo astral para que puedas dormir a gusto.</p>
         </header>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
             {serviciosCategoria.map((servicio) => (
-                <div class={`p-8 rounded-[40px] border flex flex-col justify-between backdrop-blur-xl transition-all duration-300 hover:scale-[1.02] ${servicio.destacado ? 'border-[#cfb4b8] bg-white/40 shadow-xl' : 'border-white/50 bg-white/20 hover:bg-white/30 shadow-sm'}`}>
+                <div class={`tarjeta-cristal flex flex-col justify-between hover:scale-[1.02] ${servicio.destacado ? 'border-rosa bg-white/40 shadow-xl' : ''}`}>
                     
                     <div>
-                        <h3 class="text-2xl font-serif font-bold text-texto mb-3 leading-tight">
-                            {servicio.nombre} {servicio.destacado && '👑'}
+                        <h3 class="text-2xl font-serif font-bold text-texto mb-3 leading-tight flex items-center gap-2">
+                            {servicio.nombre} 
+                            {servicio.destacado && <span class="text-lg" title="Destacado">👑</span>}
                         </h3>
                         <p class="text-texto/80 text-[14px] mb-5 leading-relaxed">{servicio.descripcion}</p>
-                        <p class="text-texto/60 text-[11px] italic mb-6 font-bold uppercase tracking-widest">Formato: {servicio.formato}</p>
+                        <p class="text-rosa text-[10px] font-bold uppercase tracking-widest bg-white/40 w-max px-3 py-1 rounded-full border border-white/50">
+                            Formato: {servicio.formato}
+                        </p>
                     </div>
                     
-                    <div class="flex justify-between items-center mt-4 border-t border-white/40 pt-6">
+                    <div class="flex justify-between items-center mt-8 border-t border-white/40 pt-6">
                         <span class="text-3xl font-serif font-bold text-texto">{servicio.precio}€</span>
                         
                         <button 
-                            class="add-to-cart-btn px-6 py-3 bg-[#cfb4b8] text-white rounded-full font-bold text-[11px] tracking-[0.2em] shadow-[0_4px_0_#a88e92] hover:translate-y-1 hover:shadow-none transition-all active:scale-95 uppercase flex items-center gap-2"
+                            class="add-to-cart-btn px-6 py-3 bg-[#cfb4b8] text-white rounded-full font-bold text-[11px] tracking-[0.2em] shadow-[0_4px_0_#a88e92] hover:translate-y-1 hover:shadow-none transition-all active:scale-95 uppercase flex items-center gap-2 cursor-pointer"
                             data-id={servicio.id}
                             data-nombre={servicio.nombre}
                             data-precio={servicio.precio}
                         >
-                            AÑADIR 🛒
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                            AÑADIR
                         </button>
                     </div>
                 </div>

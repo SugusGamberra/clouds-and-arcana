@@ -1,1 +1,155 @@
 @import "tailwindcss";
+
+@theme {
+    --color-rosa: #cfb4b8;
+}
+
+:root {
+    --color-texto: #2d3748;
+    --color-rosa: #cfb4b8;
+    --color-azul-blog: #b5cce4;
+}
+
+@layer components {
+    /* --- COMPONENTES DE CRISTAL --- */
+    .tarjeta-cristal {
+        @apply bg-white/20 backdrop-blur-xl rounded-[35px] p-6 md:p-8 border border-white/50 shadow-sm relative z-10 transition-all w-full leading-relaxed;
+        color: var(--color-texto);
+    }
+    
+    .tarjeta-cristal:hover {
+        @apply bg-white/30;
+    }
+
+    .tarjeta-cristal p {
+        @apply opacity-80 mb-4;
+    }
+
+    .card-cristal {
+        @apply bg-white/20 backdrop-blur-xl rounded-[30px] p-5 shadow-lg border border-white/40 transition-all duration-300 flex flex-col h-full hover:-translate-y-2;
+    }
+
+    /* --- TÍTULOS Y CABECERAS --- */
+    .cabecera-titulo {
+        @apply text-4xl font-bold mb-4 text-center font-serif;
+        color: var(--color-rosa);
+    }
+    
+    .cabecera-subtitulo {
+        @apply text-lg text-center italic px-4 mb-10;
+        color: var(--color-texto);
+        opacity: 0.7;
+    }
+
+    .titulo-cristal {
+        @apply text-2xl font-serif font-bold mb-4 border-b pb-2;
+        color: var(--color-texto);
+        border-color: rgba(207, 180, 184, 0.3);
+    }
+
+    .titulo-seccion {
+        @apply text-3xl font-serif text-center mb-10 italic tracking-widest uppercase;
+        color: var(--color-texto);
+    }
+
+    /* --- NAVEGACIÓN --- */
+    .nav-link {
+        @apply text-[11px] font-bold tracking-[0.2em] transition-all duration-300 relative no-underline;
+        color: var(--color-texto);
+        opacity: 0.6;
+    }
+    .nav-link:hover { color: var(--color-rosa); opacity: 1; }
+    .nav-link::after {
+        @apply content-[''] absolute -bottom-1 left-0 w-0 h-[1px] transition-all duration-300;
+        background-color: var(--color-rosa);
+    }
+    .nav-link:hover::after { @apply w-full; }
+
+    .dropdown-link {
+        @apply px-5 py-3.5 text-[10px] font-bold tracking-[0.15em] hover:text-white transition-colors border-b border-white/50 uppercase;
+        color: var(--color-texto);
+        opacity: 0.8;
+    }
+    .dropdown-link:hover { background-color: var(--color-rosa); opacity: 1; }
+
+    .nav-link-mobile {
+        @apply text-[13px] font-bold tracking-[0.2em] p-3 no-underline transition-all duration-300 border-b;
+        color: var(--color-texto);
+        opacity: 0.8;
+        border-color: rgba(207, 180, 184, 0.3);
+    }
+
+    /* --- ELEMENTOS Y BLOG --- */
+    .tarjeta-azul {
+        @apply p-8 rounded-[40px] shadow-sm border border-white/40 flex flex-col md:h-full md:overflow-hidden;
+        background-color: var(--color-azul-blog);
+    }
+
+    .tag-mistica {
+        @apply text-[9px] font-bold uppercase tracking-widest bg-white/40 border border-white px-3 py-1 rounded-full shadow-sm;
+        color: var(--color-texto);
+        opacity: 0.6;
+    }
+
+    .contenedor-foto-blog {
+        @apply relative w-full flex-1 min-h-[150px] mb-5 rounded-[20px] overflow-hidden border border-white/40 shadow-sm shrink;
+    }
+
+    .btn-volver {
+        @apply block w-full text-center bg-white/30 hover:bg-white/50 font-bold tracking-widest text-[10px] py-3 rounded-full transition-all border border-white/50 mt-auto shrink-0;
+        color: var(--color-texto);
+    }
+
+    /* --- CONTENIDO DINÁMICO (Markdown/Prose) --- */
+    .prose-texto p { @apply mb-4 leading-relaxed; }
+    .prose-texto strong { color: var(--color-rosa); @apply font-bold; }
+    .prose-texto ul { @apply list-none pl-2 mb-6; }
+    .prose-texto li { @apply relative pl-6 mb-2; }
+    .prose-texto li::before {
+        content: "✦";
+        @apply absolute left-0 text-[0.8rem];
+        color: var(--color-rosa);
+    }
+
+    .prose-texto a {
+        @apply font-bold underline transition-all duration-300;
+        color: var(--color-rosa);
+        text-decoration-color: rgba(207, 180, 184, 0.4);
+        text-underline-offset: 4px;
+    }
+
+    .prose-texto a:hover {
+        @apply opacity-80;
+        text-decoration-color: var(--color-rosa);
+    }
+
+    /* H2 y H3 */
+    .prose-texto h2 { 
+        @apply font-serif italic text-2xl mt-5 mb-2; 
+        color: var(--color-texto);
+    }
+    .prose-texto h3 { 
+        @apply font-serif italic text-xl mt-4 mb-1; 
+        color: var(--color-texto);
+    }
+
+    /* --- UTILIDADES --- */
+    .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+    .custom-scrollbar::-webkit-scrollbar-thumb { 
+        background: rgba(207, 180, 184, 0.8); 
+        border-radius: 10px; 
+    }
+
+    /* carrito */
+    .cart-badge {
+        @apply absolute -top-2 -right-2 bg-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center shadow-sm border;
+        color: var(--color-rosa);
+        border-color: rgba(207, 180, 184, 0.3);
+    }
+
+    .cart-badge-mobile {
+        @apply absolute -top-2 -right-2 bg-white text-[12px] font-bold w-5 h-5 rounded-full flex items-center justify-center shadow-sm border;
+        color: var(--color-rosa);
+        border-color: rgba(207, 180, 184, 0.3);
+    }
+}

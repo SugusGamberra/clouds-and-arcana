@@ -5,25 +5,29 @@ import Layout from '../layouts/Layout.astro';
 <Layout title="404 - Perdido en las nubes">
     <div class="h-[calc(80vh-160px)] w-full flex flex-col items-center justify-center px-6 relative z-10 overflow-hidden">
         
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-10 -z-20 pointer-events-none">
-            <span class="text-[300px] font-serif italic text-texto">404</span>
+        <div class="tarjeta-cristal !p-12 max-w-2xl text-center relative overflow-hidden">
+            
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-[0.03] -z-10 pointer-events-none select-none">
+                <span class="text-[150px] md:text-[300px] font-serif italic text-texto">404</span>
+            </div>
+
+            <div class="relative z-10"> <div class="text-6xl mb-6 animate-bounce">☁️</div>
+                
+                <h1 class="text-4xl md:text-5xl font-serif font-bold text-texto mb-6 italic leading-tight">
+                    Te has perdido entre las nubes...
+                </h1>
+                
+                <p class="text-lg text-texto/70 mb-10 italic leading-relaxed">
+                    El oráculo no encuentra este camino en el mapa astral. No te preocupes, a veces hay que perderse para encontrar una nueva dirección.
+                </p>
+
+                <a href="/" class="inline-block bg-[#cfb4b8] text-white font-bold tracking-widest text-xs px-12 py-4 rounded-full transition-all hover:translate-y-1 shadow-[0_5px_0_#a88e92] active:shadow-none active:translate-y-[5px] cursor-pointer uppercase">
+                    DEJA QUE EL VIENTO TE LLEVE AL INICIO
+                </a>
+            </div>
         </div>
 
-        <div class="text-center bg-white/10 backdrop-blur-md p-12 rounded-[50px] border border-white/30 shadow-2xl max-w-2xl relative z-20">
-            <div class="text-6xl mb-6">☁️</div>
-            <h1 class="text-4xl md:text-5xl font-serif font-bold text-texto mb-6 italic leading-tight">
-                Te has perdido entre las nubes...
-            </h1>
-            <p class="text-lg text-texto/70 mb-10 italic leading-relaxed">
-                El oráculo no encuentra este camino en el mapa astral. No te preocupes, a veces hay que perderse para encontrar una nueva dirección.
-            </p>
-
-            <a href="/" class="inline-block bg-[#cfb4b8] text-white font-bold tracking-widest text-sm px-12 py-4 rounded-full transition-all hover:translate-y-1 shadow-[0_5px_0_#a88e92] active:shadow-none active:translate-y-[5px]">
-                DEJA QUE EL VIENTO TE LLEVE AL INICIO
-            </a>
-        </div>
-
-        <div class="mt-12 flex gap-4 opacity-30 text-2xl">
+        <div class="mt-12 flex gap-4 opacity-30 text-2xl text-rosa">
             <span>✦</span>
             <span>✨</span>
             <span>✦</span>
@@ -31,8 +35,8 @@ import Layout from '../layouts/Layout.astro';
     </div>
 </Layout>
 
-<style is:global>
-    html, body { 
+<style>
+    :global(html, body) { 
         height: 100vh; 
         overflow: hidden !important; 
     }

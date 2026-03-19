@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import { deck, obtenerRutaImagen } from '../../data/tarot';
+
 export const prerender = true;
 
 export async function getStaticPaths() {
@@ -27,18 +28,18 @@ const imagePath = obtenerRutaImagen(carta.nombre);
     description={carta.mensaje} 
     image={imagePath}
 >
-    <div class="flex-1 flex flex-col justify-center items-center w-full relative z-10 py-10">
+    <div class="flex-1 flex flex-col justify-center items-center w-full relative z-10 py-10 px-4">
         
         <header class="text-center mb-8">
-            <h1 class="text-4xl md:text-5xl font-bold text-[#cfb4b8] text-center font-serif tracking-widest uppercase">
+            <h1 class="cabecera-titulo uppercase tracking-widest !mb-2">
                 {carta.nombre}
             </h1>
-            <p class="text-texto/60 text-sm mt-2 tracking-widest uppercase font-bold">
-                Diccionario del Tarot
+            <p class="text-texto/60 text-[10px] md:text-xs tracking-[0.3em] uppercase font-bold">
+                ✦ Diccionario del Tarot ✦
             </p>
         </header>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-4xl mx-auto items-center bg-white/20 backdrop-blur-md p-8 md:p-12 rounded-[40px] border border-white/30 shadow-sm">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-4xl mx-auto items-center tarjeta-cristal !p-8 md:!p-12">
             
             <div class="flex justify-center">
                 <img 
@@ -50,21 +51,21 @@ const imagePath = obtenerRutaImagen(carta.nombre);
             </div>
 
             <div class="flex flex-col justify-center items-center text-center md:items-start md:text-left">
-                <h2 class="text-2xl font-serif text-texto font-bold mb-4 italic">El Mensaje del Oráculo</h2>
-                <p class="text-texto/80 text-lg leading-relaxed mb-8">
-                    {carta.mensaje}
+                <h2 class="titulo-cristal !border-none italic">El Mensaje del Oráculo</h2>
+                <p class="text-texto/80 text-lg leading-relaxed mb-8 font-serif italic">
+                    "{carta.mensaje}"
                 </p>
 
-                <div class="flex flex-col items-center md:items-start gap-5 w-full">
-                    <a href="/servicios" class="inline-block text-center bg-[#cfb4b8] text-white font-bold tracking-[0.2em] text-[11px] px-8 py-4 rounded-full shadow-[0_4px_0_#a88e92] hover:translate-y-1 hover:shadow-none transition-all active:scale-95 w-max">
+                <div class="flex flex-col items-center md:items-start gap-6 w-full mt-auto">
+                    <a href="/reservar/tarot" class="inline-block text-center bg-[#cfb4b8] text-white font-bold tracking-[0.2em] text-[11px] px-8 py-4 rounded-full shadow-[0_4px_0_#a88e92] hover:translate-y-1 hover:shadow-none transition-all active:scale-95 w-max">
                         RESERVAR LECTURA COMPLETA
                     </a>
                     
-                    <div class="flex gap-6 mt-2">
-                        <a href="/blog/tarot" class="text-[#ae8b90] font-bold tracking-widest text-[10px] uppercase hover:text-texto transition-colors">
-                            ← Volver al diccionario
+                    <div class="flex gap-6">
+                        <a href="/blog/tarot" class="text-rosa font-bold tracking-widest text-[10px] uppercase hover:text-texto transition-colors flex items-center gap-2">
+                            <span>←</span> Volver al diccionario
                         </a>
-                        <a href="/" class="text-[#ae8b90] font-bold tracking-widest text-[10px] uppercase hover:text-texto transition-colors">
+                        <a href="/" class="text-rosa font-bold tracking-widest text-[10px] uppercase hover:text-texto transition-colors">
                             Inicio
                         </a>
                     </div>

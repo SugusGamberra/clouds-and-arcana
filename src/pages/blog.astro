@@ -21,18 +21,18 @@ const postsOrdenados = posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pu
         </div>
 
         <header class="text-center mb-12 md:mb-20 shrink-0">
-            <h1 class="text-3xl md:text-4xl font-bold mb-4 text-[#cfb4b8] text-center font-serif">El Oráculo</h1>
-            <p class="text-base md:text-lg text-texto/70 mb-8 md:mb-10 text-center italic px-4">Reflexiones espirituales, tiradas interactivas y magia tecnológica.</p>
+            <h1 class="cabecera-titulo">El Oráculo</h1>
+            <p class="cabecera-subtitulo">Reflexiones espirituales, tiradas interactivas y magia tecnológica.</p>
         </header>
 
         <InstagramFeed />
         <YouTubeFeed />
 
-        <h2 class="text-2xl md:text-3xl font-serif text-texto text-center mb-8 md:mb-10 italic tracking-widest uppercase">Blog</h2>
+        <h2 class="titulo-seccion mt-16">Blog</h2>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 relative z-10">
             {postsOrdenados.map((post) => (
-                <article class="group relative border border-white/50 rounded-[30px] md:rounded-[35px] shadow-sm hover:shadow-lg transition-all duration-500 hover:-translate-y-2 overflow-hidden flex flex-col h-full">
+                <article class="card-cristal group !p-0 overflow-hidden">
                     
                     {post.data.image ? (
                         <div class="absolute inset-0 z-0">
@@ -46,14 +46,14 @@ const postsOrdenados = posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pu
                     <div class="relative z-10 p-6 md:p-8 flex flex-col h-full">
                         <div class="flex flex-wrap gap-2 mb-4">
                             {post.data.tags.map(tag => (
-                                <span class="text-[9px] font-bold uppercase tracking-[0.2em] text-[#cfb4b8] bg-white/60 border border-white px-3 py-1 rounded-full shadow-sm">
+                                <span class="tag-mistica !text-rosa !bg-white/80">
                                     #{tag}
                                 </span>
                             ))}
                         </div>
 
                         <h2 class="text-xl md:text-2xl font-serif font-bold text-texto mb-3 leading-tight italic">
-                            <a href={`/blog/${post.id}`} class="hover:text-[#cfb4b8] transition-colors">
+                            <a href={`/blog/${post.id}`} class="group-hover:text-rosa transition-colors duration-300">
                                 {post.data.title}
                             </a>
                         </h2>
@@ -67,7 +67,7 @@ const postsOrdenados = posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pu
                                 {post.data.pubDate.toLocaleDateString('es-ES', { day: '2-digit', month: 'short', year: 'numeric' })}
                             </span>
                             
-                            <a href={`/blog/${post.id}`} class="text-xs font-bold tracking-[0.1em] text-[#cfb4b8] hover:text-[#bfa3a7] transition-colors">
+                            <a href={`/blog/${post.id}`} class="text-xs font-bold tracking-[0.1em] text-rosa hover:opacity-70 transition-all uppercase">
                                 LEER →
                             </a>
                         </div>
@@ -77,42 +77,33 @@ const postsOrdenados = posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pu
         </div>
 
         <div class="text-center mt-12 md:mt-16 relative z-10">
-            <a href="/archivo" class="inline-block border-2 border-[#cfb4b8] text-[#cfb4b8] hover:bg-[#cfb4b8] hover:text-white font-bold tracking-widest text-xs md:text-sm px-8 md:px-10 py-3 md:py-4 rounded-full transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-1">
+            <a href="/archivo" class="inline-block border-2 border-rosa text-rosa hover:bg-rosa hover:text-white font-bold tracking-widest text-xs md:text-sm px-8 md:px-10 py-3 md:py-4 rounded-full transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-1">
                 EXPLORAR EL ARCHIVO MÍSTICO
             </a>
         </div>
 
         <section class="py-20 px-6 text-center">
-            <div class="bg-white/20 backdrop-blur-xl max-w-4xl mx-auto p-12 rounded-[50px] border border-white/40 shadow-sm">
+            <div class="tarjeta-cristal max-w-4xl mx-auto !p-12">
                 <h2 class="text-3xl font-serif text-texto mb-6 italic">¿Buscas el mensaje de una carta?</h2>
                 <p class="text-texto/70 mb-8 max-w-xl mx-auto">
                     Hemos canalizado la sabiduría de los 78 arcanos en nuestro nuevo diccionario místico. 
                     Busca tu carta y descubre qué tiene que decirte el universo hoy.
                 </p>
-                <a href="/blog/tarot" class="bg-[#cfb4b8] text-white font-bold tracking-[0.2em] text-[12px] px-10 py-5 rounded-full shadow-[0_5px_0_#a88e92] hover:translate-y-1 hover:shadow-none transition-all active:scale-95 inline-block">
+                <a href="/blog/tarot" class="bg-rosa text-white font-bold tracking-[0.2em] text-[12px] px-10 py-5 rounded-full shadow-[0_5px_0_#a88e92] hover:translate-y-1 hover:shadow-none transition-all active:scale-95 inline-block cursor-pointer">
                     EXPLORAR DICCIONARIO
                 </a>
             </div>
         </section>
 
-        <footer class="mt-20 md:mt-1 text-center pb-10">
+        <footer class="mt-10 text-center pb-10">
             <div class="flex items-center justify-center gap-4 mb-1 opacity-40">
                 <div class="h-[1px] w-20 bg-texto"></div>
                 <span class="text-xl">☁️</span>
                 <div class="h-[1px] w-20 bg-texto"></div>
             </div>
-                <p class="text-texto/40 text-sm font-serif italic tracking-wide">
-                    El conocimiento del oráculo se renueva con cada ciclo lunar.
-                </p>
+            <p class="text-texto/40 text-sm font-serif italic tracking-wide">
+                El conocimiento del oráculo se renueva con cada ciclo lunar.
+            </p>
         </footer>
     </div>
 </Layout>
-
-<style>
-    .line-clamp-3 {
-        display: -webkit-box;
-        -webkit-line-clamp: 3;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-    }
-</style>

@@ -6,26 +6,34 @@ import Layout from '../layouts/Layout.astro';
     <div class="max-w-5xl mx-auto py-12 px-6 relative z-10 text-center min-h-[50vh] flex flex-col justify-center">
         
         <header class="text-center mb-10">
-            <h1 class="text-4xl font-bold mb-4 text-[#cfb4b8] text-center font-serif">¿Hablamos?</h1>
-            <p class="text-lg text-texto/70 mb-10 text-center italic px-4 max-w-xl mx-auto">
+            <h1 class="cabecera-titulo">¿Hablamos?</h1>
+            <p class="cabecera-subtitulo max-w-xl mx-auto">
                 Si tienes cualquier duda sobre las sesiones o los rituales puedes ponerte en contacto conmigo. Te pido paciencia si tardo un poquito en responder, ¡a veces el oráculo me tiene ocupada! ☁️
             </p>
         </header>
 
         <div class="flex justify-center w-full max-w-md mx-auto">
             
-            <a href="mailto:yosoyalexberrocal@gmail.com" class="w-full bg-white/20 backdrop-blur-xl rounded-[35px] p-10 border border-white/50 shadow-sm hover:bg-white/30 transition-all hover:-translate-y-2 group flex flex-col items-center">
+            <a href="mailto:cloudsarcana@gmail.com" class="tarjeta-cristal !p-10 hover:-translate-y-2 group flex flex-col items-center cursor-pointer">
                 
-                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#cfb4b8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="mb-6 group-hover:scale-110 transition-transform group-hover:stroke-texto duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="mb-6 text-rosa group-hover:scale-110 transition-transform group-hover:text-texto duration-300">
                     <rect width="20" height="16" x="2" y="4" rx="2"></rect>
                     <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
                 </svg>
 
-                <h2 class="text-2xl font-serif font-bold text-texto mb-3">Email</h2>
-                <p class="text-[#cfb4b8] text-sm md:text-base font-bold tracking-widest uppercase">cloudsarcana@gmail.com</p>
+                <h2 class="text-2xl font-serif font-bold text-texto mb-3 italic">Email</h2>
+                <p class="text-rosa text-sm md:text-base font-bold tracking-widest uppercase group-hover:text-texto transition-colors">
+                    cloudsarcana@gmail.com
+                </p>
                 
             </a>
             
+        </div>
+
+        <div class="mt-12 flex gap-4 opacity-40 justify-center text-xl text-rosa">
+            <span>✦</span>
+            <span>✨</span>
+            <span>✦</span>
         </div>
 
     </div>
