@@ -1,0 +1,255 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import nubeImg from '../assets/nube.png';
+
+const paypalClientId = import.meta.env.PUBLIC_PAYPAL_CLIENT_ID;
+---
+
+<Layout title="Tu Cesta Mágica">
+    <div class="max-w-6xl mx-auto py-10 px-4 relative z-10 min-h-[calc(50vh-200px)] flex flex-col justify-center">
+        
+        <div class="absolute -top-0 -left-80 opacity-100 -z-10 pointer-events-none">
+            <Image src={nubeImg} alt="Nube" class="w-80 h-auto" />
+        </div>
+
+        <header class="text-center mb-12">
+            <h1 class="text-4xl font-bold mb-4 text-[#cfb4b8] text-center font-serif">Tu Cesta Mágica</h1>
+            <p class="text-lg text-texto/70 mb-10 text-center italic px-4">El universo tiene un mensaje para ti. Revisa tu selección.</p>
+        </header>
+
+        <div id="carrito-vacio" class="hidden text-center py-24 px-6 mt-16 mb-8 bg-white/20 backdrop-blur-xl rounded-[50px] border border-white/50 shadow-xl max-w-2xl mx-auto">
+            <div class="text-7xl mb-8 opacity-50 hover:scale-110 transition-transform cursor-default duration-500">🍃</div>
+            <p class="text-[#8e7579] mb-12 font-serif text-2xl italic tracking-wider">Tu cesta está vacía...</p>
+            
+            <div class="flex flex-wrap justify-center gap-5">
+                <a href="/reservar/tarot" class="inline-block px-8 py-4 bg-[#b5cce4] text-texto font-bold rounded-full hover:bg-[#a4bdd6] transition-all shadow-[0_4px_0_#98b4d0] hover:translate-y-1 hover:shadow-none active:scale-95 tracking-widest text-[11px] uppercase">
+                    Tarot y Guía
+                </a>
+                <a href="/reservar/rituales" class="inline-block px-8 py-4 bg-[#cfb4b8] text-white font-bold rounded-full hover:bg-[#a88e92] transition-all shadow-[0_4px_0_#a88e92] hover:translate-y-1 hover:shadow-none active:scale-95 tracking-widest text-[11px] uppercase">
+                    Ver Rituales
+                </a>
+            </div>
+        </div>
+
+        <div id="carrito-lleno" class="hidden grid grid-cols-1 lg:grid-cols-[1.2fr,1fr] gap-8 items-start">
+            
+            <div class="bg-white/30 backdrop-blur-xl p-8 md:p-10 rounded-[50px] border border-white/60 shadow-2xl relative overflow-hidden flex flex-col h-full">
+                <h2 class="text-3xl font-bold mb-6 text-texto font-serif border-b border-white/40 pb-4">Tu Selección</h2>
+                
+                <div id="lista-productos" class="flex flex-col flex-grow">
+                    </div>
+
+                <div class="border-t border-white/60 pt-6 mt-auto flex justify-between items-end">
+                    <span class="text-texto text-sm font-bold uppercase tracking-widest mb-1">Total a pagar:</span>
+                    <span id="precio-total-display" class="text-5xl font-serif font-bold text-[#cfb4b8]">0€</span>
+                </div>
+            </div>
+
+            <div id="contenedor-formulario" class="bg-white/30 backdrop-blur-xl p-8 md:p-10 rounded-[50px] border border-white/60 shadow-2xl relative overflow-hidden">
+                <div class="absolute -top-10 -right-10 text-9xl opacity-[0.05] italic pointer-events-none">✨</div>
+                
+                <header class="text-center mb-8">
+                    <h2 class="text-3xl font-bold mb-2 text-texto font-serif">Tus Datos</h2>
+                    <p class="text-texto/70 italic text-sm">Completa para formalizar la reserva</p>
+                </header>
+
+                <form id="formulario-reserva" class="space-y-6 relative z-10">
+                    <input type="hidden" id="precio-final" value="0">
+                    <input type="hidden" id="servicio-nombre" value="">
+
+                    <div class="grid grid-cols-1 gap-6">
+                        <div>
+                            <label class="block text-texto text-xs font-bold uppercase tracking-widest mb-2 ml-2">Tu Nombre o Apodo</label>
+                            <input type="text" id="nombre" required class="w-full bg-white/40 border border-white/60 rounded-2xl px-5 py-3 text-texto focus:bg-white/60 focus:border-[#cfb4b8] outline-none transition-all" placeholder="Luna">
+                        </div>
+
+                        <div>
+                            <label class="block text-texto text-xs font-bold uppercase tracking-widest mb-2 ml-2">Tu Email</label>
+                            <input type="email" id="email" required class="w-full bg-white/40 border border-white/60 rounded-2xl px-5 py-3 text-texto focus:bg-white/60 focus:border-[#cfb4b8] outline-none transition-all" placeholder="luna@gmail.com">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-texto text-xs font-bold uppercase tracking-widest mb-2 ml-2">Tu consulta o tema</label>
+                        <textarea id="mensaje" required rows="3" class="w-full bg-white/40 border border-white/60 rounded-3xl px-5 py-4 text-texto focus:bg-white/60 focus:border-[#cfb4b8] outline-none transition-all" placeholder="Escribe aquí tu contexto para el oráculo..."></textarea>
+                    </div>
+
+                    <div class="mt-10 flex justify-center w-full relative z-20">
+                        <div id="paypal-button-container" class="w-full max-w-[350px] rounded-2xl overflow-hidden"></div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div id="contenedor-exito" style="display: none;" class="text-center py-20 bg-white/20 backdrop-blur-xl rounded-[50px] border border-white/50 shadow-xl max-w-2xl mx-auto mt-10">
+            <div class="text-7xl mb-6 animate-bounce">☁️</div>
+            <h2 class="text-4xl font-serif font-bold mb-4 text-texto italic">¡Portal Cruzado!</h2>
+            <p class="text-lg text-texto/80 mb-10 px-10">Tu energía ha sido recibida. En breves instantes recibirás un correo. ¡Paciencia! Va por orden de llegada.</p>
+            <a href="/" class="inline-block px-12 py-4 bg-[#b5cce4] text-texto font-bold rounded-full hover:bg-[#a4bdd6] transition-all shadow-md">
+                VOLVER AL INICIO
+            </a>
+        </div>
+    </div>
+</Layout>
+
+<script is:inline src={`https://www.paypal.com/sdk/js?client-id=${paypalClientId}&currency=EUR`}></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const carritoStr = localStorage.getItem('carritoClouds');
+        let carrito: any[] = carritoStr ? JSON.parse(carritoStr) : [];
+        
+        const contenedorVacio = document.getElementById('carrito-vacio')!;
+        const contenedorLleno = document.getElementById('carrito-lleno')!;
+        const listaProductos = document.getElementById('lista-productos')!;
+        const totalDisplay = document.getElementById('precio-total-display')!;
+        
+        const inputPrecioFinal = document.getElementById('precio-final') as HTMLInputElement;
+        const inputServicioNombre = document.getElementById('servicio-nombre') as HTMLInputElement;
+        const form = document.getElementById('formulario-reserva') as HTMLFormElement;
+
+        function agruparCesta() {
+            const cestaAgrupada: Record<string, any> = {};
+            
+            carrito.forEach(item => {
+                if (cestaAgrupada[item.id]) {
+                    cestaAgrupada[item.id].cantidad++;
+                    cestaAgrupada[item.id].precioTotalItem += parseFloat(item.precio);
+                } else {
+                    cestaAgrupada[item.id] = { ...item, cantidad: 1, precioTotalItem: parseFloat(item.precio) };
+                }
+            });
+            return Object.values(cestaAgrupada);
+        }
+
+        function renderizarCarrito() {
+            if (carrito.length === 0) {
+                contenedorVacio.classList.remove('hidden');
+                contenedorLleno.classList.add('hidden');
+                contenedorLleno.classList.remove('grid');
+                return;
+            }
+
+            contenedorVacio.classList.add('hidden');
+            contenedorLleno.classList.remove('hidden');
+            contenedorLleno.classList.add('grid');
+            
+            listaProductos.innerHTML = '';
+            let totalTotal = 0;
+            const itemsAgrupados = agruparCesta();
+            
+            let resumenNombres = "";
+
+            itemsAgrupados.forEach((item: any) => {
+                totalTotal += item.precioTotalItem;
+                resumenNombres += `${item.cantidad}x ${item.nombre}, `;
+                
+                const fila = document.createElement('div');
+                fila.className = 'flex items-center justify-between py-5 border-b border-white/40 last:border-0 gap-4';
+                fila.innerHTML = `
+                    <div class="flex-grow">
+                        <h3 class="font-serif text-lg font-bold text-texto leading-tight">${item.nombre}</h3>
+                    </div>
+                    
+                    <div class="flex items-center gap-1 bg-white/40 rounded-full px-2 py-1 border border-white/50">
+                        <button class="btn-decrementar text-texto hover:text-[#cfb4b8] p-1 font-bold text-lg leading-none" data-id="${item.id}">-</button>
+                        <span class="text-texto font-bold text-sm w-4 text-center">${item.cantidad}</span>
+                        <button class="btn-incrementar text-texto hover:text-[#cfb4b8] p-1 font-bold text-lg leading-none" data-id="${item.id}">+</button>
+                    </div>
+
+                    <div class="text-xl font-serif font-bold text-texto w-16 text-right">${item.precioTotalItem}€</div>
+                    
+                    <button class="btn-eliminar text-texto/40 hover:text-[#cfb4b8] p-2 transition-colors ml-2" data-id="${item.id}">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                    </button>
+                `;
+                listaProductos.appendChild(fila);
+            });
+
+            totalDisplay.textContent = `${totalTotal}€`;
+            inputPrecioFinal.value = `${totalTotal}.00`; 
+            inputServicioNombre.value = resumenNombres.slice(0, -2); 
+        }
+
+        renderizarCarrito();
+
+        listaProductos.addEventListener('click', (e) => {
+            const target = e.target as HTMLElement;
+            const boton = target.closest('button');
+            if (!boton) return;
+
+            const serviceId = boton.getAttribute('data-id');
+            
+            if (boton.classList.contains('btn-eliminar')) {
+                carrito = carrito.filter((i: any) => i.id !== serviceId);
+            } 
+            else if (boton.classList.contains('btn-incrementar')) {
+                const itemParaCopiar = carrito.find((i: any) => i.id === serviceId);
+                if (itemParaCopiar) carrito.push({ ...itemParaCopiar });
+            } 
+            else if (boton.classList.contains('btn-decrementar')) {
+                const index = carrito.findIndex((i: any) => i.id === serviceId);
+                if (index !== -1) carrito.splice(index, 1);
+            }
+            
+            localStorage.setItem('carritoClouds', JSON.stringify(carrito));
+            
+            const counts = document.querySelectorAll('[id^="cart-count"]');
+            counts.forEach(c => {
+                c.textContent = carrito.length.toString();
+                if(carrito.length === 0) c.classList.add('hidden');
+            });
+            
+            renderizarCarrito();
+        });
+
+        // @ts-ignore
+        if (window.paypal) {
+            // @ts-ignore
+            window.paypal.Buttons({
+                createOrder: (data: any, actions: any) => {
+                    if (!form.checkValidity()) {
+                        alert("Rellena todos los campos primero 😊");
+                        return actions.reject();
+                    }
+                    const precio = inputPrecioFinal.value;
+                    const descripcionCesta = inputServicioNombre.value;
+                    
+                    return actions.order.create({
+                        purchase_units: [{
+                            description: descripcionCesta.substring(0, 127), 
+                            amount: { currency_code: 'EUR', value: precio }
+                        }]
+                    });
+                },
+                onApprove: async (data: any, actions: any) => {
+                    return actions.order.capture().then(async (details: any) => {
+                        
+                        const datos = {
+                            nombre: (document.getElementById('nombre') as HTMLInputElement).value,
+                            email: (document.getElementById('email') as HTMLInputElement).value,
+                            servicio: `CESTA MÚLTIPLE: ${inputServicioNombre.value}`,
+                            mensaje: (document.getElementById('mensaje') as HTMLTextAreaElement).value,
+                            pagoID: details.id
+                        };
+
+                        const res = await fetch('/api/enviar', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(datos),
+                        });
+
+                        if (res.ok) {
+                            localStorage.removeItem('carritoClouds');
+                            document.querySelectorAll('[id^="cart-count"]').forEach(c => c.classList.add('hidden'));
+                            
+                            document.getElementById('carrito-lleno')!.style.display = 'none';
+                            document.getElementById('contenedor-exito')!.style.display = 'block';
+                        }
+                    });
+                }
+            }).render('#paypal-button-container');
+        }
+    });
+</script>

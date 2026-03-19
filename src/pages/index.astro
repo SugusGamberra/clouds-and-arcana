@@ -13,9 +13,14 @@ import nubeImg from '../assets/nube.png';
 
         <section class="bg-white/20 backdrop-blur-xl rounded-[40px] md:rounded-[50px] py-12 px-6 md:py-16 md:px-12 text-center shadow-[0_8px_32px_0_rgba(255,255,255,0.2)] border border-white/40 relative z-10">
             <h1 class="text-4xl md:text-5xl font-serif text-texto font-bold mb-8 md:mb-10 tracking-wide leading-tight md:leading-normal">Tus Mensajes Místicos desde las Nubes ✨</h1>
-            <a href="/reserva?servicio=Tirada Express (1 pregunta)" class="inline-block bg-[#cfb4b8] text-white font-bold tracking-widest text-[11px] md:text-lg px-8 py-4 md:px-16 md:py-5 rounded-full transition-all hover:-translate-y-1 shadow-[0_6px_0_#a88e92] active:shadow-none active:translate-y-[6px]">
+            <button 
+                class="add-to-cart-btn inline-block bg-[#cfb4b8] text-white font-bold tracking-widest text-[11px] md:text-lg px-8 py-4 md:px-16 md:py-5 rounded-full transition-all hover:-translate-y-1 shadow-[0_6px_0_#a88e92] active:shadow-none active:translate-y-[6px] cursor-pointer"
+                data-id="tirada-express-inicio"
+                data-nombre="Tirada Express (1 pregunta)"
+                data-precio="5"
+            >
                 RESERVA TU LECTURA EXPRESS 5€
-            </a>
+            </button>
         </section>
 
         <div class="absolute top-[47%] -left-50 z-10 pointer-events-none hidden md:block">
@@ -72,25 +77,25 @@ import nubeImg from '../assets/nube.png';
 
         <section class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10 pt-0 pb-0 relative z-10">
 
-            <a href="/reserva?servicio=Consejo Rúnico" class="bg-white/10 backdrop-blur-xl p-10 md:p-12 rounded-[35px] md:rounded-[45px] text-center shadow-lg border border-white/30 hover:bg-white/20 transition-all hover:-translate-y-3 group">
+            <a href="/reservar/runas" class="bg-white/10 backdrop-blur-xl p-10 md:p-12 rounded-[35px] md:rounded-[45px] text-center shadow-lg border border-white/30 hover:bg-white/20 transition-all hover:-translate-y-3 group">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-10 h-10 md:w-12 md:h-12 mx-auto mb-4 md:mb-6 text-[#cfb4b8] opacity-80 group-hover:scale-110 transition-transform duration-500"><path d="M12 2L3 12l9 10 9-10-9-10z"></path><path d="M3 12h18"></path><path d="M12 2v20"></path></svg>
-                <h3 class="font-bold text-texto text-[11px] md:text-[13px] tracking-[0.3em] mb-2 uppercase">CONSEJO RÚNICO</h3>
-                <p class="text-[11px] md:text-[13px] font-semibold text-texto/60 mb-6 md:mb-8">(Audio)</p>
-                <p class="text-2xl md:text-3xl font-serif font-bold text-texto">10,00€</p>
+                <h3 class="font-bold text-texto text-[11px] md:text-[13px] tracking-[0.3em] mb-2 uppercase">MAGIA NÓRDICA Y RUNAS</h3>
+                <p class="text-[11px] md:text-[13px] font-semibold text-texto/60 mb-6 md:mb-8">Rituales nórdicos infusionados por las runas. ¿Sientes ya el poder de Odín?</p>
+                <p class="text-2xl md:text-3xl font-serif font-bold text-texto">Desde 5,00€</p>
             </a>
             
-            <a href="/reserva?servicio=Análisis de Sueño" class="bg-white/10 backdrop-blur-xl p-10 md:p-12 rounded-[35px] md:rounded-[45px] text-center shadow-lg border border-white/30 hover:bg-white/20 transition-all hover:-translate-y-3 group">
+            <a href="/reservar/suenos" class="bg-white/10 backdrop-blur-xl p-10 md:p-12 rounded-[35px] md:rounded-[45px] text-center shadow-lg border border-white/30 hover:bg-white/20 transition-all hover:-translate-y-3 group">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-10 h-10 md:w-12 md:h-12 mx-auto mb-4 md:mb-6 text-[#cfb4b8] opacity-80 group-hover:scale-110 transition-transform duration-500"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
                 <h3 class="font-bold text-texto text-[11px] md:text-[13px] tracking-[0.3em] mb-2 uppercase">INTERPRETACIÓN DE SUEÑOS</h3>
-                <p class="text-[11px] md:text-[13px] font-semibold text-texto/60 mb-6 md:mb-8">(PDF Detallado)</p>
-                <p class="text-2xl md:text-3xl font-serif font-bold text-texto">15,00€</p>
+                <p class="text-[11px] md:text-[13px] font-semibold text-texto/60 mb-6 md:mb-8">Interpretación de sueños y limpiezas del bajo astral para que puedas dormir a gusto.</p>
+                <p class="text-2xl md:text-3xl font-serif font-bold text-texto">Desde 20,00€</p>
             </a>
             
-            <a href="/reserva?servicio=Pack Reina de Oros" class="bg-white/10 backdrop-blur-xl p-10 md:p-12 rounded-[35px] md:rounded-[45px] text-center shadow-lg border border-white/30 hover:bg-white/20 transition-all hover:-translate-y-3 group">
+            <a href="/reservar/rituales" class="bg-white/10 backdrop-blur-xl p-10 md:p-12 rounded-[35px] md:rounded-[45px] text-center shadow-lg border border-white/30 hover:bg-white/20 transition-all hover:-translate-y-3 group">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-10 h-10 md:w-12 md:h-12 mx-auto mb-4 md:mb-6 text-[#cfb4b8] opacity-80 group-hover:scale-110 transition-transform duration-500"><path d="m2 4 3 12h14l3-12-6 7-4-7-4 7-6-7zm3 16h14"></path></svg>
-                <h3 class="font-bold text-texto text-[11px] md:text-[13px] tracking-[0.3em] mb-2 uppercase">PACK REINA DE OROS</h3>
-                <p class="text-[11px] md:text-[13px] font-semibold text-texto/60 mb-6 md:mb-8">(Vídeo de Tarot y Runas)</p>
-                <p class="text-2xl md:text-3xl font-serif font-bold text-texto">50,00€</p>
+                <h3 class="font-bold text-texto text-[11px] md:text-[13px] tracking-[0.3em] mb-2 uppercase">RITUALES Y HECHIZOS</h3>
+                <p class="text-[11px] md:text-[13px] font-semibold text-texto/60 mb-6 md:mb-8">Rituales para abrir tus caminos, aportar felicidad, amor y abundancia.</p>
+                <p class="text-2xl md:text-3xl font-serif font-bold text-texto">Desde 50,00€</p>
             </a>
         </section>
 

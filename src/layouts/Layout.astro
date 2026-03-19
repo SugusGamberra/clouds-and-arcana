@@ -4,14 +4,12 @@ import { Image } from 'astro:assets';
 import background from '../assets/background.png';
 import nubeImg from '../assets/nube.png';
 
-// SEO Pro: Añadimos description e image como opcionales (?)
 interface Props {
     title: string;
     description?: string;
     image?: string;
 }
 
-// Extraemos los datos y les ponemos valores por defecto por si alguna página no los tiene
 const { 
     title, 
     description = "Lectura de Tarot, Runas e Interpretación de Sueños con enfoque espiritual y tecnológico. Descubre los mensajes que el universo tiene para ti.",
@@ -25,9 +23,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width" />
-
         <meta name="google-site-verification" content="cDU-bwfHdS0dU-k2Nqvn4mN1lN7RKVjGxRAei-mwg3c" />
-
         <link rel="canonical" href={canonicalURL} />
         <meta name="robots" content="index, follow" />
 
@@ -57,8 +53,8 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
             "description": "Interpretación de sueños, lectura de tarot y runas con enfoque espiritual y tecnológico.",
             "url": "https://clouds-and-arcana.vercel.app",
             "address": {
-            "@type": "PostalAddress",
-            "addressCountry": "ES"
+                "@type": "PostalAddress",
+                "addressCountry": "ES"
             }
         }
         </script>
@@ -83,22 +79,65 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
                 <ul class="hidden md:flex gap-8 items-center uppercase z-20">
                     <li><a href="/" class="nav-link">Inicio</a></li>
-                    <li><a href="/servicios" class="nav-link">Servicios</a></li>
                     <li><a href="/sobre-mi" class="nav-link">Sobre mí</a></li>
                     <li><a href="/blog" class="nav-link">El Oráculo</a></li>
-                    <li>
-                        <a href="/reserva" class="bg-[#cfb4b8] text-white font-bold tracking-[0.2em] text-[10px] px-6 py-2.5 rounded-full shadow-[0_4px_0_#a88e92] hover:translate-y-1 hover:shadow-none transition-all active:scale-95 inline-block">
+                    
+                    <li class="relative group">
+                        <button class="bg-[#cfb4b8] text-white font-bold tracking-[0.2em] text-[10px] px-6 py-2.5 rounded-full shadow-[0_4px_0_#a88e92] hover:translate-y-1 hover:shadow-none transition-all active:scale-95 flex items-center gap-1 cursor-pointer">
                             RESERVAR
+                            <svg class="w-3 h-3 transition-transform duration-300 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        
+                        <div class="absolute top-full right-0 mt-3 w-64 bg-white/90 backdrop-blur-xl border border-white/50 rounded-2xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 flex flex-col overflow-hidden text-left z-50">
+                            <a href="/reservar/tarot" class="px-5 py-3.5 text-[10px] font-bold tracking-[0.15em] text-[#8e7579] hover:bg-[#cfb4b8] hover:text-white transition-colors border-b border-white/50 uppercase">Tarot y Guía Espiritual</a>
+                            <a href="/reservar/runas" class="px-5 py-3.5 text-[10px] font-bold tracking-[0.15em] text-[#8e7579] hover:bg-[#cfb4b8] hover:text-white transition-colors border-b border-white/50 uppercase">Magia Nórdica y Runas</a>
+                            <a href="/reservar/suenos" class="px-5 py-3.5 text-[10px] font-bold tracking-[0.15em] text-[#8e7579] hover:bg-[#cfb4b8] hover:text-white transition-colors border-b border-white/50 uppercase">El Mundo de los Sueños</a>
+                            <a href="/reservar/rituales" class="px-5 py-3.5 text-[10px] font-bold tracking-[0.15em] text-[#8e7579] hover:bg-[#cfb4b8] hover:text-white transition-colors border-b border-white/50 uppercase">Rituales y Hechizos</a>
+                            <a href="/reservar/limpiezas" class="px-5 py-3.5 text-[10px] font-bold tracking-[0.15em] text-[#8e7579] hover:bg-[#cfb4b8] hover:text-white transition-colors uppercase">Limpiezas Energéticas</a>
+                        </div>
+                    </li>
+
+                    <li class="relative flex items-center">
+                        <a href="/carrito" id="cart-desktop-btn" class="hover:scale-110 transition-transform cursor-pointer relative inline-block group" aria-label="Ver carrito">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#cfb4b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:stroke-[#8e7579] transition-colors">
+                                <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
+                                <path d="M3 6h18"></path>
+                                <path d="M16 10a4 4 0 0 1-8 0"></path>
+                            </svg>
+                            <span id="cart-count-desktop" class="absolute -top-2 -right-2 bg-white text-[#cfb4b8] text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center shadow-sm border border-[#cfb4b8]/30 hidden">0</span>
                         </a>
                     </li>
                 </ul>
 
                 <div id="mobile-menu" class="hidden absolute top-full left-0 w-full mt-4 bg-white/90 backdrop-blur-xl border border-white/50 rounded-[30px] shadow-lg flex-col p-8 gap-4 text-center uppercase z-10">
                     <a href="/" class="nav-link-mobile">Inicio</a>
-                    <a href="/servicios" class="nav-link-mobile">Servicios</a>
                     <a href="/sobre-mi" class="nav-link-mobile">Sobre mí</a>
                     <a href="/blog" class="nav-link-mobile">El Oráculo</a>
-                    <a href="/reserva" class="bg-[#cfb4b8] text-white font-bold tracking-[0.2em] text-[12px] px-8 py-4 rounded-full shadow-[0_4px_0_#a88e92] inline-block mt-4 mx-auto w-max">RESERVAR</a>
+                    
+                    <details class="w-full group/reserva relative mt-2">
+                        <summary class="list-none flex items-center justify-center gap-2 bg-[#cfb4b8] text-white font-bold tracking-[0.2em] text-[12px] px-8 py-4 rounded-full shadow-[0_4px_0_#a88e92] mx-auto w-max cursor-pointer active:scale-95 transition-transform">
+                            RESERVAR
+                            <svg class="w-4 h-4 transition-transform group-open/reserva:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </summary>
+                        <div class="flex flex-col mt-4 bg-white/50 rounded-2xl overflow-hidden text-center border border-white/50 shadow-inner">
+                            <a href="/reservar/tarot" class="nav-link-mobile text-[11px] hover:bg-white/60">Tarot y Guía Espiritual</a>
+                            <a href="/reservar/runas" class="nav-link-mobile text-[11px] hover:bg-white/60">Magia Nórdica y Runas</a>
+                            <a href="/reservar/suenos" class="nav-link-mobile text-[11px] hover:bg-white/60">El Mundo de los Sueños</a>
+                            <a href="/reservar/rituales" class="nav-link-mobile text-[11px] hover:bg-white/60">Rituales y Hechizos</a>
+                            <a href="/reservar/limpiezas" class="nav-link-mobile text-[11px] hover:bg-white/60 border-none">Limpiezas Energéticas</a>
+                        </div>
+                    </details>
+
+                    <div class="flex items-center justify-center mt-5 mb-2">
+                        <a href="/carrito" id="cart-mobile-btn" class="hover:scale-110 transition-transform cursor-pointer relative inline-block group" aria-label="Ver carrito">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#cfb4b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:stroke-[#8e7579] transition-colors">
+                                <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
+                                <path d="M3 6h18"></path>
+                                <path d="M16 10a4 4 0 0 1-8 0"></path>
+                            </svg>
+                            <span id="cart-count-mobile" class="absolute -top-2 -right-2 bg-white text-[#cfb4b8] text-[12px] font-bold w-5 h-5 rounded-full flex items-center justify-center shadow-sm border border-[#cfb4b8]/30 hidden">0</span>
+                        </a>
+                    </div>
                 </div>
             </nav>
         </header>
@@ -114,9 +153,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
                 text-decoration: none;
             }
 
-            .nav-link:hover {
-                color: #cfb4b8;
-            }
+            .nav-link:hover { color: #cfb4b8; }
 
             .nav-link::after {
                 content: '';
@@ -129,9 +166,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
                 transition: width 0.3s ease;
             }
 
-            .nav-link:hover::after {
-                width: 100%;
-            }
+            .nav-link:hover::after { width: 100%; }
 
             .nav-link-mobile {
                 font-size: 13px;
@@ -141,16 +176,11 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
                 padding: 12px 0;
                 border-bottom: 1px solid rgba(207, 180, 184, 0.3);
                 text-decoration: none;
-                transition: color 0.3s ease;
+                transition: all 0.3s ease;
             }
             
-            .nav-link-mobile:last-of-type {
-                border-bottom: none;
-            }
-
-            .nav-link-mobile:hover {
-                color: #cfb4b8;
-            }
+            .nav-link-mobile:last-of-type { border-bottom: none; }
+            .nav-link-mobile:hover { color: #cfb4b8; }
         </style>
 
         <div class="fixed inset-0 w-full h-full -z-10">
@@ -165,7 +195,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
             <slot /> 
         </main>
 
-        <footer class="bg-[#d0b2b6] py-6 text-center text-texto mt-auto w-full z-20 shadow-[0_-5px_15px_rgba(0,0,0,0.05)] relative">
+        <footer class="bg-[#d0b2b6] py-10 text-center text-texto mt-auto w-full z-20 shadow-[0_-5px_15px_rgba(0,0,0,0.05)] relative">
             <div class="absolute bottom-[0px] -right-50 z-20 pointer-events-none hidden md:block">
                 <Image 
                     src={nubeImg} 
@@ -174,38 +204,35 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
                 />
             </div>
 
-            <div class="relative z-30"> 
-                <div class="flex justify-center gap-8 mb-2">
-                    <a href="https://www.instagram.com/cloudsarcana/" 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    class="hover:scale-110 transition-transform group"
-                    aria-label="Instagram de Clouds & Arcana">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#8e7579" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:stroke-[#a88e92] transition-colors drop-shadow-sm">
-                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                        </svg>
-                    </a>
+            <div class="relative z-30 max-w-5xl mx-auto px-4 flex flex-col items-center justify-center gap-6"> 
+                
+                <div class="flex flex-wrap justify-center items-center gap-3 md:gap-4 text-[10px] md:text-xs font-bold tracking-widest uppercase text-[#8e7579]">
+                    <a href="/faq" class="hover:text-white transition-colors">Preguntas Frecuentes</a>
+                    <span class="text-[#8e7579]/40">|</span>
+                    <a href="/contacto" class="hover:text-white transition-colors">Contacto</a>
+                    <span class="text-[#8e7579]/40">|</span>
+                    <a href="/privacidad" class="hover:text-white transition-colors">Privacidad</a>
+                    <span class="text-[#8e7579]/40">|</span>
+                    <a href="/terminos" class="hover:text-white transition-colors">Términos</a>
+                </div>
 
-                    <a href="https://www.youtube.com/@CloudsArcana" 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    class="hover:scale-110 transition-transform group"
-                    aria-label="YouTube de Clouds & Arcana">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#8e7579" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:stroke-[#a88e92] transition-colors drop-shadow-sm">
-                            <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path>
-                            <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
-                        </svg>
+                <div class="flex justify-center items-center gap-6">
+                    <a href="https://www.instagram.com/cloudsarcana/" target="_blank" rel="noopener noreferrer" class="hover:scale-110 transition-transform group" aria-label="Instagram de Clouds & Arcana">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#8e7579" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:stroke-white transition-colors"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                    </a>
+                    <a href="https://www.youtube.com/@CloudsArcana" target="_blank" rel="noopener noreferrer" class="hover:scale-110 transition-transform group" aria-label="YouTube de Clouds & Arcana">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#8e7579" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:stroke-white transition-colors"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
                     </a>
                 </div>
-                <p class="text-[10px] md:text-xs font-bold tracking-wider">
+                
+                <p class="text-[10px] md:text-xs font-bold tracking-wider text-center text-[#8e7579]/80 mt-2">
                     © 2026 Clouds & Arcana. Todos los derechos reservados.
                 </p>
             </div>
         </footer>
 
         <script>
+            // LOGICA DEL MENÚ MOVIL
             const btn = document.getElementById('mobile-menu-btn');
             const menu = document.getElementById('mobile-menu');
             
@@ -215,6 +242,60 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
                     menu.classList.toggle('flex');
                 });
             }
+
+            // LOGICA DEL CARRITO DE LA COMPRA
+            let carrito = JSON.parse(localStorage.getItem('carritoClouds') || '[]');
+
+            function actualizarContadores() {
+                const countDesktop = document.getElementById('cart-count-desktop');
+                const countMobile = document.getElementById('cart-count-mobile');
+                const totalItems = carrito.length;
+
+                if (countDesktop) {
+                    countDesktop.textContent = totalItems.toString();
+                    if (totalItems > 0) countDesktop.classList.remove('hidden');
+                    else countDesktop.classList.add('hidden');
+                }
+                
+                if (countMobile) {
+                    countMobile.textContent = totalItems.toString();
+                    if (totalItems > 0) countMobile.classList.remove('hidden');
+                    else countMobile.classList.add('hidden');
+                }
+            }
+
+            actualizarContadores();
+
+            document.addEventListener('click', (e) => {
+                let target = e.target as any;
+
+                if (target && target.nodeType === 3) {
+                    target = target.parentNode;
+                }
+
+                if (!target || typeof target.closest !== 'function') return;
+
+                const botonAnadir = target.closest('.add-to-cart-btn');
+                if (!botonAnadir) return; 
+
+                const id = botonAnadir.getAttribute('data-id');
+                const nombre = botonAnadir.getAttribute('data-nombre');
+                const precio = parseFloat(botonAnadir.getAttribute('data-precio') || '0');
+
+                carrito.push({ id, nombre, precio });
+                localStorage.setItem('carritoClouds', JSON.stringify(carrito));
+                
+                actualizarContadores();
+
+                const textoOriginal = botonAnadir.innerHTML;
+                botonAnadir.innerHTML = '¡AÑADIDO! ☁️';
+                botonAnadir.classList.add('bg-[#8e7579]', 'scale-105');
+                
+                setTimeout(() => {
+                    botonAnadir.innerHTML = textoOriginal;
+                    botonAnadir.classList.remove('bg-[#8e7579]', 'scale-105');
+                }, 1000);
+            });
         </script>
     </body>
 </html>

@@ -1,0 +1,57 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { servicios } from '../../data/servicios';
+import { Image } from 'astro:assets';
+import nubeImg from '../../assets/nube.png';
+
+const serviciosCategoria = servicios.filter(s => s.categoria === 'Tarot y Guía Espiritual');
+---
+
+<Layout title="Tarot y Guía Espiritual">
+    <div class="max-w-5xl mx-auto py-10 px-4 relative z-10 min-h-[calc(50vh-200px)] flex flex-col justify-center">
+        
+        <div class="absolute -top-0 -left-80 opacity-100 -z-10 pointer-events-none">
+            <Image src={nubeImg} alt="Nube" class="w-80 h-auto" />
+        </div>
+
+        <div class="mb-8 pl-4">
+            <a href="/" class="inline-flex items-center gap-2 text-texto/60 text-[10px] font-bold uppercase tracking-[0.2em] hover:text-[#cfb4b8] transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                VOLVER AL INICIO
+            </a>
+        </div>
+
+        <header class="text-center mb-16">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4 text-[#cfb4b8] text-center font-serif">Tarot y Guía Espiritual</h1>
+            <p class="text-lg text-texto/70 mb-10 text-center italic px-4">El universo tiene un mensaje para ti hoy. ¿Estás lista para escucharlo?</p>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {serviciosCategoria.map((servicio) => (
+                <div class={`p-8 rounded-[40px] border flex flex-col justify-between backdrop-blur-xl transition-all duration-300 hover:scale-[1.02] ${servicio.destacado ? 'border-[#cfb4b8] bg-white/40 shadow-xl' : 'border-white/50 bg-white/20 hover:bg-white/30 shadow-sm'}`}>
+                    
+                    <div>
+                        <h3 class="text-2xl font-serif font-bold text-texto mb-3 leading-tight">
+                            {servicio.nombre} {servicio.destacado && '👑'}
+                        </h3>
+                        <p class="text-texto/80 text-[14px] mb-5 leading-relaxed">{servicio.descripcion}</p>
+                        <p class="text-texto/60 text-[11px] italic mb-6 font-bold uppercase tracking-widest">Formato: {servicio.formato}</p>
+                    </div>
+                    
+                    <div class="flex justify-between items-center mt-4 border-t border-white/40 pt-6">
+                        <span class="text-3xl font-serif font-bold text-texto">{servicio.precio}€</span>
+                        
+                        <button 
+                            class="add-to-cart-btn px-6 py-3 bg-[#cfb4b8] text-white rounded-full font-bold text-[11px] tracking-[0.2em] shadow-[0_4px_0_#a88e92] hover:translate-y-1 hover:shadow-none transition-all active:scale-95 uppercase flex items-center gap-2"
+                            data-id={servicio.id}
+                            data-nombre={servicio.nombre}
+                            data-precio={servicio.precio}
+                        >
+                            AÑADIR 🛒
+                        </button>
+                    </div>
+                </div>
+            ))}
+        </div>
+    </div>
+</Layout>
