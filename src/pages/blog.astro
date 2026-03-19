@@ -13,10 +13,10 @@ const postsOrdenados = posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pu
 <Layout title="El Oráculo - Blog">
     <div class="max-w-[1100px] mx-auto py-12 px-6 relative z-10">
         
-        <div class="absolute -top-10 -left-60 opacity-100 -z-10 pointer-events-none">
+        <div class="hidden md:block absolute -top-10 -left-60 opacity-100 -z-10 pointer-events-none">
             <Image src={nubeImg} alt="Nube" class="w-100 h-auto" />
         </div>
-        <div class="absolute top-50 -right-90 opacity-100 -z-10 pointer-events-none">
+        <div class="hidden md:block absolute top-50 -right-90 opacity-100 -z-10 pointer-events-none">
             <Image src={nubeImg} alt="Nube" class="w-120 h-auto scale-x-[-1]" />
         </div>
 
