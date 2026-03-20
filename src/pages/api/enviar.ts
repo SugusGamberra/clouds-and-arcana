@@ -13,14 +13,14 @@ export const POST: APIRoute = async ({ request }) => {
 
     // mensaje pa telegram (adaptado para la cesta múltiple)
     const textoTelegram = `
-        🔮 NUEVA RESERVA 🔮
+🔮 NUEVA RESERVA 🔮
 
-        👤 Nombre: ${nombre}
-        💌 Email: ${email}
-        ✨ Pedido: ${servicio}
-        💳 ID PayPal: ${pagoID}
+👤 Nombre: ${nombre}
+💌 Email: ${email}
+✨ Pedido: ${servicio}
+💳 ID PayPal: ${pagoID}
 
-        📝 Mensaje: ${mensaje}
+📝 Mensaje: ${mensaje}
     `;
 
     // enviar a BotFather

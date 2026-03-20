@@ -168,7 +168,7 @@ export const servicios: Servicio[] = [
     },
     { 
         id: 'endulzamiento', 
-        nombre: 'Ritual Endulzamiento de Entorno: Foto', 
+        nombre: 'Ritual Endulzamiento de Entorno', 
         formato: 'Trabajo de altar a distancia: Foto. Seguimiento hasta los 5 días.', 
         precio: 150,
         descripcion: 'Suaviza emociones, acerca corazones y armoniza cualquier tipo de ambiente.',
