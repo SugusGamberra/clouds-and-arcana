@@ -5,7 +5,7 @@ export const deck = [
 	{ nombre: "LA EMPERATRIZ", mensaje: "Abundancia y creatividad pura. Cuídate, mímate y deja que florezca todo lo que tocas." },
 	{ nombre: "EL EMPERADOR", mensaje: "Estructura y estabilidad. Toca poner orden, marcar límites claros y tomar el control de la situación." },
 	{ nombre: "EL SUMO SACERDOTE", mensaje: "Sabiduría tradicional. Buen día para buscar consejo en un mentor o centrarte en tus estudios y valores." },
-	{ nombre: "LOS ENAMORADOS", mensaje: "Alineación y decisiones desde el corazón. Sigue lo que de verdad vibre con tu esencia." },
+	{ nombre: "LOS ENAMORADOS", mensaje: "Alineación y decisiones desde el c orazón. Sigue lo que de verdad vibre con tu esencia." },
 	{ nombre: "EL CARRO", mensaje: "Avanza con determinación. Si mantienes el enfoque y la disciplina, la victoria es tuya." },
 	{ nombre: "LA FUERZA", mensaje: "Dominio interior. Domina tus emociones con compasión y paciencia, tienes más fuerza de la que crees." },
 	{ nombre: "EL ERMITAÑO", mensaje: "Toca aislarse un ratito. Busca las respuestas en tu interior, la soledad ahora mismo es tu mejor maestra." },
