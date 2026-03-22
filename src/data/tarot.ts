@@ -46,7 +46,7 @@ export const deck = [
 	{ nombre: "NUEVE DE COPAS", mensaje: "El deseo concedido. Disfruta de la satisfacción personal, te has ganado este momento de plenitud." },
 	{ nombre: "DIEZ DE COPAS", mensaje: "Felicidad emocional plena y armonía familiar o de entorno. Paz espiritual absoluta." },
 	{ nombre: "SOTA DE COPAS", mensaje: "Un mensaje cariñoso, una chispa de intuición o sincronicidad. Mantén el corazón abierto a la sorpresa." },
-	{ nombre: "CABALLO DE COPAS", mensaje: "Romanticismo, propuestas creativas o seguir los sueños con el corazón en la mano." },
+	{ nombre: "CABALLERO DE COPAS", mensaje: "Romanticismo, propuestas creativas o seguir los sueños con el corazón en la mano." },
 	{ nombre: "REINA DE COPAS", mensaje: "Intuición profunda, empatía y sensibilidad. Confía ciegamente en lo que dicta tu mundo emocional." },
 	{ nombre: "REY DE COPAS", mensaje: "Equilibrio emocional. Eres capaz de navegar aguas turbulentas manteniendo tu centro y madurez." },
 	{ nombre: "AS DE ESPADAS", mensaje: "Claridad mental absoluta y la verdad saliendo a la luz. Corta las confusiones de raíz con lógica." },
