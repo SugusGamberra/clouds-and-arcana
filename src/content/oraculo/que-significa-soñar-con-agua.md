@@ -22,3 +22,5 @@ Recuerda que esto no es solo magia; es la forma en la que tu subconsciente proce
 ## Cómo limpiar tu energía tras un sueño inquietante
 
 Si el agua en tu sueño era turbia o el mar estaba agitado, te recomiendo realizar una **meditación de limpieza**. Esto te ayudará a encontrar la causa de tu inquietud y a recuperar la calma que necesitas para que tu energía vuelva a ser pura como el agua clara.
+
+También puedes saber [qué significa soñar con murciélagos](/blog/que-significa-soñar-con-murcielagos) 🦇

@@ -34,4 +34,4 @@ Si despiertas sintiendo esa conexión muy presente, puedes realizar estos peque�
 
 Recuerda que los sueños son el lenguaje de tu alma. Escúchalos con ternura, pero mantén siempre tu centro en la luz de tu presente.
 
-Si quieres saber también qué significa soñar con murciélagos pincha aquí: [Murciélagos](/blog/murcielagos)
+Si quieres saber también qué significa soñar con murciélagos pincha aquí: [Murciélagos](/blog/que-significa-soñar-con-murcielagos), o si quieres saber [qué significa que tus sueños se materialicen a nuestro planto terrenal](/blog/sincronicidad-de-sueños-y-vida-real) 🫂
