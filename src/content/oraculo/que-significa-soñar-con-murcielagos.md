@@ -27,9 +27,10 @@ No temas a lo que está cambiando en ti. Aunque la transformación se sienta ext
 Si despiertas con angustia o pesadez tras una visita intensa en el mundo onírico, lo primero es **anclarte a la tierra**. Un truco de Tech-Bruja: lávate las manos y la nuca con agua fría, visualizando cómo el flujo se lleva la confusión.
 
 Para restaurar tu paz y limpiar la energía de tu hogar:
-* **Sahumerio**: Enciende una ramita de **palosanto o ruda**. Pasa el humo suavemente alrededor de tu cuerpo, de la cabeza a los pies, con la intención de restaurar tu brillo natural.
-* **Ventilación**: Abre las ventanas para que el aire circule y se lleve las energías estancadas de la noche.
-* **Intención**: Repite para ti: *"Suelto lo que no me pertenece y abrazo mi propia luz"*.
+
+- **Sahumerio**: Enciende una ramita de **palosanto o ruda**. Pasa el humo suavemente alrededor de tu cuerpo, de la cabeza a los pies, con la intención de restaurar tu brillo natural.
+- **Ventilación**: Abre las ventanas para que el aire circule y se lleve las energías estancadas de la noche.
+- **Intención**: Repite para ti: _"Suelto lo que no me pertenece y abrazo mi propia luz"_.
 
 Recuerda que ningún sueño viene para asustarte, sino para darte una clave que aún no has sabido descifrar. Escucha a tus sombras, pero no dejes que se queden a dormir si no te traen paz.
 

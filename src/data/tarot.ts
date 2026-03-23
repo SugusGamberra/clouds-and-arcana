@@ -1,90 +1,402 @@
 export const deck = [
-    { nombre: "EL LOCO", mensaje: "Un nuevo comienzo. Tírate a la piscina sin miedo, confía en el proceso espiritual y en tus instintos." },
-	{ nombre: "EL MAGO", mensaje: "Hoy tienes el poder de crear tu propia realidad. Confía en tus herramientas y da el primer paso." },
-	{ nombre: "LA SACERDOTISA", mensaje: "Silencia el ruido exterior. Tu intuición ya conoce la respuesta a esa pregunta que te haces." },
-	{ nombre: "LA EMPERATRIZ", mensaje: "Abundancia y creatividad pura. Cuídate, mímate y deja que florezca todo lo que tocas." },
-	{ nombre: "EL EMPERADOR", mensaje: "Estructura y estabilidad. Toca poner orden, marcar límites claros y tomar el control de la situación." },
-	{ nombre: "EL SUMO SACERDOTE", mensaje: "Sabiduría tradicional. Buen día para buscar consejo en un mentor o centrarte en tus estudios y valores." },
-	{ nombre: "LOS ENAMORADOS", mensaje: "Alineación y decisiones desde el c orazón. Sigue lo que de verdad vibre con tu esencia." },
-	{ nombre: "EL CARRO", mensaje: "Avanza con determinación. Si mantienes el enfoque y la disciplina, la victoria es tuya." },
-	{ nombre: "LA FUERZA", mensaje: "Dominio interior. Domina tus emociones con compasión y paciencia, tienes más fuerza de la que crees." },
-	{ nombre: "EL ERMITAÑO", mensaje: "Toca aislarse un ratito. Busca las respuestas en tu interior, la soledad ahora mismo es tu mejor maestra." },
-	{ nombre: "LA RUEDA DE LA FORTUNA", mensaje: "Todo cambia. El ciclo gira a tu favor, prepárate para sincronías y giros inesperados." },
-	{ nombre: "LA JUSTICIA", mensaje: "Karma y equilibrio. Todo lo que has sembrado empieza a dar sus frutos de forma justa." },
-	{ nombre: "EL COLGADO", mensaje: "Pausa obligatoria. Cambia tu perspectiva, a veces soltar el control es la mejor forma de avanzar." },
-	{ nombre: "LA MUERTE", mensaje: "Transformación profunda. Deja morir lo viejo para que lo nuevo y brillante pueda entrar en tu vida." },
-	{ nombre: "LA TEMPLANZA", mensaje: "Fluye. Mezcla tus energías con sabiduría, busca el punto medio y mantén la calma interior." },
-	{ nombre: "EL DIABLO", mensaje: "Cuidado con los apegos limitantes o volver a patrones del pasado. Rompe esas cadenas que te atan." },
-	{ nombre: "LA TORRE", mensaje: "Un cambio brusco pero necesario. Ideal para derribar estructuras falsas y dejar espacio a la verdad." },
-	{ nombre: "LA ESTRELLA", mensaje: "Sanación y esperanza. Las nubes se despejan y el universo te está guiando hacia tu brillo natural." },
-	{ nombre: "LA LUNA", mensaje: "Tus capacidades psíquicas están a tope hoy. Pero cuidado con las ilusiones o miedos infundados." },
-	{ nombre: "EL SOL", mensaje: "Éxito radiante, alegría y vitalidad pura. Todo sale bien, absorbe toda esa buena energía." },
-	{ nombre: "EL JUICIO", mensaje: "Despertar. Estás llamada a un propósito mayor, perdona el pasado y levántate renovada." },
-	{ nombre: "EL MUNDO", mensaje: "Plenitud total y cierre de ciclo. Has completado el viaje, celébralo porque te lo mereces." },
-	{ nombre: "AS DE BASTOS", mensaje: "Un chispazo de inspiración. Aprovecha esta energía creadora para arrancar ese nuevo proyecto." },
-	{ nombre: "DOS DE BASTOS", mensaje: "Planificación a futuro. Tienes el mundo en tus manos, es hora de salir de tu zona de confort." },
-	{ nombre: "TRES DE BASTOS", mensaje: "Tus barcos están llegando. La paciencia está dando frutos, expande tus horizontes." },
-	{ nombre: "CUATRO DE BASTOS", mensaje: "Celebración y armonía. Disfruta de la estabilidad y de los buenos momentos con tu círculo cercano." },
-	{ nombre: "CINCO DE BASTOS", mensaje: "Pequeños conflictos o competencia. No te desgastes en tensiones innecesarias, fluye." },
-	{ nombre: "SEIS DE BASTOS", mensaje: "Reconocimiento y éxito. Hoy brillas y los demás reconocen tu esfuerzo y tu determinación." },
-	{ nombre: "SIETE DE BASTOS", mensaje: "Mantén tu posición. Defiende tus creencias y tu espacio vital, tienes la ventaja." },
-	{ nombre: "OCHO DE BASTOS", mensaje: "Noticias rápidas, movimiento veloz. Todo se acelera, prepárate para la acción inminente." },
-	{ nombre: "NUEVE DE BASTOS", mensaje: "Estás agotada pero ya casi llegas. Aguanta un poco más, protege tu energía." },
-	{ nombre: "DIEZ DE BASTOS", mensaje: "Demasiadas cargas. Delega o suelta responsabilidades que no te corresponden en este momento." },
-	{ nombre: "SOTA DE BASTOS", mensaje: "Noticias emocionantes o un impulso creativo repentino. Explora esa nueva idea libremente." },
-	{ nombre: "CABALLO DE BASTOS", mensaje: "Energía imparable, a veces impulsiva. Ve a por lo que quieres, pero cuidado con quemarte rápido." },
-	{ nombre: "REINA DE BASTOS", mensaje: "Carisma, confianza y poder personal. Cree en tu magnetismo, hoy eres un imán para el éxito." },
-	{ nombre: "REY DE BASTOS", mensaje: "Liderazgo y visión clara. Toma las riendas de tu vida con pasión y determinación." },
-	{ nombre: "AS DE COPAS", mensaje: "Nuevas emociones, amor propio o una conexión espiritual profunda. Tu copa rebosa de bienestar." },
-	{ nombre: "DOS DE COPAS", mensaje: "Conexión mútua, armonía en relaciones. Un vínculo importante se fortalece o nace uno nuevo." },
-	{ nombre: "TRES DE COPAS", mensaje: "Tiempo de amistad, apoyo y celebración. Rodéate de la gente que te suma energía positiva." },
-	{ nombre: "CUATRO DE COPAS", mensaje: "Apatía o ensimismamiento. Abre los ojos, el universo te ofrece algo místico que no estás viendo." },
-	{ nombre: "CINCO DE COPAS", mensaje: "No llores por lo perdido. Deja de mirar atrás, aún te quedan copas llenas por descubrir." },
-	{ nombre: "SEIS DE COPAS", mensaje: "Dulzura, recuerdos positivos o reencuentros. Un momento tierno, pero mantén el pie en el presente." },
-	{ nombre: "SIETE DE COPAS", mensaje: "Muchas opciones, quizá demasiadas ilusiones. Pon los pies en la tierra antes de elegir tu camino." },
-	{ nombre: "OCHO DE COPAS", mensaje: "Dejar atrás lo que ya no llena tu alma. Un viaje emocional necesario hacia algo superior." },
-	{ nombre: "NUEVE DE COPAS", mensaje: "El deseo concedido. Disfruta de la satisfacción personal, te has ganado este momento de plenitud." },
-	{ nombre: "DIEZ DE COPAS", mensaje: "Felicidad emocional plena y armonía familiar o de entorno. Paz espiritual absoluta." },
-	{ nombre: "SOTA DE COPAS", mensaje: "Un mensaje cariñoso, una chispa de intuición o sincronicidad. Mantén el corazón abierto a la sorpresa." },
-	{ nombre: "CABALLO DE COPAS", mensaje: "Romanticismo, propuestas creativas o seguir los sueños con el corazón en la mano." },
-	{ nombre: "REINA DE COPAS", mensaje: "Intuición profunda, empatía y sensibilidad. Confía ciegamente en lo que dicta tu mundo emocional." },
-	{ nombre: "REY DE COPAS", mensaje: "Equilibrio emocional. Eres capaz de navegar aguas turbulentas manteniendo tu centro y madurez." },
-	{ nombre: "AS DE ESPADAS", mensaje: "Claridad mental absoluta y la verdad saliendo a la luz. Corta las confusiones de raíz con lógica." },
-	{ nombre: "DOS DE ESPADAS", mensaje: "Bloqueo mental o indecisión. Quítate la venda, confía en tu equilibrio y toma una postura." },
-	{ nombre: "TRES DE ESPADAS", mensaje: "Sanación tras un dolor emocional. Acepta el proceso, este cierre es necesario para tu crecimiento." },
-	{ nombre: "CUATRO DE ESPADAS", mensaje: "Retiro y recuperación. Necesitas descansar la mente urgentemente, busca un espacio de calma." },
-	{ nombre: "CINCO DE ESPADAS", mensaje: "Conflictos que no valen la pena. A veces ganar una batalla mental no compensa el desgaste energético." },
-	{ nombre: "SEIS DE ESPADAS", mensaje: "Transición hacia aguas más calmadas. Dejas atrás la turbulencia, el alivio está en camino." },
-	{ nombre: "SIETE DE ESPADAS", mensaje: "Estrategia e inteligencia. Sé prudente, actúa con astucia y protege tus planes personales." },
-	{ nombre: "OCHO DE ESPADAS", mensaje: "Te sientes atrapada por tus propios miedos. Rompe las barreras mentales, la salida está frente a ti." },
-	{ nombre: "NUEVE DE ESPADAS", mensaje: "Ansiedad o preocupaciones nocturnas. Esos miedos están más en tu imaginación que en la realidad." },
-	{ nombre: "DIEZ DE ESPADAS", mensaje: "Tocar fondo. El final definitivo de un ciclo difícil. A partir de ahora, solo queda renacer." },
-	{ nombre: "SOTA DE ESPADAS", mensaje: "Curiosidad, agilidad mental y comunicación directa. Analiza con ojo crítico la información que recibes." },
-	{ nombre: "CABALLO DE ESPADAS", mensaje: "Acción impulsada por la verdad. Entras a resolver situaciones rápido, pero cuida tus palabras." },
-	{ nombre: "REINA DE ESPADAS", mensaje: "Mente afilada, independencia y honestidad total. Pon límites firmes y comunica tu verdad con elegancia." },
-	{ nombre: "REY DE ESPADAS", mensaje: "Autoridad mental y justicia objetiva. Analiza la situación desde la ética y la lógica pura." },
-	{ nombre: "AS DE OROS", mensaje: "Nuevas oportunidades tangibles o proyectos sólidos. Una semilla muy fértil para el éxito material." },
-	{ nombre: "DOS DE OROS", mensaje: "Malabarismos con tiempo y recursos. Busca el equilibrio entre tus tareas y tu paz mental." },
-	{ nombre: "TRES DE OROS", mensaje: "Trabajo en equipo y maestría. Reconocen tu valía en ese proyecto o estudio que estás perfeccionando." },
-	{ nombre: "CUATRO DE OROS", mensaje: "Control y estabilidad material. Cuidado con el miedo al cambio, permite que la energía circule." },
-	{ nombre: "CINCO DE OROS", mensaje: "Sensación temporal de carencia. Pide apoyo si lo necesitas, no tienes que pasar por esto en soledad." },
-	{ nombre: "SEIS DE OROS", mensaje: "Generosidad y equilibrio. Hoy el universo te devuelve la ayuda que has brindado a otros." },
-	{ nombre: "SIETE DE OROS", mensaje: "Paciencia. Has sembrado con esfuerzo, ahora deja que los frutos maduren a su tiempo natural." },
-	{ nombre: "OCHO DE OROS", mensaje: "Dedicación y aprendizaje. Perfeccionar tus habilidades dará grandes resultados a largo plazo." },
-	{ nombre: "NUEVE DE OROS", mensaje: "Independencia, seguridad y disfrute personal. Valora los logros que has conseguido con tu propio esfuerzo." },
-	{ nombre: "DIEZ DE OROS", mensaje: "Riqueza, estabilidad a largo plazo y plenitud material. Todo está seguro y bien asentado." },
-	{ nombre: "SOTA de OROS", mensaje: "Ganas de aprender, nuevos comienzos prácticos o un pequeño impulso de prosperidad." },
-	{ nombre: "CABALLO DE OROS", mensaje: "Esfuerzo constante y rutina productiva. Avance lento pero imparable hacia tus metas." },
-	{ nombre: "REINA DE OROS", mensaje: "Abundancia, practicidad y nutrición. Eres un refugio seguro de estabilidad para ti y tu entorno." },
-	{ nombre: "REY DE OROS", mensaje: "Éxito material consolidado y seguridad. Confía en tu capacidad para manifestar prosperidad real." }
+  {
+    nombre: 'EL LOCO',
+    mensaje:
+      'Un nuevo comienzo. Tírate a la piscina sin miedo, confía en el proceso espiritual y en tus instintos.',
+  },
+  {
+    nombre: 'EL MAGO',
+    mensaje:
+      'Hoy tienes el poder de crear tu propia realidad. Confía en tus herramientas y da el primer paso.',
+  },
+  {
+    nombre: 'LA SACERDOTISA',
+    mensaje:
+      'Silencia el ruido exterior. Tu intuición ya conoce la respuesta a esa pregunta que te haces.',
+  },
+  {
+    nombre: 'LA EMPERATRIZ',
+    mensaje:
+      'Abundancia y creatividad pura. Cuídate, mímate y deja que florezca todo lo que tocas.',
+  },
+  {
+    nombre: 'EL EMPERADOR',
+    mensaje:
+      'Estructura y estabilidad. Toca poner orden, marcar límites claros y tomar el control de la situación.',
+  },
+  {
+    nombre: 'EL SUMO SACERDOTE',
+    mensaje:
+      'Sabiduría tradicional. Buen día para buscar consejo en un mentor o centrarte en tus estudios y valores.',
+  },
+  {
+    nombre: 'LOS ENAMORADOS',
+    mensaje:
+      'Alineación y decisiones desde el c orazón. Sigue lo que de verdad vibre con tu esencia.',
+  },
+  {
+    nombre: 'EL CARRO',
+    mensaje:
+      'Avanza con determinación. Si mantienes el enfoque y la disciplina, la victoria es tuya.',
+  },
+  {
+    nombre: 'LA FUERZA',
+    mensaje:
+      'Dominio interior. Domina tus emociones con compasión y paciencia, tienes más fuerza de la que crees.',
+  },
+  {
+    nombre: 'EL ERMITAÑO',
+    mensaje:
+      'Toca aislarse un ratito. Busca las respuestas en tu interior, la soledad ahora mismo es tu mejor maestra.',
+  },
+  {
+    nombre: 'LA RUEDA DE LA FORTUNA',
+    mensaje:
+      'Todo cambia. El ciclo gira a tu favor, prepárate para sincronías y giros inesperados.',
+  },
+  {
+    nombre: 'LA JUSTICIA',
+    mensaje:
+      'Karma y equilibrio. Todo lo que has sembrado empieza a dar sus frutos de forma justa.',
+  },
+  {
+    nombre: 'EL COLGADO',
+    mensaje:
+      'Pausa obligatoria. Cambia tu perspectiva, a veces soltar el control es la mejor forma de avanzar.',
+  },
+  {
+    nombre: 'LA MUERTE',
+    mensaje:
+      'Transformación profunda. Deja morir lo viejo para que lo nuevo y brillante pueda entrar en tu vida.',
+  },
+  {
+    nombre: 'LA TEMPLANZA',
+    mensaje:
+      'Fluye. Mezcla tus energías con sabiduría, busca el punto medio y mantén la calma interior.',
+  },
+  {
+    nombre: 'EL DIABLO',
+    mensaje:
+      'Cuidado con los apegos limitantes o volver a patrones del pasado. Rompe esas cadenas que te atan.',
+  },
+  {
+    nombre: 'LA TORRE',
+    mensaje:
+      'Un cambio brusco pero necesario. Ideal para derribar estructuras falsas y dejar espacio a la verdad.',
+  },
+  {
+    nombre: 'LA ESTRELLA',
+    mensaje:
+      'Sanación y esperanza. Las nubes se despejan y el universo te está guiando hacia tu brillo natural.',
+  },
+  {
+    nombre: 'LA LUNA',
+    mensaje:
+      'Tus capacidades psíquicas están a tope hoy. Pero cuidado con las ilusiones o miedos infundados.',
+  },
+  {
+    nombre: 'EL SOL',
+    mensaje:
+      'Éxito radiante, alegría y vitalidad pura. Todo sale bien, absorbe toda esa buena energía.',
+  },
+  {
+    nombre: 'EL JUICIO',
+    mensaje:
+      'Despertar. Estás llamada a un propósito mayor, perdona el pasado y levántate renovada.',
+  },
+  {
+    nombre: 'EL MUNDO',
+    mensaje:
+      'Plenitud total y cierre de ciclo. Has completado el viaje, celébralo porque te lo mereces.',
+  },
+  {
+    nombre: 'AS DE BASTOS',
+    mensaje:
+      'Un chispazo de inspiración. Aprovecha esta energía creadora para arrancar ese nuevo proyecto.',
+  },
+  {
+    nombre: 'DOS DE BASTOS',
+    mensaje:
+      'Planificación a futuro. Tienes el mundo en tus manos, es hora de salir de tu zona de confort.',
+  },
+  {
+    nombre: 'TRES DE BASTOS',
+    mensaje:
+      'Tus barcos están llegando. La paciencia está dando frutos, expande tus horizontes.',
+  },
+  {
+    nombre: 'CUATRO DE BASTOS',
+    mensaje:
+      'Celebración y armonía. Disfruta de la estabilidad y de los buenos momentos con tu círculo cercano.',
+  },
+  {
+    nombre: 'CINCO DE BASTOS',
+    mensaje:
+      'Pequeños conflictos o competencia. No te desgastes en tensiones innecesarias, fluye.',
+  },
+  {
+    nombre: 'SEIS DE BASTOS',
+    mensaje:
+      'Reconocimiento y éxito. Hoy brillas y los demás reconocen tu esfuerzo y tu determinación.',
+  },
+  {
+    nombre: 'SIETE DE BASTOS',
+    mensaje:
+      'Mantén tu posición. Defiende tus creencias y tu espacio vital, tienes la ventaja.',
+  },
+  {
+    nombre: 'OCHO DE BASTOS',
+    mensaje:
+      'Noticias rápidas, movimiento veloz. Todo se acelera, prepárate para la acción inminente.',
+  },
+  {
+    nombre: 'NUEVE DE BASTOS',
+    mensaje:
+      'Estás agotada pero ya casi llegas. Aguanta un poco más, protege tu energía.',
+  },
+  {
+    nombre: 'DIEZ DE BASTOS',
+    mensaje:
+      'Demasiadas cargas. Delega o suelta responsabilidades que no te corresponden en este momento.',
+  },
+  {
+    nombre: 'SOTA DE BASTOS',
+    mensaje:
+      'Noticias emocionantes o un impulso creativo repentino. Explora esa nueva idea libremente.',
+  },
+  {
+    nombre: 'CABALLO DE BASTOS',
+    mensaje:
+      'Energía imparable, a veces impulsiva. Ve a por lo que quieres, pero cuidado con quemarte rápido.',
+  },
+  {
+    nombre: 'REINA DE BASTOS',
+    mensaje:
+      'Carisma, confianza y poder personal. Cree en tu magnetismo, hoy eres un imán para el éxito.',
+  },
+  {
+    nombre: 'REY DE BASTOS',
+    mensaje:
+      'Liderazgo y visión clara. Toma las riendas de tu vida con pasión y determinación.',
+  },
+  {
+    nombre: 'AS DE COPAS',
+    mensaje:
+      'Nuevas emociones, amor propio o una conexión espiritual profunda. Tu copa rebosa de bienestar.',
+  },
+  {
+    nombre: 'DOS DE COPAS',
+    mensaje:
+      'Conexión mútua, armonía en relaciones. Un vínculo importante se fortalece o nace uno nuevo.',
+  },
+  {
+    nombre: 'TRES DE COPAS',
+    mensaje:
+      'Tiempo de amistad, apoyo y celebración. Rodéate de la gente que te suma energía positiva.',
+  },
+  {
+    nombre: 'CUATRO DE COPAS',
+    mensaje:
+      'Apatía o ensimismamiento. Abre los ojos, el universo te ofrece algo místico que no estás viendo.',
+  },
+  {
+    nombre: 'CINCO DE COPAS',
+    mensaje:
+      'No llores por lo perdido. Deja de mirar atrás, aún te quedan copas llenas por descubrir.',
+  },
+  {
+    nombre: 'SEIS DE COPAS',
+    mensaje:
+      'Dulzura, recuerdos positivos o reencuentros. Un momento tierno, pero mantén el pie en el presente.',
+  },
+  {
+    nombre: 'SIETE DE COPAS',
+    mensaje:
+      'Muchas opciones, quizá demasiadas ilusiones. Pon los pies en la tierra antes de elegir tu camino.',
+  },
+  {
+    nombre: 'OCHO DE COPAS',
+    mensaje:
+      'Dejar atrás lo que ya no llena tu alma. Un viaje emocional necesario hacia algo superior.',
+  },
+  {
+    nombre: 'NUEVE DE COPAS',
+    mensaje:
+      'El deseo concedido. Disfruta de la satisfacción personal, te has ganado este momento de plenitud.',
+  },
+  {
+    nombre: 'DIEZ DE COPAS',
+    mensaje:
+      'Felicidad emocional plena y armonía familiar o de entorno. Paz espiritual absoluta.',
+  },
+  {
+    nombre: 'SOTA DE COPAS',
+    mensaje:
+      'Un mensaje cariñoso, una chispa de intuición o sincronicidad. Mantén el corazón abierto a la sorpresa.',
+  },
+  {
+    nombre: 'CABALLO DE COPAS',
+    mensaje:
+      'Romanticismo, propuestas creativas o seguir los sueños con el corazón en la mano.',
+  },
+  {
+    nombre: 'REINA DE COPAS',
+    mensaje:
+      'Intuición profunda, empatía y sensibilidad. Confía ciegamente en lo que dicta tu mundo emocional.',
+  },
+  {
+    nombre: 'REY DE COPAS',
+    mensaje:
+      'Equilibrio emocional. Eres capaz de navegar aguas turbulentas manteniendo tu centro y madurez.',
+  },
+  {
+    nombre: 'AS DE ESPADAS',
+    mensaje:
+      'Claridad mental absoluta y la verdad saliendo a la luz. Corta las confusiones de raíz con lógica.',
+  },
+  {
+    nombre: 'DOS DE ESPADAS',
+    mensaje:
+      'Bloqueo mental o indecisión. Quítate la venda, confía en tu equilibrio y toma una postura.',
+  },
+  {
+    nombre: 'TRES DE ESPADAS',
+    mensaje:
+      'Sanación tras un dolor emocional. Acepta el proceso, este cierre es necesario para tu crecimiento.',
+  },
+  {
+    nombre: 'CUATRO DE ESPADAS',
+    mensaje:
+      'Retiro y recuperación. Necesitas descansar la mente urgentemente, busca un espacio de calma.',
+  },
+  {
+    nombre: 'CINCO DE ESPADAS',
+    mensaje:
+      'Conflictos que no valen la pena. A veces ganar una batalla mental no compensa el desgaste energético.',
+  },
+  {
+    nombre: 'SEIS DE ESPADAS',
+    mensaje:
+      'Transición hacia aguas más calmadas. Dejas atrás la turbulencia, el alivio está en camino.',
+  },
+  {
+    nombre: 'SIETE DE ESPADAS',
+    mensaje:
+      'Estrategia e inteligencia. Sé prudente, actúa con astucia y protege tus planes personales.',
+  },
+  {
+    nombre: 'OCHO DE ESPADAS',
+    mensaje:
+      'Te sientes atrapada por tus propios miedos. Rompe las barreras mentales, la salida está frente a ti.',
+  },
+  {
+    nombre: 'NUEVE DE ESPADAS',
+    mensaje:
+      'Ansiedad o preocupaciones nocturnas. Esos miedos están más en tu imaginación que en la realidad.',
+  },
+  {
+    nombre: 'DIEZ DE ESPADAS',
+    mensaje:
+      'Tocar fondo. El final definitivo de un ciclo difícil. A partir de ahora, solo queda renacer.',
+  },
+  {
+    nombre: 'SOTA DE ESPADAS',
+    mensaje:
+      'Curiosidad, agilidad mental y comunicación directa. Analiza con ojo crítico la información que recibes.',
+  },
+  {
+    nombre: 'CABALLO DE ESPADAS',
+    mensaje:
+      'Acción impulsada por la verdad. Entras a resolver situaciones rápido, pero cuida tus palabras.',
+  },
+  {
+    nombre: 'REINA DE ESPADAS',
+    mensaje:
+      'Mente afilada, independencia y honestidad total. Pon límites firmes y comunica tu verdad con elegancia.',
+  },
+  {
+    nombre: 'REY DE ESPADAS',
+    mensaje:
+      'Autoridad mental y justicia objetiva. Analiza la situación desde la ética y la lógica pura.',
+  },
+  {
+    nombre: 'AS DE OROS',
+    mensaje:
+      'Nuevas oportunidades tangibles o proyectos sólidos. Una semilla muy fértil para el éxito material.',
+  },
+  {
+    nombre: 'DOS DE OROS',
+    mensaje:
+      'Malabarismos con tiempo y recursos. Busca el equilibrio entre tus tareas y tu paz mental.',
+  },
+  {
+    nombre: 'TRES DE OROS',
+    mensaje:
+      'Trabajo en equipo y maestría. Reconocen tu valía en ese proyecto o estudio que estás perfeccionando.',
+  },
+  {
+    nombre: 'CUATRO DE OROS',
+    mensaje:
+      'Control y estabilidad material. Cuidado con el miedo al cambio, permite que la energía circule.',
+  },
+  {
+    nombre: 'CINCO DE OROS',
+    mensaje:
+      'Sensación temporal de carencia. Pide apoyo si lo necesitas, no tienes que pasar por esto en soledad.',
+  },
+  {
+    nombre: 'SEIS DE OROS',
+    mensaje:
+      'Generosidad y equilibrio. Hoy el universo te devuelve la ayuda que has brindado a otros.',
+  },
+  {
+    nombre: 'SIETE DE OROS',
+    mensaje:
+      'Paciencia. Has sembrado con esfuerzo, ahora deja que los frutos maduren a su tiempo natural.',
+  },
+  {
+    nombre: 'OCHO DE OROS',
+    mensaje:
+      'Dedicación y aprendizaje. Perfeccionar tus habilidades dará grandes resultados a largo plazo.',
+  },
+  {
+    nombre: 'NUEVE DE OROS',
+    mensaje:
+      'Independencia, seguridad y disfrute personal. Valora los logros que has conseguido con tu propio esfuerzo.',
+  },
+  {
+    nombre: 'DIEZ DE OROS',
+    mensaje:
+      'Riqueza, estabilidad a largo plazo y plenitud material. Todo está seguro y bien asentado.',
+  },
+  {
+    nombre: 'SOTA de OROS',
+    mensaje:
+      'Ganas de aprender, nuevos comienzos prácticos o un pequeño impulso de prosperidad.',
+  },
+  {
+    nombre: 'CABALLO DE OROS',
+    mensaje:
+      'Esfuerzo constante y rutina productiva. Avance lento pero imparable hacia tus metas.',
+  },
+  {
+    nombre: 'REINA DE OROS',
+    mensaje:
+      'Abundancia, practicidad y nutrición. Eres un refugio seguro de estabilidad para ti y tu entorno.',
+  },
+  {
+    nombre: 'REY DE OROS',
+    mensaje:
+      'Éxito material consolidado y seguridad. Confía en tu capacidad para manifestar prosperidad real.',
+  },
 ];
 
 export const obtenerRutaImagen = (nombre: string) => {
-    const slug = nombre
-        .toLowerCase()
-        .normalize("NFD")
-        .replace(/[\u0300-\u036f]/g, "")
-        .replace(/\s+/g, '-');
-        
-    return `/img/cartas/${slug}.png`;
+  const slug = nombre
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/\s+/g, '-');
+
+  return `/img/cartas/${slug}.png`;
 };

@@ -64,7 +64,7 @@ Si quieres desplegar este portal místico en tu entorno de desarrollo:
 
 1.  **Clona el repositorio:**
     ```bash
-    git clone https://github.com/sugusgamberra/clouds-arcana.git
+    git clone https://github.com/sugusgamberra/clouds-and-arcana.git
     ```
 
 2.  **Instala las dependencias:**
