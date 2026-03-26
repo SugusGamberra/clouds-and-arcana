@@ -41,4 +41,6 @@ Si quieres dejar de perder estos mensajes tan valiosos, aquí tienes un par de t
 
 Recuerda que nada en el universo se pierde. El mensaje de ese sueño olvidado ya está integrado en tu energía, guiándote aunque tu mente consciente aún no tenga acceso al archivo completo.
 
-También puedes saber [qué significa soñar con que se te caen los dientes](/blog/que-significa-soñar-con-dientes)!
+---
+
+También puedes saber [qué significa soñar con que se te caen los dientes](/blog/que-significa-soñar-con-dientes) o [qué significa tener un sueño +18](/blog/que-significa-soñar-algo-subido-de-tono) 🫢

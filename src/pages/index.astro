@@ -2,13 +2,14 @@
 import Layout from '../layouts/Layout.astro';
 import { Image } from 'astro:assets';
 import nubeImg from '../assets/nube.png';
+import Testimonios from '../components/Testimonios.astro';
 ---
 
 <Layout title="Inicio">
     <div class="max-w-[1400px] mx-auto space-y-12 mt-6 relative z-10 px-4 md:px-8">
         
         <div class="absolute top-[170px] -right-10 z-20 pointer-events-none hidden md:block">
-            <Image src={nubeImg} alt="Nube decorativa" class="w-100 h-auto opacity-100 scale-x-[-1]" />
+            <Image src={nubeImg} alt="Nube decorativa" class="w-100 h-auto scale-x-[-1]" />
         </div>
 
         <section class="tarjeta-cristal py-12 md:py-16 text-center">
@@ -25,8 +26,8 @@ import nubeImg from '../assets/nube.png';
             </button>
         </section>
 
-        <div class="absolute top-[47%] -left-50 z-10 pointer-events-none hidden md:block">
-            <Image src={nubeImg} alt="Nube decorativa" class="w-100 h-auto opacity-100" />
+        <div class="absolute top-[34%] -left-35 z-10 pointer-events-none hidden md:block">
+            <Image src={nubeImg} alt="Nube decorativa" class="w-100 h-auto0" />
         </div>
 
         <section class="relative flex flex-col md:flex-row items-center justify-center md:justify-between w-full mt-16 md:mt-20 mb-16 md:mb-20">
@@ -98,17 +99,30 @@ import nubeImg from '../assets/nube.png';
                 <p class="text-2xl md:text-3xl font-serif font-bold text-texto mt-auto">Desde 20,00€</p>
             </a>
             
-            <a href="/reservar/rituales" class="card-cristal p-10 md:p-12 text-center group flex flex-col h-full">
-                <div class="flex-grow">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-10 h-10 md:w-12 md:h-12 mx-auto mb-4 md:mb-6 text-[#cfb4b8] opacity-80 group-hover:scale-110 transition-transform duration-500"><path d="m2 4 3 12h14l3-12-6 7-4-7-4 7-6-7zm3 16h14"></path></svg>
-                    <h3 class="font-bold text-texto text-[11px] md:text-[13px] tracking-[0.3em] mb-2 uppercase">RITUALES Y HECHIZOS</h3>
-                    <p class="text-[11px] md:text-[13px] font-semibold text-texto/60 mb-6 md:mb-8">
-                        Rituales para abrir tus caminos, aportar felicidad, amor y abundancia.
-                    </p>
+            <div id="servicio-destacado-card" class="card-cristal relative overflow-hidden p-10 md:p-12 text-center group flex flex-col h-full border-2 border-[#cfb4b8]/50 cursor-pointer w-full">
+                <div id="destacado-content" class="flex flex-col h-full w-full transition-all duration-300">
+                    <div class="flex-grow w-full">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-10 h-10 md:w-12 md:h-12 mx-auto mb-4 md:mb-6 text-[#cfb4b8] opacity-80 group-hover:scale-110 transition-transform duration-500">
+                            <path d="m2 4 3 12h14l3-12-6 7-4-7-4 7-6-7zm3 16h14"></path>
+                        </svg>
+                        <h3 class="font-bold text-texto text-[11px] md:text-[13px] tracking-[0.3em] mb-2 uppercase">Servicio destacado del día</h3>
+                        <p id="destacado-desc" class="text-[11px] md:text-[13px] font-semibold text-texto/60 mb-6 md:mb-8"></p>
+                    </div>
+                    <p id="destacado-precio" class="text-2xl md:text-3xl font-serif font-bold text-texto mt-auto w-full">--€</p>
                 </div>
-                <p class="text-2xl md:text-3xl font-serif font-bold text-texto mt-auto">Desde 50,00€</p>
-            </a>
+                
+                <div id="destacado-overlay" class="absolute inset-0 flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300 z-10">
+                    <span class="text-xl font-serif font-bold text-[#cfb4b8] bg-white/90 px-6 py-2 rounded-full shadow-sm">☁️ Añadido ☁️</span>
+                </div>
+            </div>
+            <button id="servicio-destacado-hidden-btn" class="add-to-cart-btn hidden" data-id="" data-nombre="" data-precio=""></button>
         </section>
+
+        <Testimonios soloDestacadas={true} />
+        <div class="absolute bottom-[10px] -right-0 z-20 pointer-events-none hidden md:block">
+            <Image src={nubeImg} alt="Nube decorativa" class="w-100 h-auto scale-x-[-1]" />
+        </div>
+
     </div>
 </Layout>
 
@@ -121,6 +135,8 @@ import nubeImg from '../assets/nube.png';
 
 <script>
     import { deck, obtenerRutaImagen } from '../data/tarot';
+    import { servicios } from '../data/servicios';
+
     const cards = document.querySelectorAll('.tarot-card') as NodeListOf<HTMLElement>;
     const msgEl = document.getElementById('tarot-msg') as HTMLElement;
     
@@ -128,6 +144,43 @@ import nubeImg from '../assets/nube.png';
     const savedCardName = localStorage.getItem('clouds_tarot_name');
     const savedCardMsg = localStorage.getItem('clouds_tarot_msg');
     const now = new Date().getTime();
+
+    const destacados = servicios.filter(s => s.destacado);
+    const hoyDate = new Date().toDateString();
+    const seed = hoyDate.split('').reduce((a, c) => a + c.charCodeAt(0), 0);
+    const servicioDelDia = destacados[seed % destacados.length];
+
+    const descEl = document.getElementById('destacado-desc');
+    const precioEl = document.getElementById('destacado-precio');
+    const cardDestacado = document.getElementById('servicio-destacado-card');
+    const hiddenBtn = document.getElementById('servicio-destacado-hidden-btn');
+    const contentDestacado = document.getElementById('destacado-content');
+    const overlayDestacado = document.getElementById('destacado-overlay');
+
+    if (servicioDelDia && descEl && precioEl && hiddenBtn && cardDestacado) {
+        descEl.textContent = servicioDelDia.descripcion;
+        precioEl.textContent = `${servicioDelDia.precio},00€`;
+        
+        hiddenBtn.setAttribute('data-id', servicioDelDia.id);
+        hiddenBtn.setAttribute('data-nombre', servicioDelDia.nombre);
+        hiddenBtn.setAttribute('data-precio', servicioDelDia.precio.toString());
+
+        cardDestacado.addEventListener('click', () => {
+            hiddenBtn.click();
+            
+            if (contentDestacado && overlayDestacado) {
+                contentDestacado.style.filter = 'blur(4px)';
+                contentDestacado.style.opacity = '0.5';
+                overlayDestacado.style.opacity = '1';
+                
+                setTimeout(() => {
+                    contentDestacado.style.filter = 'none';
+                    contentDestacado.style.opacity = '1';
+                    overlayDestacado.style.opacity = '0';
+                }, 2000);
+            }
+        });
+    }
     
     if (msgEl) msgEl.style.opacity = '1';
 

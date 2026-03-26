@@ -1,0 +1,77 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Testimonios from '../components/Testimonios.astro';
+---
+
+<Layout title="Reseñas">
+    <div class="max-w-[1000px] mx-auto mt-6 relative z-10 px-4 md:px-8">
+
+        <Testimonios />
+
+        <section class="tarjeta-cristal py-10 px-6 md:px-16 text-center">
+            <h2 class="titulo-seccion">¿Ya has tenido una sesión?</h2>
+            <p class="text-sm opacity-60 mb-8 tracking-wide">Nos encantaría leer tu experiencia 🦭</p>
+
+            <div id="form-resena" class="flex flex-col gap-4 max-w-lg mx-auto text-left">
+                <input 
+                    id="resena-nombre"
+                    type="text" 
+                    placeholder="Tu nombre o apodo" 
+                    class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-sm placeholder:opacity-50 focus:outline-none focus:border-[#cfb4b8]"
+                />
+                <input 
+                    id="resena-servicio"
+                    type="text" 
+                    placeholder="Servicio contratado (ej: Tirada Express)" 
+                    class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-sm placeholder:opacity-50 focus:outline-none focus:border-[#cfb4b8]"
+                />
+                <textarea 
+                    id="resena-texto"
+                    placeholder="Cuéntame tu experiencia..." 
+                    rows="4"
+                    class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-sm placeholder:opacity-50 focus:outline-none focus:border-[#cfb4b8] resize-none"
+                ></textarea>
+                <button 
+                    id="btn-resena"
+                    class="bg-[#cfb4b8] text-white font-bold tracking-widest text-sm px-8 py-4 rounded-full transition-all hover:-translate-y-1 shadow-[0_6px_0_#a88e92] active:shadow-none active:translate-y-[6px] cursor-pointer"
+                >
+                    ENVIAR MI RESEÑA ✉️
+                </button>
+                <p id="resena-ok" class="text-center text-sm opacity-0 transition-opacity duration-500">
+                    ☁️ ¡Gracias! Tu reseña ha sido enviada.
+                </p>
+            </div>
+        </section>
+
+    </div>
+</Layout>
+
+<script>
+    const btn = document.getElementById('btn-resena');
+    const ok = document.getElementById('resena-ok');
+
+    btn?.addEventListener('click', async () => {
+        const nombre = (document.getElementById('resena-nombre') as HTMLInputElement).value.trim();
+        const servicio = (document.getElementById('resena-servicio') as HTMLInputElement).value.trim();
+        const texto = (document.getElementById('resena-texto') as HTMLTextAreaElement).value.trim();
+
+        if (!nombre || !servicio || !texto) {
+            alert('Por favor rellena todos los campos ☁️');
+            return;
+        }
+
+        await fetch('/api/enviar-resena', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ nombre, servicio, texto }),
+        });
+
+        if (ok) {
+            ok.style.opacity = '1';
+        }
+
+        (document.getElementById('resena-nombre') as HTMLInputElement).value = '';
+        (document.getElementById('resena-servicio') as HTMLInputElement).value = '';
+        (document.getElementById('resena-texto') as HTMLTextAreaElement).value = '';
+    });
+</script>

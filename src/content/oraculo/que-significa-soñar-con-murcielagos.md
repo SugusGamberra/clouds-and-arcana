@@ -34,4 +34,6 @@ Para restaurar tu paz y limpiar la energía de tu hogar:
 
 Recuerda que ningún sueño viene para asustarte, sino para darte una clave que aún no has sabido descifrar. Escucha a tus sombras, pero no dejes que se queden a dormir si no te traen paz.
 
+---
+
 Puedes saber también [qué significa soñar con agua](/blog/que-significa-soñar-con-agua) para entender cómo fluyen tus emociones actuales o saber [qué significa soñar con tu ex toditos los días](/blog/que-significa-soñar-con-mi-ex).

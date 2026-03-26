@@ -1,0 +1,33 @@
+---
+import { testimonios } from '../data/testimonios';
+
+interface Props {
+    soloDestacadas?: boolean;
+}
+
+const { soloDestacadas = false } = Astro.props;
+
+const lista = soloDestacadas 
+    ? testimonios.filter(t => t.destacada) 
+    : testimonios;
+---
+
+<section class="w-full max-w-5xl mx-auto px-4 pb-12">
+    <h1 class="cabecera-titulo">Reseñas</h1>
+    <p class="cabecera-subtitulo">Lo que dicen quienes ya han cruzado el portal</p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {lista.map((t) => (
+        <div class="backdrop-blur-md bg-white/10 border border-white/20 rounded-2xl p-6 flex flex-col gap-3">
+            <p class="text-yellow-200 text-lg tracking-widest">
+            {'★'.repeat(t.estrellas)}
+            </p>
+            <p class="text-sm leading-relaxed opacity-90 italic">"{t.texto}"</p>
+            <div class="mt-auto pt-3 border-t border-white/10">
+            <p class="font-semibold text-sm">{t.nombre}</p>
+            <p class="text-xs opacity-50">{t.servicio}</p>
+            </div>
+        </div>
+        ))}
+    </div>
+</section>

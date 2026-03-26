@@ -55,4 +55,6 @@ Si te levantas con el cuerpo tenso o la mandíbula apretada después de uno de e
 
 Recuerda: tus sueños no vienen a castigarte, vienen a traerte la información que necesitas para seguir evolucionando. ¡Mastica la experiencia y quédate con el aprendizaje!
 
-También puedes saber [qué significa que nuestros sueños se materialicen](/blog/sincronicidad-de-sueños-y-vida-real) ☁️
+---
+
+También puedes saber [qué significa que nuestros sueños se materialicen](/blog/sincronicidad-de-sueños-y-vida-real) ☁️ o [por qué a veces olvidamos sueños importantes](/blog/por-que-olvidamos-sueños-importantes) 🫂
