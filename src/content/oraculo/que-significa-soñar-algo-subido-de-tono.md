@@ -42,4 +42,4 @@ No te asustes de tu propia energía vital. En los sueños, la intimidad es solo 
 
 ---
 
-También puedes saber [qué significa olvidarse de un sueño importante](/blog/por-que-olvidamos-sueños-importantes) 🫂
+También puedes saber [qué significa olvidarse de un sueño importante](/blog/por-que-olvidamos-sueños-importantes) 🫂 o [qué significa soñar con algo que es el miedo de otra persona, no tuyo](significado-sueños-miedos-ajenos).
