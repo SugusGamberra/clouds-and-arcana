@@ -1,0 +1,67 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import BotonGratis from '../../components/BotonGratis.astro';
+import { promosEspeciales } from '../../data/promociones';
+
+const hoy = new Date();
+const mesActual = hoy.getMonth();
+
+const ritualesActivos = promosEspeciales.filter(r => r.mes === mesActual);
+---
+
+<Layout title="Rituales Especiales del Mes">
+    <main class="max-w-4xl mx-auto py-12 px-4 text-center">
+        <header class="mb-14">
+            <div class="tag-mistica mx-auto !bg-rosa !text-white !opacity-100 inline-block mb-6 px-6 py-2 text-xs">
+                EDICIÓN LIMITADA ☁️
+            </div>
+            <h1 class="cabecera-titulo">Rituales Especiales</h1>
+            <p class="cabecera-subtitulo">Las puertas del astral se abren solo por un tiempo. Descubre la magia de este mes.</p>
+        </header>
+
+        {ritualesActivos.length > 0 ? (
+            <div class="flex flex-col gap-10">
+                {ritualesActivos.map((ritualActivo) => (
+                    <div class="tarjeta-cristal p-10 border-2 border-rosa/30 relative">
+                        
+                        <h2 class="text-3xl font-serif text-texto mb-4">{ritualActivo.nombre}</h2>
+                        <p class="text-lg text-texto/80 mb-8 max-w-xl mx-auto leading-relaxed">
+                            {ritualActivo.descripcion}
+                        </p>
+
+                        <div class="bg-white/50 p-6 rounded-2xl inline-block shadow-inner mb-2 w-full max-w-md">
+                            {ritualActivo.stock > 0 ? (
+                                ritualActivo.precio > 0 ? (
+                                    <div class="flex flex-col items-center gap-4">
+                                        <p class="text-xs font-bold text-rosa uppercase tracking-widest">
+                                            ¡Solo quedan <span class="text-xl">{ritualActivo.stock}</span> plazas disponibles!
+                                        </p>
+                                        <button 
+                                            class="add-to-cart-btn px-10 py-4 bg-[#cfb4b8] text-white rounded-full font-bold shadow-[0_4px_0_#a88e92] hover:translate-y-1 hover:shadow-none transition-all active:scale-95 cursor-pointer uppercase tracking-widest text-[11px]"
+                                            data-id={ritualActivo.id}
+                                            data-nombre={ritualActivo.nombre}
+                                            data-precio={ritualActivo.precio}
+                                        >
+                                            RESERVAR MI PLAZA ({ritualActivo.precio}€)
+                                        </button>
+                                    </div>
+                                ) : (
+                                    <BotonGratis stock={ritualActivo.stock} />
+                                )
+                            ) : (
+                                <div class="py-6 px-8 border-2 border-dashed border-texto/20 rounded-full opacity-50 bg-white/40">
+                                    <span class="font-bold uppercase tracking-widest text-sm text-texto/70">Portal Cerrado - Plazas Agotadas 🍃</span>
+                                </div>
+                            )}
+                        </div>
+                    </div>
+                ))}
+            </div>
+        ) : (
+            <div class="tarjeta-cristal !p-12 max-w-2xl mx-auto mt-10">
+                <p class="text-texto/60 text-lg italic">El oráculo descansa. No hay rituales especiales disponibles para este mes. 🍃</p>
+            </div>
+        )}
+        
+    </main>
+</Layout>
