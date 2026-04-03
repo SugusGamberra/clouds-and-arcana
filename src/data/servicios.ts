@@ -159,15 +159,6 @@ export const servicios: Servicio[] = [
     categoria: 'Rituales y Hechizos de Altar',
   },
   {
-    id: 'ritual-luna-rosa',
-    nombre: 'Ritual Luna Rosa 2026',
-    formato: 'Trabajo de altar a distancia: Foto',
-    precio: 66,
-    descripcion:
-      'La Luna del Amor. Energía en Libra para reconciliaciones y nuevas oportunidades sentimentales.',
-    categoria: 'Rituales y Hechizos de Altar',
-  },
-  {
     id: 'abrecaminos-oro',
     nombre: 'Abrecaminos de Oro y Miel',
     formato:
