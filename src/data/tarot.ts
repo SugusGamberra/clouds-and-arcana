@@ -32,7 +32,7 @@ export const deck = [
   {
     nombre: 'LOS ENAMORADOS',
     mensaje:
-      'Alineación y decisiones desde el c orazón. Sigue lo que de verdad vibre con tu esencia.',
+      'Alineación y decisiones desde el corazón. Sigue lo que de verdad vibre con tu esencia.',
   },
   {
     nombre: 'EL CARRO',
