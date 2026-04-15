@@ -1,10 +1,17 @@
 export const testimonios = [
     {
+        nombre: "marina.schzzz",
+        servicio: "La Rueda del Año",
+        texto: "me has descrito exactamente lo que me pasa ahora mismo, me describiste exactamente a lo que me siento muy identificada",
+        estrellas: 5,
+        destacada: true
+    },
+    {
         nombre: "Laura",
         servicio: "Tirada Express",
         texto: "Me quedé loca con la precisión de la lectura. Describió exactamente lo que estaba viviendo, totalmente recomendada!",
         estrellas: 5,
-        destacada: true,
+        destacada: false,
     },
     {
         nombre: "criistian",
