@@ -48,4 +48,4 @@ Si sientes que estás absorbiendo demasiada información del astral de otras per
 
 ---
 
-También puedes saber [qué significa tener sueños subiditos](que-significa-soñar-algo-subido-de-tono) 🫦
+También puedes saber [qué significa tener sueños subiditos](que-significa-soñar-algo-subido-de-tono) 🫦 o qué significan los [tipos de lugares en tus sueños](/blog/significado-lugares-sueños) 🧑🏻‍🚀
